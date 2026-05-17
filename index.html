@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIS — Desarrollo de Software Premium</title>
+    <meta name="description"
+        content="Agencia de desarrollo de software premium. Creamos sitios web empresariales, sistemas internos y automatizaciones a medida para potenciar tu negocio.">
+    <link rel="stylesheet" href="style/global/styles.css">
+    <link rel="stylesheet" href="style/global/themeSystem.css">
+    <link rel="stylesheet" href="style/navbar.css">
+    <link rel="stylesheet" href="style/home.css?v=18">
+    <link rel="stylesheet" href="style/services.css">
+    <link rel="stylesheet" href="style/assistant.css">
+    <link rel="stylesheet" href="style/clients.css">
+
+    <style>
+        html,
+        body {
+            overflow-x: hidden !important;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        body {
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            /* Navbar is now using hamburger menu, so we can show all links */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Floating Header -->
+    <header class="navbar-header">
+        <nav class="navbar">
+            <a href="#inicio" class="logo">
+                <img src="images/logo-icon.svg" alt="WIS Logo" class="logo-img">
+                <div class="logo-wrapper">
+                    <span class="logo-text">WIS</span>
+                    <span class="logo-subtitle">SOFTWARE DEVELOPMENT</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li>
+                    <a href="#inicio">
+                        <span>Inicio</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#sobre-nosotros">
+                        <span>Sobre Nosotros</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#servicios">
+                        <span>Servicios</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="navbar-actions">
+                <a href="#contacto" class="btn-navbar-cta">Contacto</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-grid-bg"></div>
+        <div class="container hero-content">
+            
+            <!-- Premium Conversion Badge -->
+            <div class="hero-badge reveal fade-up" data-aos="fade-down" data-delay="0">
+                <span class="hero-badge-dot"></span>
+                DESARROLLO DE SOFTWARE PREMIUM
+            </div>
+
+            <h1 class="hero-title reveal" data-aos="fade-up" data-delay="100">
+                Soluciones digitales para <br>
+                <span class="text-gradient">empresas líderes</span>
+            </h1>
+
+            <p class="hero-subtitle fade-up" data-aos="fade-up" data-delay="200">
+                Potenciamos tu crecimiento con plataformas web, automatización de procesos e inteligencia artificial.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto" target="_blank" rel="noopener" class="btn btn-primary" data-aos="zoom-in" data-delay="300">
+                    Comenzar proyecto
+                </a>
+                <a href="#servicios" class="btn btn-secondary" data-aos="zoom-in" data-delay="400">
+                    Ver servicios
+                </a>
+            </div>
+
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros Section -->
+    <section id="sobre-nosotros" class="about">
+        <div class="container about-container">
+            <!-- Left Side: Text Content -->
+            <div class="about-content-left">
+                <div class="hero-badge about-badge" data-aos="fade-right" data-delay="0">
+                    <span class="hero-badge-dot"></span>
+                    CONOCENOS
+                </div>
+                <h2 class="section-title text-left about-title-custom" data-aos="fade-right" data-delay="100"
+                    style="font-size: 2.6rem;">
+                    POTENCIAMOS NEGOCIOS CON <span class="about-title-highlight">TECNOLOGÍA.</span>
+                </h2>
+
+                <p class="about-desc" data-aos="fade-right" data-delay="300">
+                    En <strong>WIS</strong> desarrollamos webs, automatizaciones y sistemas a medida para
+                    empresas y emprendimientos. Con más de 3 años experiencia, combinamos conocimiento técnico y
+                    enfoque estratégico para crear productos alineados a los objetivos de cada cliente.
+                </p>
+
+                <ul class="about-list-modern" data-aos="fade-right" data-delay="400">
+                    <li>
+                        <span class="about-icon-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </span>
+                        <span><strong>Entrega en 3 a 6 semanas</strong> — cumplimos los tiempos acordados</span>
+                    </li>
+                    <li>
+                        <span class="about-icon-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </span>
+                        <span><strong>Código propio, sin dependencia de terceros</strong> — vos sos dueño de lo que
+                            construimos</span>
+                    </li>
+                    <li>
+                        <span class="about-icon-check">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </span>
+                        <span><strong>Soporte activo post-lanzamiento</strong> — seguimos acompañandote despues de la
+                            entrega</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side: Stats & Graphics -->
+            <div class="about-content-right">
+                <div class="about-stats-grid">
+                    <div class="about-stat-card stat-proyectos" data-aos="zoom-in" data-delay="100">
+                        <div class="stat-card-inner">
+                            <div class="stat-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="about-stat-number">28+</span>
+                                <span class="about-stat-label">Proyectos exitosos</span>
+                            </div>
+                            <div class="stat-card-glow"></div>
+                        </div>
+                    </div>
+
+                    <div class="about-stat-card stat-tiempo" data-aos="zoom-in" data-delay="200">
+                        <div class="stat-card-inner">
+                            <div class="stat-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="about-stat-number">3 a 6 sem.</span>
+                                <span class="about-stat-label">Tiempo de entrega</span>
+                            </div>
+                            <div class="stat-card-glow"></div>
+                        </div>
+                    </div>
+
+                    <div class="about-stat-card stat-consulta" data-aos="zoom-in" data-delay="300">
+                        <div class="stat-card-inner">
+                            <div class="stat-icon-wrapper">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="about-stat-number">24hs</span>
+                                <span class="about-stat-label">Respondemos tu consulta</span>
+                            </div>
+                            <div class="stat-card-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glow background decorative element -->
+                <div class="about-glow-orb"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title reveal" data-aos="fade-up">Nuestros Servicios</h2>
+            <p class="section-subtitle fade-up" data-aos="fade-up" data-delay="100">Soluciones de software de élite diseñadas
+                para escalar tu negocio.</p>
+
+            <div class="services-grid">
+                <!-- Card 1: Webs -->
+                <article class="service-card-new" data-aos="fade-up">
+                    <div class="service-tag">01. WEBS</div>
+                    <h3>Páginas Web</h3>
+                    <p>Creamos sitios web rápidos, pensados para brindar una excelente experiencia de usuario y
+                        convertir visitas
+                        en clientes.</p>
+                    <ul class="service-features-new">
+                        <li class="service-feature-item"><span class="feature-dot"></span> Navegación simple e intuitiva
+                        </li>
+                        <li class="service-feature-item"><span class="feature-dot"></span> Experiencia fluida en todos
+                            los dispositivos</li>
+                        <li class="service-feature-item"><span class="feature-dot"></span> Convertí visitas en clientes
+                            reales</li>
+                    </ul>
+                    <div class="service-image-stage">
+                        <img src="images/Gemini_Generated_Image_mx4o96mx4o96mx4o.png" alt="Web Design Excellence"
+                            loading="lazy">
+                    </div>
+                </article>
+
+                <!-- Card 2: Sistemas -->
+                <article class="service-card-new" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-tag">02. SISTEMAS</div>
+                    <h3>Sistemas Internos</h3>
+                    <p>Desarrollamos sistemas internos personalizados para optimizar la gestión y potenciar el
+                        crecimiento de tu empresa.</p>
+                    <ul class="service-features-new">
+                        <li class="service-feature-item"><span class="feature-dot"></span> Control total de stock,
+                            ventas e ingresos</li>
+                        <li class="service-feature-item"><span class="feature-dot"></span> Panel de gestión para
+                            empleados y administradores</li>
+                        <li class="service-feature-item"><span class="feature-dot"></span> Información segura y
+                            centralizada en todo momento</li>
+                    </ul>
+                    <div class="service-image-stage">
+                        <img src="images/Gemini_Generated_Image_301ln7301ln7301l.png" alt="Custom Software Systems"
+                            loading="lazy">
+                    </div>
+                </article>
+
+                <!-- Card 3: Automatizaciones -->
+                <article class="service-card-new" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-tag">03. IA & AUTO</div>
+                    <h3>Automatizaciones</h3>
+                    <p>Automatizá tareas repetitivas y dejá que sistemas inteligentes trabajen por vos, ahorrando tiempo
+                        y recursos.</p>
+                    <ul class="service-features-new">
+                        <li class="service-feature-item"><span class="feature-dot"></span> Respuestas automáticas 24/7
+                        </li>
+                        <li class="service-feature-item"><span class="feature-dot"></span> Automatización de tareas
+                            repetitivas</li>
+                        <li class="service-feature-item"><span class="feature-dot"></span> Ahorro de tiempo en procesos
+                            diarios</li>
+                    </ul>
+                    <div class="service-image-stage">
+                        <img src="images/Gemini_Generated_Image_ynjupeynjupeynju.png" alt="Digital Automation & AI"
+                            loading="lazy">
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Micro-interaction: Light follow effect for Bento Cards
+        document.querySelectorAll('.bento-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', `${x}%`);
+                card.style.setProperty('--mouse-y', `${y}%`);
+            });
+        });
+    </script>
+
+
+
+    <!-- Clients Section -->
+    <section id="clientes" class="clients">
+        <div class="container clients-container">
+            <div class="clients-header">
+                <h2 data-aos="fade-up">Empresas que confían en nosotros</h2>
+                <p data-aos="fade-up" data-delay="100">Más de 28 proyectos exitosos respaldan nuestra trayectoria.</p>
+            </div>
+
+            <div class="clients-grid">
+                <!-- Fila 1 -->
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="100">
+                    <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" style="height: 40px; width: auto; object-fit: contain;">
+                </div>
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="150">
+                    <img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple" style="height: 45px; width: auto; object-fit: contain;">
+                </div>
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="200">
+                    <img src="https://cdn.simpleicons.org/netflix/ffffff" alt="Netflix" style="height: 35px; width: auto; object-fit: contain;">
+                </div>
+                
+                <!-- Fila 2 -->
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="300">
+                    <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" style="height: 45px; width: auto; object-fit: contain;">
+                </div>
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="350">
+                    <img src="https://cdn.simpleicons.org/nike/ffffff" alt="Nike" style="height: 40px; width: auto; object-fit: contain;">
+                </div>
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="400">
+                    <img src="https://cdn.simpleicons.org/tesla/ffffff" alt="Tesla" style="height: 40px; width: auto; object-fit: contain;">
+                </div>
+                
+                <!-- Fila 3 -->
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="500">
+                    <img src="https://cdn.simpleicons.org/audi/ffffff" alt="Audi" style="height: 45px; width: auto; object-fit: contain;">
+                </div>
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="550">
+                    <img src="https://cdn.simpleicons.org/stripe/ffffff" alt="Stripe" style="height: 40px; width: auto; object-fit: contain;">
+                </div>
+                <div class="client-logo-box" data-aos="zoom-in" data-delay="600">
+                    <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" style="height: 45px; width: auto; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Cómo Trabajamos (Workflow) Section -->
+    <section id="como-trabajamos" class="workflow-section">
+        <div class="workflow-orb-2"></div>
+        <div class="container workflow-container">
+            
+            <!-- Centered Header -->
+            <div class="workflow-header" data-aos="fade-up">
+                <span class="workflow-subtitle-tag">LOS PASOS A SEGUIR JUNTOS</span>
+                <h2 class="workflow-main-title">Cómo trabajamos</h2>
+            </div>
+
+            <!-- Vertical Timeline -->
+            <div class="workflow-timeline">
+                
+                <!-- Central Lines (Single source for smooth transition) -->
+                <div class="timeline-line-bg"></div>
+                <div class="timeline-line-progress"></div>
+                
+                <!-- Masks (Hides line above first circle and below last circle) -->
+                <div class="timeline-mask-top"></div>
+                <div class="timeline-mask-bottom"></div>
+
+                <!-- Steps -->
+                <div class="timeline-steps">
+                    
+                    <!-- Paso 1 -->
+                    <div class="timeline-step is-even" data-step="1">
+                        <!-- Central Node -->
+                        <div class="timeline-node">
+                            <span class="node-number">1</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="step-content-wrapper" data-aos="fade-right">
+                            <div class="step-meta">
+                                <span class="step-meta-num">Paso 1</span>
+                                <div class="step-meta-line"></div>
+                            </div>
+                            <h3 class="step-title">Descubrimiento & Estrategia</h3>
+                            <p class="step-desc">Analizamos tu negocio y definimos la solución ideal. Hacemos una sesión de consultoría técnica para definir la arquitectura, el alcance y el diseño de tu software, asegurando la máxima viabilidad.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="timeline-step is-odd" data-step="2">
+                        <!-- Central Node -->
+                        <div class="timeline-node">
+                            <span class="node-number">2</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="step-content-wrapper" data-aos="fade-left">
+                            <div class="step-meta">
+                                <div class="step-meta-line"></div>
+                                <span class="step-meta-num">Paso 2</span>
+                            </div>
+                            <h3 class="step-title">Diseño UI/UX Premium</h3>
+                            <p class="step-desc">Creamos interfaces modernas, intuitivas y que convierten. Diseñamos un prototipo interactivo en alta fidelidad en Figma para que puedas ver y probar exactamente cómo se verá y funcionará tu aplicación antes de desarrollarla.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="timeline-step is-even" data-step="3">
+                        <!-- Central Node -->
+                        <div class="timeline-node">
+                            <span class="node-number">3</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="step-content-wrapper" data-aos="fade-right">
+                            <div class="step-meta">
+                                <span class="step-meta-num">Paso 3</span>
+                                <div class="step-meta-line"></div>
+                            </div>
+                            <h3 class="step-title">Desarrollo Ágil</h3>
+                            <p class="step-desc">Escribimos código robusto, rápido y propietario. Desarrollamos tu software utilizando tecnologías modernas y escalables (React, Next.js, Node.js). El código es de tu propiedad, sin dependencias restrictivas.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 4 -->
+                    <div class="timeline-step is-odd" data-step="4">
+                        <!-- Central Node -->
+                        <div class="timeline-node">
+                            <svg class="node-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <!-- Content -->
+                        <div class="step-content-wrapper" data-aos="fade-left">
+                            <div class="step-meta">
+                                <div class="step-meta-line"></div>
+                                <span class="step-meta-num">Paso 4</span>
+                            </div>
+                            <h3 class="step-title">Soporte & Lanzamiento</h3>
+                            <p class="step-desc">Desplegamos tu software y te acompañamos en el crecimiento. Subimos tu sistema a producción en servidores seguros en la nube, te capacitamos en su uso y brindamos soporte post-lanzamiento activo.</p>
+                            <div class="step-cta-block">
+                                <a href="#contacto" class="btn btn-primary btn-cta-workflow">
+                                    Agendar reunión
+                                    <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- AI Virtual Assistant Section (Replaces FAQ) -->
+    <section id="faq" class="assistant-section">
+        <div class="assistant-container">
+            <div class="assistant-header">
+                <div class="assistant-badge-pill" data-aos="fade-up">Asistente Virtual</div>
+                <h2 class="assistant-main-title" data-aos="fade-up" data-delay="100">
+                    ¿Tenés preguntas?
+                    <span class="highlight-blue">Consultale a la IA.</span>
+                </h2>
+                <p class="assistant-subtitle" data-aos="fade-up" data-delay="200">
+                    Hacé clic en cualquiera de las consultas rápidas y nuestro modelo responderá tus dudas en tiempo real.
+                </p>
+            </div>
+
+            <div class="assistant-grid">
+                <!-- Left Column: Interactive Selector Buttons -->
+                <div class="assistant-buttons" data-aos="fade-right">
+                    <!-- Button 1 -->
+                    <button class="assistant-btn active" data-question="desarrollo" data-aos="fade-up" data-delay="100">
+                        <span class="assistant-btn-icon" style="color: #fbbf24;">⚡</span>
+                        <span>¿Cuánto tarda el desarrollo?</span>
+                    </button>
+                    <!-- Button 2 -->
+                    <button class="assistant-btn" data-question="propiedad" data-aos="fade-up" data-delay="200">
+                        <span class="assistant-btn-icon" style="color: #f97316;">🔒</span>
+                        <span>¿El código es de mi propiedad?</span>
+                    </button>
+                    <!-- Button 3 -->
+                    <button class="assistant-btn" data-question="soporte" data-aos="fade-up" data-delay="300">
+                        <span class="assistant-btn-icon" style="color: #c084fc;">🛠️</span>
+                        <span>¿Ofrecen soporte post-lanzamiento?</span>
+                    </button>
+                    <!-- Button 4 -->
+                    <button class="assistant-btn" data-question="tecnologias" data-aos="fade-up" data-delay="400">
+                        <span class="assistant-btn-icon" style="color: #22d3ee;">💻</span>
+                        <span>¿Qué tecnologías utilizan?</span>
+                    </button>
+                    <!-- Button 5 -->
+                    <button class="assistant-btn" data-question="integraciones" data-aos="fade-up" data-delay="500">
+                        <span class="assistant-btn-icon" style="color: #cbd5e1;">🔗</span>
+                        <span>¿Se integran con mis sistemas?</span>
+                    </button>
+                </div>
+
+                <!-- Right Column: Terminal Window Simulator -->
+                <div class="terminal-container" data-aos="fade-left">
+                    <div class="terminal-window">
+                        <!-- Mac Bar -->
+                        <div class="terminal-header">
+                            <div class="mac-dots">
+                                <span class="mac-dot dot-red"></span>
+                                <span class="mac-dot dot-yellow"></span>
+                                <span class="mac-dot dot-green"></span>
+                            </div>
+                            <span class="terminal-title">bluedev-intelligence-v3.sh</span>
+                            <div class="terminal-status-badge">
+                                <span class="status-dot"></span>
+                                <span>ONLINE</span>
+                            </div>
+                        </div>
+
+                        <!-- Console Area -->
+                        <div class="terminal-body" id="terminal-output">
+                            <!-- Boot sequence logs -->
+                            <div class="log-startup">[09:00:00] > Iniciando WIS AI Support Agent...</div>
+                            <div class="log-startup log-green">[09:00:01] > Conexión segura establecida exitosamente.</div>
+                            
+                            <!-- Dynamic Content Wrapper -->
+                            <div id="dynamic-console-content">
+                                <span class="console-line">
+                                    <span class="prefix-user">user@bluedev:~$</span> 
+                                    <span class="text-command" id="console-query">¿Cuánto tarda el desarrollo?</span>
+                                </span>
+                                <span class="console-divider"></span>
+                                <span class="console-line">
+                                    <span class="prefix-ai">ai@bluedev:~$</span> 
+                                    <span class="text-answer-headline" id="console-short-answer">El tiempo estimado es de 3 a 6 semanas.</span>
+                                </span>
+                                <span class="text-answer-block" id="console-full-answer">
+                                    El plazo exacto depende del alcance. La mayoría de los proyectos (sistemas internos, integraciones y landings de alta conversión) se entregan en menos de un mes, con despliegue continuo para que puedas ver el avance real semana a semana.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Final: Transformación Digital -->
+    <section class="cta-premium-section">
+        <div class="cta-mesh-container">
+            <div class="cta-mesh-orb mesh-1"></div>
+            <div class="cta-mesh-orb mesh-2"></div>
+            <div class="cta-mesh-orb mesh-3"></div>
+        </div>
+
+        <div class="container relative-z">
+            <div class="cta-premium-card" data-aos="fade-up">
+                <div class="cta-premium-content">
+                    <div class="cta-badge" data-aos="fade-down" data-aos-delay="100">
+                        ¿Listo para dar el siguiente paso?
+                    </div>
+                    <h2 class="cta-premium-title" data-aos="fade-up" data-delay="200">
+                        Converti tu idea en <span class="text-gradient">software</span>
+                    </h2>
+                    <p class="cta-premium-subtitle" data-aos="fade-up" data-delay="300">
+                        Desde sitios web increibles hasta automatizaciones complejas.
+                        Estamos listos para construir la solución que tu negocio necesita.
+                    </p>
+                    <div class="cta-premium-actions" data-aos="zoom-in" data-aos-delay="400">
+                        <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto" target="_blank" rel="noopener" class="btn-premium-cta">
+                            <span>Comenzar proyecto</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section ocultada -->
+    <!--
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>¿Listo para comenzar tu proyecto?</h2>
+                    <p>Contáctanos y transformemos tu idea en realidad</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span>Buenos Aires, Argentina</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <span>contacto@softwarefactory.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <span>+54 11 1234-5678</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Empresa">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Cuéntanos sobre tu proyecto" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="footer-modern-container">
+            <div class="footer-modern-main">
+                <div class="footer-modern-brand" data-aos="fade-up" data-aos-delay="0">
+                    <div class="footer-modern-logo">
+                        <img src="images/logo-icon.svg" alt="WIS Logo" class="logo-img"
+                            style="width: 24px; height: 24px;">
+                        <div class="logo-wrapper">
+                            <span class="logo-text">WIS</span>
+                            <span class="logo-subtitle" style="font-size: 0.6rem;">SOFTWARE DEVELOPMENT</span>
+                        </div>
+                    </div>
+                    <p class="footer-modern-claim">Desarrollamos webs, automatizaciones y sistemas a medida para
+                        empresas y emprendimientos.
+                    <div class="footer-modern-contact">
+                        <a href="mailto:info@wis.com" class="footer-modern-contact-item">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                <path d="m2 7 10 7 10-7"></path>
+                            </svg>
+                            <span>contacto@wis.com</span>
+                        </a>
+                        <a href="https://wa.me/5492914405674" class="footer-modern-contact-item">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            <span>+54 9 291 440-5674</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-modern-links" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Mapa del Sitio</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#como-trabajamos">Cómo Trabajamos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-modern-social" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Redes Sociales</h4>
+                    <div class="footer-modern-social-row">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-modern-social-link"
+                            aria-label="LinkedIn">
+                            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="footer-modern-social-link"
+                            aria-label="GitHub">
+                            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="footer-modern-social-link"
+                            aria-label="Twitter">
+                            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-modern-social-link"
+                            aria-label="Instagram">
+                            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-modern-bottom">
+                <div class="footer-modern-bottom-content">
+                    <span id="footer-year">&copy; 2025</span> WIS. Todos los derechos reservados.
+                    <span class="footer-modern-legal">
+                        <a href="#">Privacidad</a>
+                        <span class="separator">/</span>
+                        <a href="#">Términos</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Año dinámico en el footer
+        document.addEventListener('DOMContentLoaded', function () {
+            var yearSpan = document.getElementById('footer-year');
+            if (yearSpan) {
+                yearSpan.innerHTML = '&copy; ' + new Date().getFullYear();
+            }
+        });
+    </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto" target="_blank"
+        rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 32 32" fill="currentColor">
+            <path
+                d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.978 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.305 19.26c-0.346-0.174-2.049-1.007-2.366-1.123-0.317-0.117-0.548-0.174-0.779 0.174s-0.895 1.123-1.098 1.355c-0.202 0.231-0.405 0.26-0.751 0.087s-1.462-0.539-2.785-1.722c-1.030-0.919-1.726-2.054-1.929-2.400s-0.022-0.535 0.152-0.709c0.156-0.155 0.346-0.405 0.52-0.607s0.231-0.347 0.347-0.578c0.116-0.231 0.058-0.434-0.029-0.607s-0.779-1.875-1.066-2.567c-0.28-0.673-0.565-0.580-0.779-0.591-0.202-0.010-0.433-0.012-0.663-0.012s-0.607 0.087-0.924 0.434c-0.317 0.347-1.213 1.18-1.213 2.873s1.242 3.332 1.415 3.564c0.174 0.231 2.371 3.768 5.909 5.163 3.539 1.394 3.539 0.929 4.176 0.871 0.637-0.058 2.049-0.839 2.337-1.649s0.289-1.504 0.202-1.649c-0.087-0.145-0.318-0.231-0.663-0.405z" />
+        </svg>
+    </a>
+
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

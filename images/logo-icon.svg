@@ -1,0 +1,15 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- The shape is a continuous folded strip -->
+  
+  <!-- Back/Bottom part (Shadow side) -->
+  <path d="M22 68 L48 78 L85 58 Q88 56 85 54 L38 34 Q34 33 22 38 Z" fill="#093375" />
+  
+  <!-- The Fold (Connecting middle) -->
+  <path d="M22 45 V68 L48 78 V55 L22 45 Z" fill="#1E40AF" />
+  
+  <!-- Top part (Bright side) -->
+  <path d="M22 45 L48 55 L85 35 Q88 33 85 31 L38 11 Q34 10 22 15 Z" fill="#2A8AF3" />
+
+  <!-- Subtle rounding highlights -->
+  <path d="M22 45 L48 55 L85 35 Q86 34 85 33 L38 23 Z" fill="white" fill-opacity="0.1" />
+</svg>

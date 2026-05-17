@@ -1,0 +1,102 @@
+/**
+ * THEME SYSTEM - Software Factory Landing Page
+ * Premium Design System with glassmorphism, mesh gradients, and glow effects
+ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ========================================
+     COLORES BASE — Negro + Azul Eléctrico + Blanco
+     ======================================== */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #4a5568;
+  --color-gray-light: #718096;
+  --color-celeste: #2abaf3;       /* Azul eléctrico principal */
+  --color-azul: #1a6fd1;          /* Azul profundo de apoyo */
+
+  /* Colores extendidos */
+  --color-cyan-glow: rgba(42, 186, 243, 0.18);
+  --color-cyan-soft: rgba(42, 186, 243, 0.08);
+  --color-surface: #000000;
+  --color-surface-elevated: #0a0a0a;
+  --color-surface-card: rgba(10, 10, 10, 0.85);
+  --color-border-subtle: rgba(42, 186, 243, 0.08);
+  --color-border-hover: rgba(42, 186, 243, 0.5);
+
+  /* ========================================
+     FONDOS SEMÁNTICOS
+     ======================================== */
+  --bg-primary: #000000;
+  --bg-secondary: #050505;
+  --bg-accent: var(--color-celeste);
+  --bg-black: #000000;
+  --bg-section-dark: #000000;
+  --bg-section-alt: #050505;
+
+  /* Glass effect — dark glass sobre negro */
+  --glass-bg: rgba(42, 186, 243, 0.04);
+  --glass-border: rgba(42, 186, 243, 0.12);
+  --glass-blur: blur(20px);
+
+  /* ========================================
+     TEXTOS
+     ======================================== */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-celeste: var(--color-celeste);
+  --text-white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.35);
+
+  /* ========================================
+     BORDES
+     ======================================== */
+  --border-light: rgba(42, 186, 243, 0.1);
+  --border-accent: var(--color-celeste);
+
+  /* ========================================
+     SOMBRAS
+     ======================================== */
+  --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.8);
+  --shadow-celeste: 0 0 30px rgba(42, 186, 243, 0.2);
+  --shadow-glow: 0 0 40px rgba(42, 186, 243, 0.25), 0 0 80px rgba(42, 186, 243, 0.08);
+
+  /* ========================================
+     GRADIENTES
+     ======================================== */
+  --gradient-primary: linear-gradient(135deg, var(--color-celeste) 0%, #1a6fd1 100%);
+  --gradient-soft: linear-gradient(180deg, #000000 0%, rgba(42, 186, 243, 0.05) 100%);
+  --gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(42, 186, 243, 0.07) 0%, transparent 50%),
+                   radial-gradient(ellipse at 80% 20%, rgba(26, 111, 209, 0.05) 0%, transparent 50%),
+                   radial-gradient(ellipse at 50% 80%, rgba(42, 186, 243, 0.04) 0%, transparent 50%);
+  --gradient-section-divider: linear-gradient(90deg, transparent, rgba(42, 186, 243, 0.25), transparent);
+  --gradient-text: linear-gradient(135deg, #ffffff 0%, var(--color-celeste) 100%);
+
+  /* ========================================
+     ESPACIADO Y TAMAÑOS
+     ======================================== */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 50px;
+
+  /* ========================================
+     TRANSICIONES
+     ======================================== */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}

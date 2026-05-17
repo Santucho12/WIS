@@ -1,0 +1,349 @@
+/* ========================================
+   NAVBAR - Floating Glass Capsule Design (ConsurWhite Replicated)
+   ======================================== */
+
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding-top: 18px;
+  pointer-events: none; /* Allows click-throughs around the margins */
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar {
+  max-width: 94rem;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  height: 80px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9999px; /* Floating capsule pill shape */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  pointer-events: auto; /* Re-enable pointer events on the bar itself */
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+/* Scrolled/Active Glass Capsule State */
+.navbar.scrolled {
+  max-width: 76rem;
+  height: 72px;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(42, 186, 243, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 1px rgba(42, 186, 243, 0.1) inset;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.08);
+}
+
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-white);
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.logo-text .highlight {
+  color: var(--color-celeste);
+}
+
+.logo-subtitle {
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+/* Center Desktop Navigation Menu */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 700;
+  padding: 0.5rem 0;
+  margin: 0 0.5rem;
+  font-size: 0.72rem; /* Replicated fine letter-tracking size */
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition: color 0.3s ease;
+  position: relative;
+  display: block;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-white);
+}
+
+/* Bottom Celeste glow underline hover effect */
+.nav-links a .nav-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-celeste);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 10px rgba(42, 186, 243, 0.6);
+}
+
+.nav-links a:hover .nav-underline,
+.nav-links a.active .nav-underline {
+  width: 100%;
+}
+
+/* Desktop Action Button */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn-navbar-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  color: #0b1523;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-navbar-cta:hover {
+  background: var(--color-celeste);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(42, 186, 243, 0.45);
+  transform: translateY(-1px) scale(1.04);
+}
+
+.btn-navbar-cta:active {
+  transform: scale(0.98);
+}
+
+/* Hamburger mobile menu toggler */
+.menu-toggle {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 28px;
+    width: calc(100% - 24px);
+  }
+  
+  .nav-links {
+    gap: 0.8rem;
+  }
+  
+  .nav-links a {
+    margin: 0 0.3rem;
+  }
+}
+
+/* ========================================
+   MOBILE INTERACTION & RESPONSIVENESS
+   ======================================== */
+@media (max-width: 768px) {
+  .navbar-header {
+    padding-top: 12px;
+  }
+
+  .navbar {
+    height: 70px;
+    padding: 0 22px;
+    width: calc(100% - 24px);
+  }
+  
+  .navbar.scrolled {
+    height: 64px;
+  }
+
+  .navbar-actions {
+    display: none; /* Hidden on mobile */
+  }
+
+  /* Hamburger Toggle lines style */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
+    position: relative;
+  }
+
+  .menu-toggle span {
+    width: 100%;
+    height: 2px;
+    background: var(--color-white);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Floating Dropdown Mobile Menu Card (ConsurWhite Style) */
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 14px); /* Hangs perfectly below the header capsule */
+    left: 4px;
+    right: 4px;
+    background: rgba(10, 16, 26, 0.98);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 1.5rem;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.6rem 0;
+    margin: 0;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .nav-links a .nav-underline {
+    display: none; /* Hide desktop underlines on mobile layout */
+  }
+
+  /* Contact mobile menu button block */
+  .nav-links::after {
+    content: 'Contacto';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 24px);
+    margin: 10px auto 0 auto;
+    background: var(--color-white);
+    color: #0b1523;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.20em;
+    padding: 14px 0;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links:active::after {
+    transform: scale(0.97);
+  }
+
+  .logo-text {
+    font-size: 1.15rem;
+  }
+
+  .logo-subtitle {
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (max-width: 430px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .logo-text {
+    font-size: 1.05rem;
+  }
+
+  .logo-subtitle {
+    display: none;
+  }
+}

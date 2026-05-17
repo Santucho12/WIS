@@ -1,0 +1,49 @@
+/* Animaciones de entrada para scroll (AOS custom) */
+[data-aos] {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 1.2s cubic-bezier(.4,1.3,.6,1), transform 1.2s cubic-bezier(.4,1.3,.6,1);
+}
+[data-aos].aos-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(40px);
+}
+[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+}
+
+[data-aos="fade-down"] {
+  transform: translateY(-40px);
+}
+[data-aos="fade-down"].aos-animate {
+  transform: translateY(0);
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(-40px);
+}
+[data-aos="fade-left"].aos-animate {
+  transform: translateX(0);
+}
+
+[data-aos="fade-right"] {
+  transform: translateX(40px);
+}
+[data-aos="fade-right"].aos-animate {
+  transform: translateX(0);
+}
+
+[data-aos="zoom-in"] {
+  transform: scale(0.85);
+}
+[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+}
+
+[data-aos][data-aos-delay] {
+  transition-delay: var(--aos-delay, 0ms);
+}

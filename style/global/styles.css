@@ -1,0 +1,340 @@
+/* ========================================
+   STYLES.CSS - Estilos Base y Globales
+   Software Factory Landing Page
+   ======================================== */
+
+/* ====================================
+   IMPORTS - Sistema de módulos CSS
+   ==================================== */
+@import url('themeSystem.css');
+@import url('aos-custom.css');
+
+@import url('../navbar.css');
+@import url('../home.css');
+@import url('../services.css');
+@import url('../contact.css');
+@import url('../footer.css');
+@import url('../about.css');
+@import url('../selection.css');
+@import url('../testimonials.css');
+@import url('../clients.css');
+@import url('../assistant.css');
+
+/* ====================================
+   RESET Y ESTILOS GLOBALES
+   ==================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  font-size: 90%;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.reveal,
+.fade-up {
+  will-change: transform, opacity;
+}
+
+.parallax {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .fade-up,
+  .parallax {
+    will-change: auto;
+  }
+}
+
+body {
+  font-family: "Inter", "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-black);
+  color: var(--text-white);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  letter-spacing: 0.02em;
+  /* Ocultar barra de scroll para Firefox y IE/Edge */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+/* Ocultar barra de scroll para Chrome, Safari y Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+}
+
+/* ====================================
+   LAYOUT CONTAINERS
+   ==================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ====================================
+   TÍTULOS Y TIPOGRAFÍA GENÉRICA
+   ==================================== */
+.section-title {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.15rem;
+  color: var(--color-gray-light);
+  font-weight: 400;
+  opacity: 1;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ====================================
+   SECTION DIVIDERS - Transiciones fluidas
+   ==================================== */
+section {
+  position: relative;
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  height: 1px;
+  background: var(--gradient-section-divider);
+  z-index: 2;
+}
+
+/* Remove divider from hero and last section */
+.hero::after,
+.cta-final-section::after,
+.portfolio::after {
+  display: none;
+}
+
+/* ====================================
+   BOTONES GENÉRICOS
+   ==================================== */
+.btn {
+  padding: 0.8rem 2.4rem;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  letter-spacing: 0.3px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) padding-box,
+    var(--gradient-primary) border-box;
+  color: var(--text-white);
+  border: 2px solid transparent;
+  /* El borde ahora proviene del gradiente del border-box */
+  box-shadow: 0 10px 30px rgba(42, 186, 243, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a9fd4 0%, #2abaf3 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
+    var(--gradient-primary) border-box;
+  color: #fff;
+  box-shadow: 0 15px 45px rgba(42, 186, 243, 0.4);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(42, 186, 243, 0.5);
+  box-shadow: 0 16px 48px rgba(42, 186, 243, 0.15);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ====================================
+   WHATSAPP FLOATING BUTTON
+   ==================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes pulse-whatsapp {
+
+  0%,
+  100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7), 0 0 0 10px rgba(37, 211, 102, 0.1);
+  }
+}
+
+/* ====================================
+   SELECTION STYLING
+   ==================================== */
+::selection {
+  background: rgba(42, 186, 243, 0.3);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  a,
+  button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(42, 186, 243, 0.18);
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .whatsapp-float {
+    width: 56px;
+    height: 56px;
+    right: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+    line-height: 1.12;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    padding: 0;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .whatsapp-float svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+

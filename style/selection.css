@@ -1,0 +1,422 @@
+/* ========================================
+   WORKFLOW TIMELINE - Premium Dark Glassmorphic Timeline
+   ======================================== */
+
+.workflow-section {
+  padding: 120px 0 120px 0;
+  background: var(--bg-section-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background mesh pattern matching global aesthetic */
+.workflow-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(42, 186, 243, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 186, 243, 0.015) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Subtle glowing orbs behind the timeline */
+.workflow-section::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(26, 111, 209, 0.03) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.workflow-orb-2 {
+  position: absolute;
+  bottom: 10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(42, 186, 243, 0.03) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.workflow-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header Section */
+.workflow-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.workflow-subtitle-tag {
+  color: var(--color-celeste);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.workflow-main-title {
+  font-size: 3rem;
+  color: var(--color-white);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Vertical Timeline Container */
+.workflow-timeline {
+  position: relative;
+  margin-top: 50px;
+}
+
+/* Central Line Background */
+.timeline-line-bg {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  bottom: 30px;
+  width: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Central Active Progress Line */
+.timeline-line-progress {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  width: 3px;
+  height: 0%;
+  background: linear-gradient(to bottom, #1a6fd1 0%, #1a6fd1 50%, var(--color-celeste) 85%, var(--color-celeste) 100%);
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(42, 186, 243, 0.4), 0 0 5px rgba(42, 186, 243, 0.2);
+  will-change: height;
+}
+
+/* Timeline Steps */
+.timeline-steps {
+  position: relative;
+  z-index: 3;
+}
+
+.timeline-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 140px;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+/* Node Circle container */
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.node-number {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: 'Poppins', sans-serif;
+  transition: color var(--transition-normal);
+}
+
+.node-check-icon {
+  color: rgba(255, 255, 255, 0.35);
+  transition: color var(--transition-normal);
+}
+
+/* Active Node States */
+.timeline-node.active {
+  border-color: transparent;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Steps 1-2 Deep Blue theme */
+.timeline-step[data-step="1"] .timeline-node.active,
+.timeline-step[data-step="2"] .timeline-node.active {
+  background: #1a6fd1;
+  box-shadow: 0 0 25px rgba(26, 111, 209, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Steps 3-4 Celeste theme */
+.timeline-step[data-step="3"] .timeline-node.active,
+.timeline-step[data-step="4"] .timeline-node.active {
+  background: var(--color-celeste);
+  box-shadow: 0 0 25px rgba(42, 186, 243, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.timeline-node.active .node-number,
+.timeline-node.active .node-check-icon {
+  color: #fff;
+}
+
+/* Step Content Layout styling */
+.step-content-wrapper {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+/* Even Steps content sits on the left, aligns right */
+.timeline-step.is-even .step-content-wrapper {
+  grid-column: 1;
+  padding-right: 65px;
+  text-align: right;
+  margin-left: auto;
+}
+
+/* Odd Steps content sits on the right, aligns left */
+.timeline-step.is-odd .step-content-wrapper {
+  grid-column: 2;
+  padding-left: 65px;
+  text-align: left;
+}
+
+/* Meta Step tags */
+.step-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.timeline-step.is-even .step-meta {
+  justify-content: flex-end;
+}
+
+.timeline-step.is-odd .step-meta {
+  justify-content: flex-start;
+}
+
+.step-meta-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.25);
+  font-family: 'Inter', sans-serif;
+  transition: color var(--transition-normal);
+}
+
+.step-meta-num.active {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.step-meta-line {
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background var(--transition-normal);
+}
+
+.step-meta-num.active + .step-meta-line,
+.step-meta-line.active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Step Title styling */
+.step-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.25;
+  transition: color var(--transition-slow);
+}
+
+/* Active title text swap to matching colors */
+.timeline-step[data-step="1"] .step-title.active,
+.timeline-step[data-step="2"] .step-title.active {
+  color: #5aa1f5; /* soft bright blue */
+}
+
+.timeline-step[data-step="3"] .step-title.active,
+.timeline-step[data-step="4"] .step-title.active {
+  color: var(--color-celeste);
+}
+
+/* Description styling */
+.step-desc {
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.65;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  transition: color var(--transition-normal);
+}
+
+.step-title.active + .step-desc {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Step Call to Action button block */
+.step-cta-block {
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-title.active ~ .step-cta-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-cta-workflow {
+  font-size: 0.8rem;
+  padding: 0.65rem 1.8rem;
+  border-radius: var(--radius-full);
+  gap: 8px;
+  display: inline-flex;
+}
+
+.btn-arrow-icon {
+  transition: transform var(--transition-normal);
+}
+
+.btn-cta-workflow:hover .btn-arrow-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Mask line sections */
+.timeline-mask-top,
+.timeline-mask-bottom {
+  position: absolute;
+  left: 50%;
+  width: 5px;
+  background: #050505;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.timeline-mask-top {
+  top: 0;
+  height: 30px;
+}
+
+.timeline-mask-bottom {
+  bottom: 0;
+  height: 30px;
+}
+
+/* ========================================
+   MOBILE RESPONSIVENESS
+   ======================================== */
+@media (max-width: 768px) {
+  .workflow-section {
+    padding: 70px 0;
+  }
+  
+  .workflow-main-title {
+    font-size: 2.1rem;
+  }
+  
+  .workflow-header {
+    margin-bottom: 40px;
+  }
+  
+  /* Shift line to the left side */
+  .timeline-line-bg,
+  .timeline-line-progress {
+    left: 24px;
+    transform: none;
+  }
+  
+  .timeline-mask-top,
+  .timeline-mask-bottom {
+    left: 24px;
+    transform: none;
+  }
+  
+  /* Stacked Step Layout */
+  .timeline-step {
+    grid-template-columns: 1fr;
+    padding: 30px 0;
+    min-height: auto;
+  }
+  
+  /* Shift node to the left */
+  .timeline-node {
+    left: 24px;
+    top: 30px;
+    transform: translate(-50%, 0);
+    width: 44px;
+    height: 44px;
+  }
+  
+  .timeline-node.active {
+    transform: translate(-50%, 0) scale(1.05);
+  }
+  
+  .node-number {
+    font-size: 0.95rem;
+  }
+  
+  /* Shift content strictly to the right column */
+  .timeline-step.is-even .step-content-wrapper,
+  .timeline-step.is-odd .step-content-wrapper {
+    grid-column: 1;
+    padding-left: 54px;
+    padding-right: 0;
+    text-align: left;
+    margin-left: 0;
+    max-width: 100%;
+  }
+  
+  .timeline-step.is-even .step-meta,
+  .timeline-step.is-odd .step-meta {
+    justify-content: flex-start;
+  }
+  
+  .step-title {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+  }
+  
+  .step-desc {
+    font-size: 0.92rem;
+  }
+  
+  .step-cta-block {
+    margin-top: 18px;
+  }
+}
