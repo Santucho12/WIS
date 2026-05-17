@@ -1,0 +1,484 @@
+/* ========================================
+   PREMIUM CUSTOM BOOKING CALENDAR MODAL
+   DARK MODE SYSTEM (PITCH BLACK & CELESTE ACCENT)
+   ======================================== */
+
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 7, 13, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+  padding: 20px;
+}
+
+.booking-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.booking-modal-card {
+  width: 100%;
+  max-width: 540px;
+  background: #090e18;
+  border-radius: 32px;
+  padding: 36px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 210, 255, 0.15);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-modal-overlay.active .booking-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+/* Scrollbar styling */
+.booking-modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+.booking-modal-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+.booking-modal-card::-webkit-scrollbar-thumb {
+  background: rgba(0, 210, 255, 0.2);
+  border-radius: 99px;
+}
+
+/* Close Button */
+.booking-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.booking-modal-close:hover {
+  background: rgba(0, 210, 255, 0.15);
+  color: #00d2ff;
+  border-color: rgba(0, 210, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.booking-modal-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Top Badge */
+.booking-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #00d2ff;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.05);
+  letter-spacing: -0.01em;
+}
+
+/* Main Heading */
+.booking-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  text-align: center;
+  max-width: 440px;
+  letter-spacing: -0.02em;
+}
+
+.booking-heading span.italic-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #00d2ff;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Row of Info Badges */
+.booking-info-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.booking-info-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.booking-info-pill svg {
+  color: #00d2ff;
+  flex-shrink: 0;
+}
+
+/* Section Title */
+.booking-section-title {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* Interactive Calendar Card */
+.calendar-card {
+  width: 100%;
+  background: #060a12;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  margin-bottom: 20px;
+  transition: all 0.4s ease;
+}
+
+/* Calendar Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.calendar-month-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.calendar-nav-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.calendar-nav-btn:hover {
+  background: rgba(0, 210, 255, 0.15);
+  color: #00d2ff;
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.calendar-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Calendar Weekdays */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Calendar Day Cells Grid */
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar-day-cell {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  position: relative;
+}
+
+.calendar-day-cell:hover:not(.muted):not(.disabled) {
+  background: rgba(0, 210, 255, 0.15);
+  color: #00d2ff;
+}
+
+.calendar-day-cell.muted {
+  color: rgba(255, 255, 255, 0.15);
+  cursor: default;
+  pointer-events: none;
+}
+
+.calendar-day-cell.disabled {
+  color: rgba(255, 255, 255, 0.06);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.calendar-day-cell.today {
+  color: #00d2ff;
+  font-weight: 700;
+}
+
+.calendar-day-cell.today::after {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00d2ff;
+}
+
+.calendar-day-cell.selected {
+  border: 2px solid #00d2ff;
+  color: #00d2ff !important;
+  font-weight: 800;
+  background: rgba(0, 210, 255, 0.05) !important;
+}
+
+/* ========================================
+   DYNAMIC STEPS - TIME SLOT SELECTOR
+   ======================================== */
+
+.booking-step-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-slots-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+  animation: fadeIn 0.4s ease;
+}
+
+.time-slot-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.time-slot-btn:hover {
+  border-color: #00d2ff;
+  color: #00d2ff;
+  background: rgba(0, 210, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.time-slot-btn.active {
+  background: #00d2ff;
+  border-color: #00d2ff;
+  color: #04070d;
+  font-weight: 800;
+  box-shadow: 0 6px 20px rgba(0, 210, 255, 0.35);
+}
+
+/* Booking form step */
+.booking-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+  animation: fadeIn 0.4s ease;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #00d2ff;
+  box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.15);
+}
+
+.btn-booking-submit {
+  background: #ffffff;
+  color: #04070d;
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-booking-submit:hover {
+  background: #00d2ff;
+  color: #04070d;
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-booking-back {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+
+.btn-booking-back:hover {
+  color: #00d2ff;
+}
+
+/* Success State styling */
+.booking-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 0;
+  animation: scaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.success-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0, 210, 255, 0.1);
+  color: #00d2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.05);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.success-icon-wrapper svg {
+  width: 36px;
+  height: 36px;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.success-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  max-width: 320px;
+}
+
+.success-desc strong {
+  color: #00d2ff;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

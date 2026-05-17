@@ -6,7 +6,7 @@
 /* ====================================
    IMPORTS - Sistema de módulos CSS
    ==================================== */
-@import url('themeSystem.css');
+@import url('../global.css');
 @import url('aos-custom.css');
 
 @import url('../navbar.css');

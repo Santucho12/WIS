@@ -57,8 +57,8 @@
 }
 
 .logo-img {
-  width: 28px;
-  height: 28px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
   transition: transform var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -100,6 +100,10 @@
 
 .nav-links li {
   position: relative;
+}
+
+.mobile-only-item {
+  display: none;
 }
 
 .nav-links a {
@@ -300,27 +304,31 @@
     display: none; /* Hide desktop underlines on mobile layout */
   }
 
-  /* Contact mobile menu button block */
-  .nav-links::after {
-    content: 'Contacto';
-    display: flex;
+  .mobile-only-item {
+    display: block;
+    width: 100%;
+  }
+
+  .btn-mobile-cta {
+    display: flex !important;
     align-items: center;
     justify-content: center;
     width: calc(100% - 24px);
-    margin: 10px auto 0 auto;
-    background: var(--color-white);
-    color: #0b1523;
-    font-weight: 800;
+    margin: 10px auto 0 auto !important;
+    background: var(--color-white) !important;
+    color: #0b1523 !important;
+    font-weight: 800 !important;
     text-transform: uppercase;
-    font-size: 0.78rem;
-    letter-spacing: 0.20em;
-    padding: 14px 0;
-    border-radius: 999px;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.20em !important;
+    padding: 14px 0 !important;
+    border-radius: 999px !important;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
   }
 
-  .nav-links:active::after {
+  .btn-mobile-cta:active {
     transform: scale(0.97);
   }
 

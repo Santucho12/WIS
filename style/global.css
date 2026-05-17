@@ -1,0 +1,150 @@
+/**
+ * ============================================================================
+ * WIS SOFTWARE DEVELOPMENT — GLOBAL DESIGN SYSTEM & TOKENS (global.css)
+ * ============================================================================
+ * Centralized source of truth for colors, typography, layout tokens, and effects.
+ * Modify this file to change the branding, colors, or fonts globally across the site.
+ */
+
+/* ============================================================================
+   1. GOOGLE FONTS IMPORT
+   ============================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* ============================================================================
+     2. THE 4 UNIFIED BRAND HUES (Strict Color Palette)
+     ============================================================================ */
+  --hue-black: #000000;             /* 1. Primario: Negro (Fondo / Base) */
+  --hue-blue: #00d2ff;              /* 2. Secundario: Azul (Acentos / Resplandores) */
+  --hue-white: #ffffff;             /* 3. Terciario: Blanco (Texto principal / Títulos) */
+  --hue-gray: #8e9bb0;              /* 4. Cuarto: Gris (Texto secundario / Bordes / Tarjetas) */
+
+  /* ============================================================================
+     3. SYSTEM MAPPINGS (Using strictly the 4 hues above with opacity layers)
+     ============================================================================ */
+  /* Core variables mapped to the 4 strict colors */
+  --color-black: var(--hue-black);
+  --color-celeste: var(--hue-blue);
+  --color-azul: var(--hue-blue);
+  --color-white: var(--hue-white);
+  --color-gray: var(--hue-gray);
+  --color-gray-light: var(--hue-gray);
+  --color-gray-dark: rgba(142, 155, 176, 0.12); /* Gray with opacity for dark card borders */
+  
+  /* Semantic helper mappings */
+  --color-success: var(--hue-blue); /* Mapped to secondary blue to keep strict 4-color palette */
+  --color-warning: var(--hue-gray); /* Mapped to gray to keep strict 4-color palette */
+  --color-danger: var(--hue-gray);  /* Mapped to gray to keep strict 4-color palette */
+
+  /* Backgrounds (Strictly Negro) */
+  --bg-primary: var(--hue-black);
+  --bg-secondary: var(--hue-black);
+  --bg-black: var(--hue-black);
+  --bg-section-dark: var(--hue-black);
+  --bg-section-alt: var(--hue-black);
+  
+  /* Surfaces & Translucents (Black base with subtle opacity layers) */
+  --color-surface: var(--hue-black);
+  --color-surface-elevated: rgba(142, 155, 176, 0.05); /* Black + 5% Gray */
+  --color-surface-card: rgba(0, 0, 0, 0.85);           /* 85% Black glass */
+  --glass-bg: rgba(0, 0, 0, 0.8);                      /* 80% Black glass */
+
+  /* Borders (Using strictly Azul or Gray with opacities) */
+  --color-border-subtle: rgba(0, 210, 255, 0.12);      /* Azul with 12% opacity */
+  --color-border-hover: var(--hue-blue);
+  --border-light: rgba(142, 155, 176, 0.15);           /* Gray with 15% opacity */
+  --border-accent: var(--hue-blue);
+  --glass-border: rgba(0, 210, 255, 0.2);              /* Azul with 20% opacity */
+
+  /* Glows & Translucent helper values */
+  --color-cyan-glow: rgba(0, 210, 255, 0.18);
+  --color-cyan-soft: rgba(0, 210, 255, 0.06);
+
+  /* ============================================================================
+     4. TYPOGRAPHY TOKENS (UNIFIED & SLICK HIERARCHY)
+     ============================================================================ */
+  /* Font Families */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-title: 'Poppins', var(--font-sans);
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;          /* 12px - Labels, microcopy */
+  --font-size-sm: 0.875rem;         /* 14px - Small descriptions, buttons */
+  --font-size-base: 1rem;           /* 16px - Base body text */
+  --font-size-lg: 1.125rem;         /* 18px - Sub-headings, intro text */
+  --font-size-xl: 1.25rem;          /* 20px - Medium headers */
+  --font-size-2xl: 1.5rem;          /* 24px - Large subtitles */
+  --font-size-3xl: 1.875rem;        /* 30px - Bento card titles */
+  --font-size-4xl: 2.25rem;         /* 36px - Standard section titles */
+  --font-size-5xl: 3rem;            /* 48px - Main section / Page headers */
+  --font-size-6xl: 4.5rem;          /* 72px - Hero Title */
+
+  /* Text Semantic Mappings (Strictly White, Gray, or Azul) */
+  --text-primary: var(--hue-white);
+  --text-secondary: var(--hue-gray);
+  --text-celeste: var(--hue-blue);
+  --text-white: var(--hue-white);
+  --text-muted: rgba(142, 155, 176, 0.6); /* Gray with 60% opacity */
+
+  /* ============================================================================
+     5. BORDERS & SHADOWS
+     ============================================================================ */
+  --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.8);
+  --shadow-celeste: 0 0 30px rgba(0, 210, 255, 0.18);
+  --shadow-glow: 0 0 40px rgba(0, 210, 255, 0.25), 0 0 80px rgba(0, 210, 255, 0.08);
+
+  /* ============================================================================
+     6. GRADIENTS (Strictly blending the 4 hues)
+     ============================================================================ */
+  --gradient-primary: linear-gradient(135deg, var(--hue-blue) 0%, rgba(0, 210, 255, 0.7) 100%);
+  --gradient-soft: linear-gradient(180deg, var(--hue-black) 0%, rgba(0, 210, 255, 0.03) 100%);
+  --gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(0, 210, 255, 0.06) 0%, transparent 55%),
+                   radial-gradient(ellipse at 80% 20%, rgba(0, 210, 255, 0.04) 0%, transparent 50%);
+  --gradient-section-divider: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.2), transparent);
+  --gradient-text: linear-gradient(135deg, var(--hue-white) 0%, var(--hue-blue) 100%);
+
+  /* ============================================================================
+     7. LAYOUT SPACING, RADII & TRANSITIONS
+     ============================================================================ */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================================
+   7. CORE GLOBAL RESET & DEFAULTS
+   ============================================================================ */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.text-accent-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+}

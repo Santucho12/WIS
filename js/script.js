@@ -611,5 +611,281 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // ── Premium Interactive Calendar Booking System ──
+  const bookingModal = document.getElementById('booking-modal');
+  const contactBtn = document.querySelector('.btn-navbar-cta');
+  const bookingCloseBtn = document.getElementById('booking-close-btn');
+  const bookingSuccessClose = document.getElementById('booking-success-close');
+
+  const step1 = document.getElementById('booking-step-1');
+  const step2 = document.getElementById('booking-step-2');
+  const step3 = document.getElementById('booking-step-3');
+  const stepSuccess = document.getElementById('booking-step-success');
+
+  const calendarPrevBtn = document.getElementById('calendar-prev-btn');
+  const calendarNextBtn = document.getElementById('calendar-next-btn');
+  const calendarMonthYear = document.getElementById('calendar-month-year');
+  const calendarDays = document.getElementById('calendar-days');
+
+  const timeSlotsContainer = document.getElementById('time-slots');
+  const selectedDateLabel = document.getElementById('selected-date-label');
+  const backToStep1 = document.getElementById('back-to-step-1');
+
+  const bookingSummaryBadge = document.getElementById('booking-summary-badge');
+  const bookingDetailsForm = document.getElementById('booking-details-form');
+  const backToStep2 = document.getElementById('back-to-step-2');
+  const successMessage = document.getElementById('success-message');
+
+  const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+  const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+  
+  // Set default initial calendar view date to May 2026 to match user's mockup perfectly!
+  let calendarDate = new Date(2026, 4, 1); // 4 = May
+  let selectedYear = 2026;
+  let selectedMonth = 4;
+  let selectedDay = null;
+  let selectedTimeSlot = null;
+  let formattedSelectedDate = "";
+
+  function openBookingModal() {
+    if (!bookingModal) return;
+    
+    // Reset all steps to initial state
+    step1.style.display = 'flex';
+    step2.style.display = 'none';
+    step3.style.display = 'none';
+    stepSuccess.style.display = 'none';
+    
+    bookingModal.classList.add('active');
+    
+    // Disable main body scroll for clean presentation
+    document.body.style.overflow = 'hidden';
+    
+    renderCalendar();
+  }
+
+  function closeBookingModal() {
+    if (!bookingModal) return;
+    bookingModal.classList.remove('active');
+    
+    // Re-enable main body scroll
+    document.body.style.overflow = '';
+  }
+
+  // ── Calendly Integration & Configuration ──
+  // Nota: Puedes cambiar este enlace por el tuyo propio de Calendly.
+  const CALENDLY_URL = 'https://calendly.com/santysegal/30min';
+
+  function openCalendly(e) {
+    if (e) e.preventDefault();
+    if (typeof Calendly !== 'undefined') {
+      Calendly.initPopupWidget({
+        url: CALENDLY_URL,
+        color: '00d2ff',          // Celeste de WIS
+        textColor: 'ffffff',      // Texto blanco
+        backgroundColor: '090e18' // Fondo oscuro de WIS
+      });
+    } else {
+      // Fallback en caso de que falle el script de Calendly
+      window.open(CALENDLY_URL, '_blank');
+    }
+  }
+
+  // Trigger Calendly on navbar contact action
+  if (contactBtn) {
+    contactBtn.addEventListener('click', openCalendly);
+  }
+
+  // Trigger Calendly on workflow step "Agendar reunión" button
+  const workflowCtaBtn = document.querySelector('.btn-cta-workflow');
+  if (workflowCtaBtn) {
+    workflowCtaBtn.addEventListener('click', openCalendly);
+  }
+
+  // Bind close buttons
+  if (bookingCloseBtn) bookingCloseBtn.addEventListener('click', closeBookingModal);
+  if (bookingSuccessClose) bookingSuccessClose.addEventListener('click', closeBookingModal);
+
+  // Close modal on overlay click
+  if (bookingModal) {
+    bookingModal.addEventListener('click', function(e) {
+      if (e.target === bookingModal) {
+        closeBookingModal();
+      }
+    });
+  }
+
+  // Calendar render engine
+  function renderCalendar() {
+    const year = calendarDate.getFullYear();
+    const month = calendarDate.getMonth();
+
+    if (calendarMonthYear) {
+      calendarMonthYear.textContent = `${months[month]} ${year}`;
+    }
+
+    if (!calendarDays) return;
+    calendarDays.innerHTML = '';
+
+    // First day index (e.g. Sunday = 0, Monday = 1, etc.)
+    const firstDayIndex = new Date(year, month, 1).getDay();
+    // Days in current month
+    const daysCount = new Date(year, month + 1, 0).getDate();
+    // Days in previous month
+    const prevDaysCount = new Date(year, month, 0).getDate();
+
+    // 1. Pad prior month days
+    for (let i = firstDayIndex - 1; i >= 0; i--) {
+      const prevDay = prevDaysCount - i;
+      const cell = document.createElement('div');
+      cell.className = 'calendar-day-cell muted';
+      cell.textContent = prevDay;
+      calendarDays.appendChild(cell);
+    }
+
+    // 2. Render actual month days
+    const today = new Date();
+    for (let day = 1; day <= daysCount; day++) {
+      const cell = document.createElement('div');
+      cell.className = 'calendar-day-cell';
+      cell.textContent = day;
+
+      // Tag today's cell if dynamic date matches current wall clock
+      if (today.getDate() === day && today.getMonth() === month && today.getFullYear() === year) {
+        cell.classList.add('today');
+      }
+
+      // Check if selected cell
+      if (selectedDay === day && selectedMonth === month && selectedYear === year) {
+        cell.classList.add('selected');
+      }
+
+      // Past date validation
+      const cellDate = new Date(year, month, day);
+      const compareDate = new Date();
+      compareDate.setHours(0,0,0,0);
+
+      if (cellDate < compareDate) {
+        cell.classList.add('disabled');
+      } else {
+        cell.addEventListener('click', function() {
+          calendarDays.querySelectorAll('.calendar-day-cell').forEach(c => c.classList.remove('selected'));
+          cell.classList.add('selected');
+          
+          selectedDay = day;
+          selectedMonth = month;
+          selectedYear = year;
+          
+          const selDate = new Date(year, month, day);
+          formattedSelectedDate = `${daysOfWeek[selDate.getDay()]} ${day} de ${months[month]}`;
+          
+          setTimeout(() => {
+            goToTimeSlotsStep();
+          }, 200);
+        });
+      }
+      calendarDays.appendChild(cell);
+    }
+
+    // 3. Pad future month days to secure perfect 42-grid visual stability
+    const totalCells = firstDayIndex + daysCount;
+    const nextDaysPadding = 42 - totalCells;
+    for (let day = 1; day <= nextDaysPadding; day++) {
+      const cell = document.createElement('div');
+      cell.className = 'calendar-day-cell muted';
+      cell.textContent = day;
+      calendarDays.appendChild(cell);
+    }
+  }
+
+  // Calendar month navigation
+  if (calendarPrevBtn) {
+    calendarPrevBtn.addEventListener('click', function() {
+      calendarDate.setMonth(calendarDate.getMonth() - 1);
+      renderCalendar();
+    });
+  }
+
+  if (calendarNextBtn) {
+    calendarNextBtn.addEventListener('click', function() {
+      calendarDate.setMonth(calendarDate.getMonth() + 1);
+      renderCalendar();
+    });
+  }
+
+  // Step Transitions
+  function goToTimeSlotsStep() {
+    step1.style.display = 'none';
+    step2.style.display = 'flex';
+    
+    if (selectedDateLabel) {
+      selectedDateLabel.textContent = formattedSelectedDate;
+    }
+
+    // Load custom high-end business time slots
+    if (timeSlotsContainer) {
+      timeSlotsContainer.innerHTML = '';
+      const slots = ['09:30 hs', '10:30 hs', '11:00 hs', '14:30 hs', '15:00 hs', '16:00 hs'];
+      
+      slots.forEach(slot => {
+        const btn = document.createElement('button');
+        btn.className = 'time-slot-btn';
+        btn.textContent = slot;
+        
+        btn.addEventListener('click', function() {
+          timeSlotsContainer.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedTimeSlot = slot;
+          
+          setTimeout(() => {
+            goToDetailsStep();
+          }, 300);
+        });
+        
+        timeSlotsContainer.appendChild(btn);
+      });
+    }
+  }
+
+  function goToDetailsStep() {
+    step2.style.display = 'none';
+    step3.style.display = 'flex';
+    
+    if (bookingSummaryBadge) {
+      bookingSummaryBadge.textContent = `${formattedSelectedDate} — ${selectedTimeSlot}`;
+    }
+  }
+
+  // Go Back Navigation
+  if (backToStep1) {
+    backToStep1.addEventListener('click', function() {
+      step2.style.display = 'none';
+      step1.style.display = 'flex';
+    });
+  }
+
+  if (backToStep2) {
+    backToStep2.addEventListener('click', function() {
+      step3.style.display = 'none';
+      step2.style.display = 'flex';
+    });
+  }
+
+  // Form submission handler
+  if (bookingDetailsForm) {
+    bookingDetailsForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('booking-name').value;
+      
+      step3.style.display = 'none';
+      stepSuccess.style.display = 'flex';
+      
+      if (successMessage) {
+        successMessage.innerHTML = `Hola <strong>${name}</strong>, tu llamada ha sido confirmada para el <strong>${formattedSelectedDate} a las ${selectedTimeSlot}</strong>. Te enviamos una invitación con el enlace de Microsoft Teams a tu dirección de correo.`;
+      }
+    });
+  }
+
   console.log('🚀 Software Factory — Enhanced UX Loaded');
 });

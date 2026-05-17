@@ -3,18 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="images/logo-icon.svg">
+    <link rel="icon" type="image/png" href="images/logowis.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WIS — Desarrollo de Software Premium</title>
     <meta name="description"
         content="Agencia de desarrollo de software premium. Creamos sitios web empresariales, sistemas internos y automatizaciones a medida para potenciar tu negocio.">
+    <link rel="stylesheet" href="style/global.css">
     <link rel="stylesheet" href="style/global/styles.css">
-    <link rel="stylesheet" href="style/global/themeSystem.css">
     <link rel="stylesheet" href="style/navbar.css">
     <link rel="stylesheet" href="style/home.css?v=18">
     <link rel="stylesheet" href="style/services.css">
     <link rel="stylesheet" href="style/assistant.css">
     <link rel="stylesheet" href="style/clients.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/booking.css">
+
+    <!-- Calendly widget styles and script -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
     <style>
         html,
@@ -35,17 +43,27 @@
 </head>
 
 <body>
+    <!-- SVG Filter for Grainy Text Textures -->
+    <svg width="0" height="0" style="position: absolute; pointer-events: none;">
+        <filter id="c3-noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0" />
+            <feComposite in2="SourceGraphic" operator="in" />
+            <feBlend in="SourceGraphic" mode="multiply" />
+        </filter>
+    </svg>
+
     <!-- Navbar Floating Header -->
     <header class="navbar-header">
         <nav class="navbar">
             <a href="#inicio" class="logo">
-                <img src="images/logo-icon.svg" alt="WIS Logo" class="logo-img">
+                <img src="images/logowis.png" alt="WIS Logo" class="logo-img">
                 <div class="logo-wrapper">
                     <span class="logo-text">WIS</span>
                     <span class="logo-subtitle">SOFTWARE DEVELOPMENT</span>
                 </div>
             </a>
-            
+
             <ul class="nav-links">
                 <li>
                     <a href="#inicio">
@@ -65,11 +83,19 @@
                         <span class="nav-underline"></span>
                     </a>
                 </li>
-
+                <li class="mobile-only-item">
+                    <a href="tel:+5492914405674" class="btn-mobile-cta">
+                        <svg class="phone-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Llamar
+                    </a>
+                </li>
             </ul>
 
             <div class="navbar-actions">
-                <a href="#contacto" class="btn-navbar-cta">Contacto</a>
+                <!-- Nota: Para cambiar tu enlace de Calendly, edita el atributo href aquí y la variable CALENDLY_URL al inicio de js/script.js -->
+                <a href="https://calendly.com/santysegal/30min" target="_blank" rel="noopener" class="btn-navbar-cta">Contacto</a>
             </div>
 
             <button class="menu-toggle" aria-label="Toggle menu">
@@ -85,7 +111,7 @@
     <section id="inicio" class="hero">
         <div class="hero-grid-bg"></div>
         <div class="container hero-content">
-            
+
             <!-- Premium Conversion Badge -->
             <div class="hero-badge reveal fade-up" data-aos="fade-down" data-delay="0">
                 <span class="hero-badge-dot"></span>
@@ -102,7 +128,8 @@
             </p>
 
             <div class="hero-buttons">
-                <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto" target="_blank" rel="noopener" class="btn btn-primary" data-aos="zoom-in" data-delay="300">
+                <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto"
+                    target="_blank" rel="noopener" class="btn btn-primary" data-aos="zoom-in" data-delay="300">
                     Comenzar proyecto
                 </a>
                 <a href="#servicios" class="btn btn-secondary" data-aos="zoom-in" data-delay="400">
@@ -122,174 +149,135 @@
     <!-- Sobre Nosotros Section -->
     <section id="sobre-nosotros" class="about">
         <div class="container about-container">
-            <!-- Left Side: Text Content -->
-            <div class="about-content-left">
-                <div class="hero-badge about-badge" data-aos="fade-right" data-delay="0">
-                    <span class="hero-badge-dot"></span>
-                    CONOCENOS
-                </div>
-                <h2 class="section-title text-left about-title-custom" data-aos="fade-right" data-delay="100"
-                    style="font-size: 2.6rem;">
-                    POTENCIAMOS NEGOCIOS CON <span class="about-title-highlight">TECNOLOGÍA.</span>
+
+            <div class="about-header" data-aos="fade-up">
+                <span class="section-kicker">01 // QUIÉNES SOMOS</span>
+                <h2 class="about-headline">
+                    Transformamos la complejidad técnica <br>
+                    <span class="text-blue-accent">en ventajas competitivas.</span>
                 </h2>
-
-                <p class="about-desc" data-aos="fade-right" data-delay="300">
-                    En <strong>WIS</strong> desarrollamos webs, automatizaciones y sistemas a medida para
-                    empresas y emprendimientos. Con más de 3 años experiencia, combinamos conocimiento técnico y
-                    enfoque estratégico para crear productos alineados a los objetivos de cada cliente.
-                </p>
-
-                <ul class="about-list-modern" data-aos="fade-right" data-delay="400">
-                    <li>
-                        <span class="about-icon-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </span>
-                        <span><strong>Entrega en 3 a 6 semanas</strong> — cumplimos los tiempos acordados</span>
-                    </li>
-                    <li>
-                        <span class="about-icon-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </span>
-                        <span><strong>Código propio, sin dependencia de terceros</strong> — vos sos dueño de lo que
-                            construimos</span>
-                    </li>
-                    <li>
-                        <span class="about-icon-check">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                        </span>
-                        <span><strong>Soporte activo post-lanzamiento</strong> — seguimos acompañandote despues de la
-                            entrega</span>
-                    </li>
-                </ul>
             </div>
 
-            <!-- Right Side: Stats & Graphics -->
-            <div class="about-content-right">
-                <div class="about-stats-grid">
-                    <div class="about-stat-card stat-proyectos" data-aos="zoom-in" data-delay="100">
-                        <div class="stat-card-inner">
-                            <div class="stat-icon-wrapper">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                                </svg>
-                            </div>
-                            <div class="stat-content">
-                                <span class="about-stat-number">28+</span>
-                                <span class="about-stat-label">Proyectos exitosos</span>
-                            </div>
-                            <div class="stat-card-glow"></div>
-                        </div>
-                    </div>
+            <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+                <div class="about-text-column">
+                    <p class="about-lead">
+                        WIS es una firma de desarrollo de software premium enfocada en resolver desafíos empresariales
+                        mediante arquitectura de sistemas robusta y diseño excepcional.
+                    </p>
+                    <p class="about-subtext">
+                        Con años de experiencia en el mercado, nos especializamos en construir productos digitales
+                        escalables. No implementamos plantillas ni soluciones genéricas; diseñamos ecosistemas a medida
+                        que optimizan tiempos, automatizan procesos y posicionan a tu empresa en la vanguardia
+                        tecnológica.
+                    </p>
 
-                    <div class="about-stat-card stat-tiempo" data-aos="zoom-in" data-delay="200">
-                        <div class="stat-card-inner">
-                            <div class="stat-icon-wrapper">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <span class="value-dot"></span>
+                            <div>
+                                <h4>Código Propietario</h4>
+                                <p>Sistemas independientes y seguros. Eres dueño absoluto de tu producto final.</p>
                             </div>
-                            <div class="stat-content">
-                                <span class="about-stat-number">3 a 6 sem.</span>
-                                <span class="about-stat-label">Tiempo de entrega</span>
-                            </div>
-                            <div class="stat-card-glow"></div>
                         </div>
-                    </div>
-
-                    <div class="about-stat-card stat-consulta" data-aos="zoom-in" data-delay="300">
-                        <div class="stat-card-inner">
-                            <div class="stat-icon-wrapper">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                                </svg>
+                        <div class="value-item">
+                            <span class="value-dot"></span>
+                            <div>
+                                <h4>Ejecución Ágil</h4>
+                                <p>Procesos optimizados que garantizan entregas entre 3 a 6 semanas.</p>
                             </div>
-                            <div class="stat-content">
-                                <span class="about-stat-number">24hs</span>
-                                <span class="about-stat-label">Respondemos tu consulta</span>
+                        </div>
+                        <div class="value-item">
+                            <span class="value-dot"></span>
+                            <div>
+                                <h4>Soporte Activo</h4>
+                                <p>Monitoreo, mantenimiento y acompañamiento técnico continuo post-lanzamiento.</p>
                             </div>
-                            <div class="stat-card-glow"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Glow background decorative element -->
-                <div class="about-glow-orb"></div>
+                <div class="about-visual-column">
+                    <div class="about-image-card">
+                        <img src="images/Gemini_Generated_Image_301ln7301ln7301l.png" alt="WIS Software Development"
+                            class="about-img">
+                        <div class="about-overlay-gradient"></div>
+                        <div class="about-stats-overlay">
+                            <div class="stat-box">
+                                <span class="stat-num">28+</span>
+                                <span class="stat-desc">Proyectos <br>Desplegados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="servicios" class="services">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title reveal" data-aos="fade-up">Nuestros Servicios</h2>
-            <p class="section-subtitle fade-up" data-aos="fade-up" data-delay="100">Soluciones de software de élite diseñadas
-                para escalar tu negocio.</p>
+        <div class="container services-container">
+            <div class="services-header" data-aos="fade-up">
+                <span class="section-kicker">02 // NUESTROS SERVICIOS</span>
+                <h2 class="services-headline">
+                    Soluciones tecnológicas <br>
+                    <span class="text-blue-accent">de alto rendimiento.</span>
+                </h2>
+            </div>
 
-            <div class="services-grid">
-                <!-- Card 1: Webs -->
-                <article class="service-card-new" data-aos="fade-up">
-                    <div class="service-tag">01. WEBS</div>
-                    <h3>Páginas Web</h3>
-                    <p>Creamos sitios web rápidos, pensados para brindar una excelente experiencia de usuario y
-                        convertir visitas
-                        en clientes.</p>
-                    <ul class="service-features-new">
-                        <li class="service-feature-item"><span class="feature-dot"></span> Navegación simple e intuitiva
-                        </li>
-                        <li class="service-feature-item"><span class="feature-dot"></span> Experiencia fluida en todos
-                            los dispositivos</li>
-                        <li class="service-feature-item"><span class="feature-dot"></span> Convertí visitas en clientes
-                            reales</li>
-                    </ul>
-                    <div class="service-image-stage">
-                        <img src="images/Gemini_Generated_Image_mx4o96mx4o96mx4o.png" alt="Web Design Excellence"
+            <div class="services-bento-grid">
+                <!-- Main Feature (Webs) -->
+                <article class="bento-item bento-large" data-aos="fade-up" data-delay="100">
+                    <div class="bento-content">
+                        <div class="service-tag">01. EXPERIENCIA WEB</div>
+                        <h3>Páginas Web Corporativas</h3>
+                        <p>Diseñamos y desarrollamos sitios web ultrarrápidos y optimizados para la conversión. Más que
+                            una carta de presentación, construimos tu principal motor de ventas.</p>
+                        <ul class="service-features-list">
+                            <li><span class="feature-dot"></span> Navegación intuitiva y UX/UI avanzado.</li>
+                            <li><span class="feature-dot"></span> Rendimiento y velocidad optimizados.</li>
+                            <li><span class="feature-dot"></span> Diseño responsive pixel-perfect.</li>
+                        </ul>
+                    </div>
+                    <div class="bento-visual">
+                        <img src="images/Gemini_Generated_Image_mx4o96mx4o96mx4o.png" alt="Desarrollo Web"
+                            loading="lazy">
+                        <div class="bento-overlay"></div>
+                    </div>
+                </article>
+
+                <!-- Sub Feature 1 (Sistemas) -->
+                <article class="bento-item bento-medium" data-aos="fade-up" data-delay="200">
+                    <div class="bento-content">
+                        <div class="service-tag">02. PLATAFORMAS</div>
+                        <h3>Sistemas a Medida</h3>
+                        <p>Plataformas de gestión interna diseñadas exclusivamente para los flujos de trabajo de tu
+                            empresa. Control total y seguridad.</p>
+                        <ul class="service-features-list">
+                            <li><span class="feature-dot"></span> Gestión centralizada de métricas.</li>
+                            <li><span class="feature-dot"></span> Paneles de administración custom.</li>
+                        </ul>
+                    </div>
+                    <div class="bento-visual-sub">
+                        <img src="images/Gemini_Generated_Image_301ln7301ln7301l.png" alt="Sistemas a Medida"
                             loading="lazy">
                     </div>
                 </article>
 
-                <!-- Card 2: Sistemas -->
-                <article class="service-card-new" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-tag">02. SISTEMAS</div>
-                    <h3>Sistemas Internos</h3>
-                    <p>Desarrollamos sistemas internos personalizados para optimizar la gestión y potenciar el
-                        crecimiento de tu empresa.</p>
-                    <ul class="service-features-new">
-                        <li class="service-feature-item"><span class="feature-dot"></span> Control total de stock,
-                            ventas e ingresos</li>
-                        <li class="service-feature-item"><span class="feature-dot"></span> Panel de gestión para
-                            empleados y administradores</li>
-                        <li class="service-feature-item"><span class="feature-dot"></span> Información segura y
-                            centralizada en todo momento</li>
-                    </ul>
-                    <div class="service-image-stage">
-                        <img src="images/Gemini_Generated_Image_301ln7301ln7301l.png" alt="Custom Software Systems"
-                            loading="lazy">
+                <!-- Sub Feature 2 (Automatizaciones) -->
+                <article class="bento-item bento-medium" data-aos="fade-up" data-delay="300">
+                    <div class="bento-content">
+                        <div class="service-tag">03. IA & AUTO</div>
+                        <h3>Automatizaciones</h3>
+                        <p>Sistemas inteligentes que operan 24/7. Eliminá el trabajo manual repetitivo y dejá que la IA
+                            optimice tus procesos.</p>
+                        <ul class="service-features-list">
+                            <li><span class="feature-dot"></span> Respuestas y flujos automáticos.</li>
+                            <li><span class="feature-dot"></span> Integraciones API entre plataformas.</li>
+                        </ul>
                     </div>
-                </article>
-
-                <!-- Card 3: Automatizaciones -->
-                <article class="service-card-new" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-tag">03. IA & AUTO</div>
-                    <h3>Automatizaciones</h3>
-                    <p>Automatizá tareas repetitivas y dejá que sistemas inteligentes trabajen por vos, ahorrando tiempo
-                        y recursos.</p>
-                    <ul class="service-features-new">
-                        <li class="service-feature-item"><span class="feature-dot"></span> Respuestas automáticas 24/7
-                        </li>
-                        <li class="service-feature-item"><span class="feature-dot"></span> Automatización de tareas
-                            repetitivas</li>
-                        <li class="service-feature-item"><span class="feature-dot"></span> Ahorro de tiempo en procesos
-                            diarios</li>
-                    </ul>
-                    <div class="service-image-stage">
-                        <img src="images/Gemini_Generated_Image_ynjupeynjupeynju.png" alt="Digital Automation & AI"
+                    <div class="bento-visual-sub">
+                        <img src="images/Gemini_Generated_Image_ynjupeynjupeynju.png" alt="Automatizaciones"
                             loading="lazy">
                     </div>
                 </article>
@@ -323,35 +311,44 @@
             <div class="clients-grid">
                 <!-- Fila 1 -->
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="100">
-                    <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google" style="height: 40px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/google/ffffff" alt="Google"
+                        style="height: 40px; width: auto; object-fit: contain;">
                 </div>
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="150">
-                    <img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple" style="height: 45px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/apple/ffffff" alt="Apple"
+                        style="height: 45px; width: auto; object-fit: contain;">
                 </div>
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="200">
-                    <img src="https://cdn.simpleicons.org/netflix/ffffff" alt="Netflix" style="height: 35px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/netflix/ffffff" alt="Netflix"
+                        style="height: 35px; width: auto; object-fit: contain;">
                 </div>
-                
+
                 <!-- Fila 2 -->
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="300">
-                    <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" style="height: 45px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify"
+                        style="height: 45px; width: auto; object-fit: contain;">
                 </div>
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="350">
-                    <img src="https://cdn.simpleicons.org/nike/ffffff" alt="Nike" style="height: 40px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/nike/ffffff" alt="Nike"
+                        style="height: 40px; width: auto; object-fit: contain;">
                 </div>
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="400">
-                    <img src="https://cdn.simpleicons.org/tesla/ffffff" alt="Tesla" style="height: 40px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/tesla/ffffff" alt="Tesla"
+                        style="height: 40px; width: auto; object-fit: contain;">
                 </div>
-                
+
                 <!-- Fila 3 -->
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="500">
-                    <img src="https://cdn.simpleicons.org/audi/ffffff" alt="Audi" style="height: 45px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/audi/ffffff" alt="Audi"
+                        style="height: 45px; width: auto; object-fit: contain;">
                 </div>
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="550">
-                    <img src="https://cdn.simpleicons.org/stripe/ffffff" alt="Stripe" style="height: 40px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/stripe/ffffff" alt="Stripe"
+                        style="height: 40px; width: auto; object-fit: contain;">
                 </div>
                 <div class="client-logo-box" data-aos="zoom-in" data-delay="600">
-                    <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" style="height: 45px; width: auto; object-fit: contain;">
+                    <img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"
+                        style="height: 45px; width: auto; object-fit: contain;">
                 </div>
             </div>
         </div>
@@ -363,7 +360,7 @@
     <section id="como-trabajamos" class="workflow-section">
         <div class="workflow-orb-2"></div>
         <div class="container workflow-container">
-            
+
             <!-- Centered Header -->
             <div class="workflow-header" data-aos="fade-up">
                 <span class="workflow-subtitle-tag">LOS PASOS A SEGUIR JUNTOS</span>
@@ -372,18 +369,18 @@
 
             <!-- Vertical Timeline -->
             <div class="workflow-timeline">
-                
+
                 <!-- Central Lines (Single source for smooth transition) -->
                 <div class="timeline-line-bg"></div>
                 <div class="timeline-line-progress"></div>
-                
+
                 <!-- Masks (Hides line above first circle and below last circle) -->
                 <div class="timeline-mask-top"></div>
                 <div class="timeline-mask-bottom"></div>
 
                 <!-- Steps -->
                 <div class="timeline-steps">
-                    
+
                     <!-- Paso 1 -->
                     <div class="timeline-step is-even" data-step="1">
                         <!-- Central Node -->
@@ -397,7 +394,9 @@
                                 <div class="step-meta-line"></div>
                             </div>
                             <h3 class="step-title">Descubrimiento & Estrategia</h3>
-                            <p class="step-desc">Analizamos tu negocio y definimos la solución ideal. Hacemos una sesión de consultoría técnica para definir la arquitectura, el alcance y el diseño de tu software, asegurando la máxima viabilidad.</p>
+                            <p class="step-desc">Analizamos tu negocio y definimos la solución ideal. Hacemos una sesión
+                                de consultoría técnica para definir la arquitectura, el alcance y el diseño de tu
+                                software, asegurando la máxima viabilidad.</p>
                         </div>
                     </div>
 
@@ -414,7 +413,9 @@
                                 <span class="step-meta-num">Paso 2</span>
                             </div>
                             <h3 class="step-title">Diseño UI/UX Premium</h3>
-                            <p class="step-desc">Creamos interfaces modernas, intuitivas y que convierten. Diseñamos un prototipo interactivo en alta fidelidad en Figma para que puedas ver y probar exactamente cómo se verá y funcionará tu aplicación antes de desarrollarla.</p>
+                            <p class="step-desc">Creamos interfaces modernas, intuitivas y que convierten. Diseñamos un
+                                prototipo interactivo en alta fidelidad en Figma para que puedas ver y probar
+                                exactamente cómo se verá y funcionará tu aplicación antes de desarrollarla.</p>
                         </div>
                     </div>
 
@@ -431,7 +432,9 @@
                                 <div class="step-meta-line"></div>
                             </div>
                             <h3 class="step-title">Desarrollo Ágil</h3>
-                            <p class="step-desc">Escribimos código robusto, rápido y propietario. Desarrollamos tu software utilizando tecnologías modernas y escalables (React, Next.js, Node.js). El código es de tu propiedad, sin dependencias restrictivas.</p>
+                            <p class="step-desc">Escribimos código robusto, rápido y propietario. Desarrollamos tu
+                                software utilizando tecnologías modernas y escalables (React, Next.js, Node.js). El
+                                código es de tu propiedad, sin dependencias restrictivas.</p>
                         </div>
                     </div>
 
@@ -439,7 +442,8 @@
                     <div class="timeline-step is-odd" data-step="4">
                         <!-- Central Node -->
                         <div class="timeline-node">
-                            <svg class="node-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="node-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="20 6 9 17 4 12"></polyline>
                             </svg>
                         </div>
@@ -450,11 +454,15 @@
                                 <span class="step-meta-num">Paso 4</span>
                             </div>
                             <h3 class="step-title">Soporte & Lanzamiento</h3>
-                            <p class="step-desc">Desplegamos tu software y te acompañamos en el crecimiento. Subimos tu sistema a producción en servidores seguros en la nube, te capacitamos en su uso y brindamos soporte post-lanzamiento activo.</p>
+                            <p class="step-desc">Desplegamos tu software y te acompañamos en el crecimiento. Subimos tu
+                                sistema a producción en servidores seguros en la nube, te capacitamos en su uso y
+                                brindamos soporte post-lanzamiento activo.</p>
                             <div class="step-cta-block">
-                                <a href="#contacto" class="btn btn-primary btn-cta-workflow">
+                                <a href="https://calendly.com/santysegal/30min" target="_blank" rel="noopener" class="btn btn-primary btn-cta-workflow">
                                     Agendar reunión
-                                    <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round">
                                         <line x1="22" y1="2" x2="11" y2="13"></line>
                                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                                     </svg>
@@ -482,7 +490,8 @@
                     <span class="highlight-blue">Consultale a la IA.</span>
                 </h2>
                 <p class="assistant-subtitle" data-aos="fade-up" data-delay="200">
-                    Hacé clic en cualquiera de las consultas rápidas y nuestro modelo responderá tus dudas en tiempo real.
+                    Hacé clic en cualquiera de las consultas rápidas y nuestro modelo responderá tus dudas en tiempo
+                    real.
                 </p>
             </div>
 
@@ -537,21 +546,25 @@
                         <div class="terminal-body" id="terminal-output">
                             <!-- Boot sequence logs -->
                             <div class="log-startup">[09:00:00] > Iniciando WIS AI Support Agent...</div>
-                            <div class="log-startup log-green">[09:00:01] > Conexión segura establecida exitosamente.</div>
-                            
+                            <div class="log-startup log-green">[09:00:01] > Conexión segura establecida exitosamente.
+                            </div>
+
                             <!-- Dynamic Content Wrapper -->
                             <div id="dynamic-console-content">
                                 <span class="console-line">
-                                    <span class="prefix-user">user@bluedev:~$</span> 
+                                    <span class="prefix-user">user@bluedev:~$</span>
                                     <span class="text-command" id="console-query">¿Cuánto tarda el desarrollo?</span>
                                 </span>
                                 <span class="console-divider"></span>
                                 <span class="console-line">
-                                    <span class="prefix-ai">ai@bluedev:~$</span> 
-                                    <span class="text-answer-headline" id="console-short-answer">El tiempo estimado es de 3 a 6 semanas.</span>
+                                    <span class="prefix-ai">ai@bluedev:~$</span>
+                                    <span class="text-answer-headline" id="console-short-answer">El tiempo estimado es
+                                        de 3 a 6 semanas.</span>
                                 </span>
                                 <span class="text-answer-block" id="console-full-answer">
-                                    El plazo exacto depende del alcance. La mayoría de los proyectos (sistemas internos, integraciones y landings de alta conversión) se entregan en menos de un mes, con despliegue continuo para que puedas ver el avance real semana a semana.
+                                    El plazo exacto depende del alcance. La mayoría de los proyectos (sistemas internos,
+                                    integraciones y landings de alta conversión) se entregan en menos de un mes, con
+                                    despliegue continuo para que puedas ver el avance real semana a semana.
                                 </span>
                             </div>
                         </div>
@@ -584,7 +597,8 @@
                         Estamos listos para construir la solución que tu negocio necesita.
                     </p>
                     <div class="cta-premium-actions" data-aos="zoom-in" data-aos-delay="400">
-                        <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto" target="_blank" rel="noopener" class="btn-premium-cta">
+                        <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto"
+                            target="_blank" rel="noopener" class="btn-premium-cta">
                             <span>Comenzar proyecto</span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -657,8 +671,8 @@
             <div class="footer-modern-main">
                 <div class="footer-modern-brand" data-aos="fade-up" data-aos-delay="0">
                     <div class="footer-modern-logo">
-                        <img src="images/logo-icon.svg" alt="WIS Logo" class="logo-img"
-                            style="width: 24px; height: 24px;">
+                        <img src="images/logowis.png" alt="WIS Logo" class="logo-img"
+                            style="width: 33px; height: 33px;">
                         <div class="logo-wrapper">
                             <span class="logo-text">WIS</span>
                             <span class="logo-subtitle" style="font-size: 0.6rem;">SOFTWARE DEVELOPMENT</span>
@@ -759,6 +773,141 @@
                 d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.978 0-7.51 6.11-13.62 13.62-13.62s13.62 6.11 13.62 13.62-6.11 13.62-13.62 13.62zM21.305 19.26c-0.346-0.174-2.049-1.007-2.366-1.123-0.317-0.117-0.548-0.174-0.779 0.174s-0.895 1.123-1.098 1.355c-0.202 0.231-0.405 0.26-0.751 0.087s-1.462-0.539-2.785-1.722c-1.030-0.919-1.726-2.054-1.929-2.400s-0.022-0.535 0.152-0.709c0.156-0.155 0.346-0.405 0.52-0.607s0.231-0.347 0.347-0.578c0.116-0.231 0.058-0.434-0.029-0.607s-0.779-1.875-1.066-2.567c-0.28-0.673-0.565-0.580-0.779-0.591-0.202-0.010-0.433-0.012-0.663-0.012s-0.607 0.087-0.924 0.434c-0.317 0.347-1.213 1.18-1.213 2.873s1.242 3.332 1.415 3.564c0.174 0.231 2.371 3.768 5.909 5.163 3.539 1.394 3.539 0.929 4.176 0.871 0.637-0.058 2.049-0.839 2.337-1.649s0.289-1.504 0.202-1.649c-0.087-0.145-0.318-0.231-0.663-0.405z" />
         </svg>
     </a>
+
+    <!-- Premium Interactive Booking Calendar Modal -->
+    <div id="booking-modal" class="booking-modal-overlay">
+        <div class="booking-modal-card">
+            <button id="booking-close-btn" class="booking-modal-close" aria-label="Cerrar modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <!-- Badge -->
+            <div class="booking-badge">Agendá una llamada</div>
+
+            <!-- Dynamic Steps Container -->
+            <div id="booking-step-1" class="booking-step-wrapper">
+                <!-- Heading -->
+                <h3 class="booking-heading">Elegí el <span class="italic-serif">día y horario</span> que te quede mejor.</h3>
+
+                <!-- Info Row -->
+                <div class="booking-info-row">
+                    <div class="booking-info-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        45 minutos
+                    </div>
+                    <div class="booking-info-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 7l-7 5 7 5V7z"></path>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        </svg>
+                        Por Microsoft Teams
+                    </div>
+                    <div class="booking-info-pill">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        Huso horario Argentina
+                    </div>
+                </div>
+
+                <div class="booking-section-title">Seleccioná una fecha</div>
+
+                <!-- Calendar Card -->
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        <button id="calendar-prev-btn" class="calendar-nav-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <span id="calendar-month-year" class="calendar-month-label">Mayo 2026</span>
+                        <button id="calendar-next-btn" class="calendar-nav-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Weekdays -->
+                    <div class="calendar-weekdays">
+                        <div>Dom</div>
+                        <div>Lun</div>
+                        <div>Mar</div>
+                        <div>Mié</div>
+                        <div>Jue</div>
+                        <div>Vie</div>
+                        <div>Sáb</div>
+                    </div>
+
+                    <!-- Day cells grid -->
+                    <div id="calendar-days" class="calendar-days-grid"></div>
+                </div>
+            </div>
+
+            <div id="booking-step-2" class="booking-step-wrapper" style="display: none;">
+                <h3 class="booking-heading">Seleccioná un <span class="italic-serif">horario</span> para tu llamada</h3>
+                <div id="selected-date-label" class="booking-badge" style="background: #2563eb; color: #fff; border: none;">Miércoles 17 de Mayo</div>
+                
+                <div class="booking-section-title" style="margin-top: 10px;">Horarios Disponibles</div>
+                <div id="time-slots" class="time-slots-container">
+                    <!-- Dynamic Time Slots will be loaded here -->
+                </div>
+
+                <button id="back-to-step-1" class="btn-booking-back">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Volver al calendario
+                </button>
+            </div>
+
+            <div id="booking-step-3" class="booking-step-wrapper" style="display: none;">
+                <h3 class="booking-heading">Completá tus <span class="italic-serif">datos</span> para confirmar</h3>
+                <div id="booking-summary-badge" class="booking-badge" style="background: #2563eb; color: #fff; border: none;">Miércoles 17 de Mayo — 10:30 hs</div>
+                
+                <form id="booking-details-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="booking-name">Nombre Completo</label>
+                        <input type="text" id="booking-name" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-email">Dirección de Email</label>
+                        <input type="email" id="booking-email" placeholder="Ej: juan@empresa.com" required>
+                    </div>
+                    <button type="submit" class="btn-booking-submit">Confirmar Turno</button>
+                </form>
+
+                <button id="back-to-step-2" class="btn-booking-back">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Volver a horarios
+                </button>
+            </div>
+
+            <div id="booking-step-success" class="booking-step-wrapper" style="display: none;">
+                <div class="booking-success">
+                    <div class="success-icon-wrapper">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="success-title">¡Reunión Agendada!</h3>
+                    <p id="success-message" class="success-desc">Tu llamada ha sido confirmada para el Miércoles 17 de Mayo a las 10:30 hs. Te enviamos una invitación con el enlace de Microsoft Teams a tu email.</p>
+                    <button id="booking-success-close" class="btn-booking-submit" style="width: 100%; max-width: 220px; background: #2563eb;">Entendido</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
