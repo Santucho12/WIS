@@ -37,8 +37,8 @@
   background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(42, 186, 243, 0.12);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 1px rgba(42, 186, 243, 0.1) inset;
+  border: 1px solid rgba(0, 210, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 1px rgba(0, 210, 255, 0.1) inset;
 }
 
 /* Logo Styles */
@@ -68,7 +68,7 @@
 }
 
 .logo-text {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-white);
@@ -135,7 +135,7 @@
   background: var(--color-celeste);
   border-radius: 2px;
   transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 0 10px rgba(42, 186, 243, 0.6);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
 }
 
 .nav-links a:hover .nav-underline,
@@ -154,10 +154,10 @@
   align-items: center;
   justify-content: center;
   background: var(--color-white);
-  color: #0b1523;
+  color: var(--bg-primary);
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   text-transform: uppercase;
   padding: 10px 24px;
   font-size: 0.72rem;
@@ -171,7 +171,7 @@
 .btn-navbar-cta:hover {
   background: var(--color-celeste);
   color: #fff;
-  box-shadow: 0 0 20px rgba(42, 186, 243, 0.45);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.45);
   transform: translateY(-1px) scale(1.04);
 }
 
@@ -316,7 +316,7 @@
     width: calc(100% - 24px);
     margin: 10px auto 0 auto !important;
     background: var(--color-white) !important;
-    color: #0b1523 !important;
+    color: var(--bg-primary) !important;
     font-weight: 800 !important;
     text-transform: uppercase;
     font-size: 0.78rem !important;

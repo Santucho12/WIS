@@ -35,10 +35,10 @@
 }
 
 .about-headline {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: clamp(2.5rem, 4vw, 3.8rem);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-white);
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -64,10 +64,10 @@
 .about-lead {
   font-size: 1.4rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--color-white);
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
 }
 
 .about-subtext {
@@ -75,7 +75,7 @@
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.8;
   margin-bottom: 3.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Lista de Valores */
@@ -98,13 +98,13 @@
   background-color: var(--color-celeste);
   border-radius: 50%;
   flex-shrink: 0;
-  box-shadow: 0 0 15px rgba(42, 186, 243, 0.6);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
 }
 
 .value-item h4 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: 1.2rem;
-  color: #ffffff;
+  color: var(--color-white);
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
@@ -166,7 +166,7 @@
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(42, 186, 243, 0.2);
+  border: 1px solid rgba(0, 210, 255, 0.2);
   padding: 1.5rem 2rem;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
@@ -179,7 +179,7 @@
 }
 
 .stat-num {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--color-celeste);
@@ -187,9 +187,9 @@
 }
 
 .stat-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.9rem;
-  color: #ffffff;
+  color: var(--color-white);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;

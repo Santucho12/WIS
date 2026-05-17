@@ -18,7 +18,7 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(42, 186, 243, 0.02) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.02) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   border-radius: 50%;
@@ -44,7 +44,7 @@
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   margin-bottom: 1.5rem;
 }
 
@@ -59,7 +59,7 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
 }
 
@@ -103,8 +103,8 @@
 
 .bento-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(42, 186, 243, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(42, 186, 243, 0.1);
+  border-color: rgba(0, 210, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 210, 255, 0.1);
 }
 
 .bento-card:hover::before {
@@ -129,7 +129,7 @@
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   margin-bottom: 30px;
 }
 
@@ -150,13 +150,13 @@
   font-weight: 800;
   font-size: 0.92rem;
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Individual initials avatars colors from reference image */
 .avatar-andres {
-  background: #1a6fd1; /* Deep Blue */
+  background: var(--color-azul); /* Deep Blue */
 }
 
 .avatar-federico {
@@ -177,14 +177,14 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-white);
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
 }
 
 .author-role {
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.4);
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Metric specific cards styling */
@@ -200,9 +200,9 @@
   font-weight: 800;
   color: var(--color-celeste);
   line-height: 1;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--color-celeste) 0%, #1a6fd1 100%);
+  background: linear-gradient(135deg, var(--color-celeste) 0%, var(--color-azul) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -211,7 +211,7 @@
   font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.45);
   line-height: 1.5;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 500;
   margin-top: 14px;
 }

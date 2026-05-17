@@ -25,10 +25,10 @@
 }
 
 .services-headline {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-white);
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -46,7 +46,7 @@
   background: #080808;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(42, 186, 243, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.1);
   display: flex;
   flex-direction: column;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -54,9 +54,9 @@
 }
 
 .bento-item:hover {
-  border-color: rgba(42, 186, 243, 0.3);
+  border-color: rgba(0, 210, 255, 0.3);
   transform: translateY(-5px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(42, 186, 243, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 210, 255, 0.08);
 }
 
 /* Tamaños de las Cards */
@@ -95,17 +95,17 @@
   text-transform: uppercase;
   display: inline-block;
   padding: 6px 14px;
-  background: rgba(42, 186, 243, 0.08); 
+  background: rgba(0, 210, 255, 0.08); 
   border-radius: 50px;
-  border: 1px solid rgba(42, 186, 243, 0.15);
+  border: 1px solid rgba(0, 210, 255, 0.15);
   align-self: flex-start;
 }
 
 .bento-item h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: 2.2rem;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--color-white);
   margin-bottom: 1rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -120,7 +120,7 @@
   font-size: 1.05rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Feature List Inside Cards */
@@ -147,7 +147,7 @@
   height: 6px;
   background: var(--color-celeste);
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(42, 186, 243, 0.5);
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
   flex-shrink: 0;
 }
 

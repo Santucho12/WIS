@@ -15,8 +15,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(42, 186, 243, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(42, 186, 243, 0.015) 1px, transparent 1px);
+    linear-gradient(rgba(0, 210, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.015) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
   z-index: 1;
@@ -43,7 +43,7 @@
   right: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(42, 186, 243, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.03) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   border-radius: 50%;
@@ -79,7 +79,7 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   text-transform: uppercase;
 }
 
@@ -108,10 +108,10 @@
   top: 30px;
   width: 3px;
   height: 0%;
-  background: linear-gradient(to bottom, #1a6fd1 0%, #1a6fd1 50%, var(--color-celeste) 85%, var(--color-celeste) 100%);
+  background: linear-gradient(to bottom, var(--color-azul) 0%, var(--color-azul) 50%, var(--color-celeste) 85%, var(--color-celeste) 100%);
   transform: translateX(-50%);
   z-index: 2;
-  box-shadow: 0 0 15px rgba(42, 186, 243, 0.4), 0 0 5px rgba(42, 186, 243, 0.2);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4), 0 0 5px rgba(0, 210, 255, 0.2);
   will-change: height;
 }
 
@@ -153,7 +153,7 @@
   font-size: 1.1rem;
   font-weight: 800;
   color: rgba(255, 255, 255, 0.35);
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   transition: color var(--transition-normal);
 }
 
@@ -171,7 +171,7 @@
 /* Steps 1-2 Deep Blue theme */
 .timeline-step[data-step="1"] .timeline-node.active,
 .timeline-step[data-step="2"] .timeline-node.active {
-  background: #1a6fd1;
+  background: var(--color-azul);
   box-shadow: 0 0 25px rgba(26, 111, 209, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -179,7 +179,7 @@
 .timeline-step[data-step="3"] .timeline-node.active,
 .timeline-step[data-step="4"] .timeline-node.active {
   background: var(--color-celeste);
-  box-shadow: 0 0 25px rgba(42, 186, 243, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .timeline-node.active .node-number,
@@ -232,7 +232,7 @@
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: rgba(255, 255, 255, 0.25);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   transition: color var(--transition-normal);
 }
 
@@ -256,7 +256,7 @@
 .step-title {
   font-size: 1.65rem;
   font-weight: 800;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   margin-bottom: 12px;
   color: rgba(255, 255, 255, 0.4);
   line-height: 1.25;
@@ -279,7 +279,7 @@
   font-size: 0.96rem;
   color: rgba(255, 255, 255, 0.45);
   line-height: 1.65;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 300;
   transition: color var(--transition-normal);
 }

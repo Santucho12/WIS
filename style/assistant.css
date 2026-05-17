@@ -30,7 +30,7 @@
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(42, 186, 243, 0.02) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.02) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   border-radius: 50%;
@@ -53,8 +53,8 @@
 .assistant-badge-pill {
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(42, 186, 243, 0.25);
-  background: rgba(42, 186, 243, 0.04);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  background: rgba(0, 210, 255, 0.04);
   color: var(--color-celeste);
   font-weight: 800;
   text-transform: uppercase;
@@ -63,8 +63,8 @@
   padding: 8px 24px;
   border-radius: 999px;
   margin-bottom: 1.5rem;
-  font-family: 'Poppins', sans-serif;
-  box-shadow: 0 0 20px rgba(42, 186, 243, 0.05);
+  font-family: var(--font-title);
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.05);
 }
 
 .assistant-main-title {
@@ -73,7 +73,7 @@
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   margin-bottom: 1.5rem;
 }
 
@@ -88,7 +88,7 @@
   max-width: 650px;
   margin: 0 auto;
   line-height: 1.6;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
 }
 
@@ -121,7 +121,7 @@
   color: rgba(255, 255, 255, 0.5);
   font-weight: 700;
   font-size: 0.95rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
@@ -166,10 +166,10 @@
 .assistant-btn.active {
   border-color: var(--color-celeste);
   color: var(--color-white);
-  background: rgba(42, 186, 243, 0.03);
+  background: rgba(0, 210, 255, 0.03);
   box-shadow: 
-    0 0 25px rgba(42, 186, 243, 0.15), 
-    inset 0 0 15px rgba(42, 186, 243, 0.05);
+    0 0 25px rgba(0, 210, 255, 0.15), 
+    inset 0 0 15px rgba(0, 210, 255, 0.05);
 }
 
 /* Right Column: Terminal Window Simulator */
@@ -186,7 +186,7 @@
 
 .terminal-window:hover {
   transform: translateY(-3px);
-  border-color: rgba(42, 186, 243, 0.15);
+  border-color: rgba(0, 210, 255, 0.15);
 }
 
 /* Terminal Titlebar Mac-style */
@@ -229,7 +229,7 @@
   border: 1px solid rgba(16, 185, 129, 0.3);
   background: rgba(16, 185, 129, 0.05);
   color: #10b981;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.05em;

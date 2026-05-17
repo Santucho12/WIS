@@ -15,8 +15,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(42, 186, 243, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(42, 186, 243, 0.015) 1px, transparent 1px);
+    linear-gradient(rgba(0, 210, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.015) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
   z-index: 1;
@@ -52,7 +52,7 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   text-transform: uppercase;
 }
 
@@ -99,7 +99,7 @@
   font-size: 1.05rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.85);
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   transition: color 0.3s ease;
   letter-spacing: -0.01em;
 }
@@ -144,7 +144,7 @@
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.7;
   font-size: 0.94rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 300;
 }
 
@@ -156,8 +156,8 @@
 /* Active State styling */
 .faq-item.active {
   background: rgba(255, 255, 255, 0.035);
-  border-color: rgba(42, 186, 243, 0.35);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 25px rgba(42, 186, 243, 0.06);
+  border-color: rgba(0, 210, 255, 0.35);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 25px rgba(0, 210, 255, 0.06);
 }
 
 .faq-item.active .faq-question span {
@@ -169,7 +169,7 @@
   background: var(--color-celeste);
   border-color: var(--color-celeste);
   color: #fff;
-  box-shadow: 0 0 15px rgba(42, 186, 243, 0.4);
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
 .faq-item.active .faq-answer {

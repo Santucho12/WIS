@@ -15,8 +15,8 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(42, 186, 243, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(42, 186, 243, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(0, 210, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.02) 1px, transparent 1px);
   background-size: 50px 50px;
   mask-image: radial-gradient(circle at 50% 50%, black, transparent 90%);
   z-index: 1;
@@ -92,14 +92,14 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(42, 186, 243, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(0, 210, 255, 0.05) 0%, transparent 70%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .client-logo-box:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(42, 186, 243, 0.25);
+  border-color: rgba(0, 210, 255, 0.25);
   transform: translateY(-4px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
@@ -109,7 +109,7 @@
 }
 
 .client-logo-box span {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-title);
   font-size: 0.95rem; /* Reduced from 1.2rem */
   font-weight: 700;
   color: rgba(255, 255, 255, 0.25);
@@ -121,7 +121,7 @@
 
 .client-logo-box:hover span {
   color: var(--color-celeste);
-  text-shadow: 0 0 12px rgba(42, 186, 243, 0.4);
+  text-shadow: 0 0 12px rgba(0, 210, 255, 0.4);
   transform: scale(1.03);
 }
 

@@ -65,7 +65,7 @@ html.lenis body {
 }
 
 body {
-  font-family: "Inter", "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans);
   background-color: var(--color-black);
   color: var(--text-white);
   overflow-x: hidden;
@@ -102,7 +102,7 @@ body.no-scroll {
    TÍTULOS Y TIPOGRAFÍA GENÉRICA
    ==================================== */
 .section-title {
-  font-family: 'Poppins', 'Inter', sans-serif;
+  font-family: var(--font-title);
   font-size: 3rem;
   text-align: center;
   margin-top: 0;
@@ -170,7 +170,7 @@ section::after {
   transition: all var(--transition-smooth);
   letter-spacing: 0.3px;
   border: none;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   text-transform: uppercase;
 }
 
@@ -184,7 +184,7 @@ section::after {
   color: var(--text-white);
   border: 2px solid transparent;
   /* El borde ahora proviene del gradiente del border-box */
-  box-shadow: 0 10px 30px rgba(42, 186, 243, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
   position: relative;
   z-index: 1;
 }
@@ -193,7 +193,7 @@ section::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #1a9fd4 0%, #2abaf3 100%);
+  background: linear-gradient(135deg, #1a9fd4 0%, var(--color-celeste) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
   border-radius: inherit;
@@ -204,7 +204,7 @@ section::after {
   background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
     var(--gradient-primary) border-box;
   color: #fff;
-  box-shadow: 0 15px 45px rgba(42, 186, 243, 0.4);
+  box-shadow: 0 15px 45px rgba(0, 210, 255, 0.4);
   transform: translateY(-3px) scale(1.02);
 }
 
@@ -222,8 +222,8 @@ section::after {
 .btn-secondary:hover {
   transform: translateY(-3px);
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(42, 186, 243, 0.5);
-  box-shadow: 0 16px 48px rgba(42, 186, 243, 0.15);
+  border-color: rgba(0, 210, 255, 0.5);
+  box-shadow: 0 16px 48px rgba(0, 210, 255, 0.15);
 }
 
 .btn-full {
@@ -278,7 +278,7 @@ section::after {
    SELECTION STYLING
    ==================================== */
 ::selection {
-  background: rgba(42, 186, 243, 0.3);
+  background: rgba(0, 210, 255, 0.3);
   color: #fff;
 }
 
@@ -291,7 +291,7 @@ section::after {
   a,
   button {
     touch-action: manipulation;
-    -webkit-tap-highlight-color: rgba(42, 186, 243, 0.18);
+    -webkit-tap-highlight-color: rgba(0, 210, 255, 0.18);
   }
 
   .container {
@@ -337,4 +337,4 @@ section::after {
     height: 25px;
   }
 }
-
+
