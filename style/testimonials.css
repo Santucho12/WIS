@@ -18,7 +18,7 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(0, 210, 255, 0.02) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--hue-blue-rgb), 0.02) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   border-radius: 50%;
@@ -55,7 +55,7 @@
 
 .testimonials-subtitle {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(var(--hue-white-rgb), 0.5);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -80,13 +80,13 @@
 /* General Card Design */
 .bento-card {
   background: rgba(10, 16, 26, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(var(--hue-white-rgb), 0.05);
   border-radius: 20px;
   padding: 40px;
   position: relative;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(var(--hue-black-rgb), 0.2);
 }
 
 /* Glass hover lighting effect */
@@ -94,7 +94,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.04), transparent 40%);
+  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(var(--hue-white-rgb), 0.04), transparent 40%);
   z-index: 1;
   pointer-events: none;
   opacity: 0;
@@ -103,8 +103,8 @@
 
 .bento-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 210, 255, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 210, 255, 0.1);
+  border-color: rgba(var(--hue-blue-rgb), 0.2);
+  box-shadow: 0 20px 40px rgba(var(--hue-black-rgb), 0.3), 0 0 15px rgba(var(--hue-blue-rgb), 0.1);
 }
 
 .bento-card:hover::before {
@@ -127,7 +127,7 @@
 .testimonial-text {
   font-size: 1.05rem;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(var(--hue-white-rgb), 0.85);
   font-weight: 500;
   font-family: var(--font-sans);
   margin-bottom: 30px;
@@ -149,9 +149,9 @@
   justify-content: center;
   font-weight: 800;
   font-size: 0.92rem;
-  color: #fff;
+  color: var(--hue-white);
   font-family: var(--font-title);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(var(--hue-black-rgb), 0.2);
 }
 
 /* Individual initials avatars colors from reference image */
@@ -182,7 +182,7 @@
 
 .author-role {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(var(--hue-white-rgb), 0.4);
   font-weight: 500;
   font-family: var(--font-sans);
 }
@@ -209,7 +209,7 @@
 
 .metric-label {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(var(--hue-white-rgb), 0.45);
   line-height: 1.5;
   font-family: var(--font-sans);
   font-weight: 500;

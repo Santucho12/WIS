@@ -113,7 +113,7 @@
   padding-top: 0;
 }
 html, body {
-  background: #0a0a0a !important;
+  background: var(--hue-black) !important;
 }
 .container, .contact {
   background: transparent !important;
@@ -125,7 +125,7 @@ html, body {
 /* Contact Section */
 .contact {
   padding: 100px 0 130px 0;
-  background: #0a0a0a !important;
+  background: var(--hue-black) !important;
   backdrop-filter: none;
 }
 
@@ -141,17 +141,17 @@ html, body {
   display: flex;
   flex-direction: column;
   background: transparent !important;
-  color: #fff;
+  color: var(--hue-white);
 }
 
 .contact-info h2 {
   font-size: 2.2rem;
-  color: #fff;
+  color: var(--hue-white);
   margin-bottom: 1.1rem;
   font-weight: 800;
   letter-spacing: -1px;
   line-height: 1.15;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.10);
+  text-shadow: 0 2px 16px rgba(var(--hue-black-rgb),0.10);
 }
 
 .contact-info p {
@@ -161,7 +161,7 @@ html, body {
   margin-bottom: 1.2rem;
   line-height: 1.7;
   max-width: 700px;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  text-shadow: 0 1px 8px rgba(var(--hue-black-rgb),0.08);
 }
 
 .contact-details {
@@ -182,7 +182,7 @@ html, body {
   border-radius: 16px;
   box-shadow: 0 6px 24px 0 rgba(41,148,178,0.10);
   transition: box-shadow 0.3s, transform 0.3s;
-  color: #fff;
+  color: var(--hue-white);
   border-left: 4px solid var(--color-celeste);
   font-size: 0.81rem;
 }
@@ -208,7 +208,7 @@ html, body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: #fff;
+  color: var(--hue-white);
 }
 
 .form-group {
@@ -225,7 +225,7 @@ html, body {
   transition: all 0.3s ease;
   font-family: inherit;
   background: #181818;
-  color: #fff;
+  color: var(--hue-white);
 }
 
 .form-group input:focus,

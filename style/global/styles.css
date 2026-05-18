@@ -6,19 +6,16 @@
 /* ====================================
    IMPORTS - Sistema de módulos CSS
    ==================================== */
-@import url('../global.css');
+/* NOTA: global.css, navbar.css, home.css, services.css, clients.css y assistant.css
+   se cargan directamente como <link> en index.html para máxima eficiencia.
+   Solo importamos aquí los módulos que NO tienen <link> explícito en el HTML. */
 @import url('aos-custom.css');
 
-@import url('../navbar.css');
-@import url('../home.css');
-@import url('../services.css');
 @import url('../contact.css');
 @import url('../footer.css');
 @import url('../about.css');
 @import url('../selection.css');
 @import url('../testimonials.css');
-@import url('../clients.css');
-@import url('../assistant.css');
 
 /* ====================================
    RESET Y ESTILOS GLOBALES
@@ -107,7 +104,7 @@ body.no-scroll {
   text-align: center;
   margin-top: 0;
   margin-bottom: 1rem;
-  color: #fff;
+  color: var(--hue-white);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -179,12 +176,12 @@ section::after {
 }
 
 .btn-primary {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) padding-box,
+  background: linear-gradient(rgba(var(--hue-black-rgb), 0.2), rgba(var(--hue-black-rgb), 0.2)) padding-box,
     var(--gradient-primary) border-box;
   color: var(--text-white);
   border: 2px solid transparent;
   /* El borde ahora proviene del gradiente del border-box */
-  box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(var(--hue-blue-rgb), 0.2);
   position: relative;
   z-index: 1;
 }
@@ -201,10 +198,10 @@ section::after {
 }
 
 .btn-primary:hover {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) padding-box,
+  background: linear-gradient(rgba(var(--hue-white-rgb), 0.1), rgba(var(--hue-white-rgb), 0.1)) padding-box,
     var(--gradient-primary) border-box;
-  color: #fff;
-  box-shadow: 0 15px 45px rgba(0, 210, 255, 0.4);
+  color: var(--hue-white);
+  box-shadow: 0 15px 45px rgba(var(--hue-blue-rgb), 0.4);
   transform: translateY(-3px) scale(1.02);
 }
 
@@ -213,17 +210,17 @@ section::after {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(var(--hue-white-rgb), 0.04);
   color: var(--color-white);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(var(--hue-white-rgb), 0.15);
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(0, 210, 255, 0.5);
-  box-shadow: 0 16px 48px rgba(0, 210, 255, 0.15);
+  background: rgba(var(--hue-white-rgb), 0.08);
+  border-color: rgba(var(--hue-blue-rgb), 0.5);
+  box-shadow: 0 16px 48px rgba(var(--hue-blue-rgb), 0.15);
 }
 
 .btn-full {
@@ -278,8 +275,8 @@ section::after {
    SELECTION STYLING
    ==================================== */
 ::selection {
-  background: rgba(0, 210, 255, 0.3);
-  color: #fff;
+  background: rgba(var(--hue-blue-rgb), 0.3);
+  color: var(--hue-white);
 }
 
 /* Responsive */
@@ -291,7 +288,7 @@ section::after {
   a,
   button {
     touch-action: manipulation;
-    -webkit-tap-highlight-color: rgba(0, 210, 255, 0.18);
+    -webkit-tap-highlight-color: rgba(var(--hue-blue-rgb), 0.18);
   }
 
   .container {

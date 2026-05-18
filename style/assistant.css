@@ -30,7 +30,7 @@
   left: -10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0, 210, 255, 0.02) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(var(--hue-blue-rgb), 0.02) 0%, transparent 70%);
   z-index: 1;
   pointer-events: none;
   border-radius: 50%;
@@ -53,8 +53,8 @@
 .assistant-badge-pill {
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(0, 210, 255, 0.25);
-  background: rgba(0, 210, 255, 0.04);
+  border: 1px solid rgba(var(--hue-blue-rgb), 0.25);
+  background: rgba(var(--hue-blue-rgb), 0.04);
   color: var(--color-celeste);
   font-weight: 800;
   text-transform: uppercase;
@@ -64,7 +64,7 @@
   border-radius: 999px;
   margin-bottom: 1.5rem;
   font-family: var(--font-title);
-  box-shadow: 0 0 20px rgba(0, 210, 255, 0.05);
+  box-shadow: 0 0 20px rgba(var(--hue-blue-rgb), 0.05);
 }
 
 .assistant-main-title {
@@ -84,7 +84,7 @@
 
 .assistant-subtitle {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(var(--hue-white-rgb), 0.5);
   max-width: 650px;
   margin: 0 auto;
   line-height: 1.6;
@@ -117,8 +117,8 @@
   padding: 22px 28px;
   border-radius: 16px;
   background: rgba(10, 16, 26, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(var(--hue-white-rgb), 0.04);
+  color: rgba(var(--hue-white-rgb), 0.5);
   font-weight: 700;
   font-size: 0.95rem;
   font-family: var(--font-title);
@@ -126,14 +126,14 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(var(--hue-black-rgb), 0.1);
 }
 
 .assistant-btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255, 255, 255, 0.03), transparent 45%);
+  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(var(--hue-white-rgb), 0.03), transparent 45%);
   z-index: 1;
   pointer-events: none;
   opacity: 0;
@@ -157,8 +157,8 @@
 }
 
 .assistant-btn:hover {
-  border-color: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(var(--hue-white-rgb), 0.1);
+  color: rgba(var(--hue-white-rgb), 0.85);
   transform: translateY(-2px);
 }
 
@@ -166,19 +166,19 @@
 .assistant-btn.active {
   border-color: var(--color-celeste);
   color: var(--color-white);
-  background: rgba(0, 210, 255, 0.03);
+  background: rgba(var(--hue-blue-rgb), 0.03);
   box-shadow: 
-    0 0 25px rgba(0, 210, 255, 0.15), 
-    inset 0 0 15px rgba(0, 210, 255, 0.05);
+    0 0 25px rgba(var(--hue-blue-rgb), 0.15), 
+    inset 0 0 15px rgba(var(--hue-blue-rgb), 0.05);
 }
 
 /* Right Column: Terminal Window Simulator */
 .terminal-window {
   background: #040812; /* Extreme dark console bg */
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(var(--hue-white-rgb), 0.08);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.55), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  box-shadow: 0 35px 70px rgba(var(--hue-black-rgb), 0.55), 0 0 1px rgba(var(--hue-white-rgb), 0.1) inset;
   position: relative;
   z-index: 5;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -186,7 +186,7 @@
 
 .terminal-window:hover {
   transform: translateY(-3px);
-  border-color: rgba(0, 210, 255, 0.15);
+  border-color: rgba(var(--hue-blue-rgb), 0.15);
 }
 
 /* Terminal Titlebar Mac-style */
@@ -196,7 +196,7 @@
   justify-content: space-between;
   padding: 16px 24px;
   background: #090e1c;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(var(--hue-white-rgb), 0.05);
 }
 
 .mac-dots {
@@ -218,7 +218,7 @@
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
   font-size: 0.75rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(var(--hue-white-rgb), 0.45);
   letter-spacing: 0.03em;
 }
 
@@ -258,7 +258,7 @@
   font-family: 'Fira Code', 'Courier New', Courier, monospace;
   font-size: 0.88rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(var(--hue-white-rgb), 0.85);
   min-height: 380px;
   box-sizing: border-box;
   overflow-y: auto;
@@ -271,7 +271,7 @@
 
 /* Static Startup Logs styling */
 .log-startup {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(var(--hue-white-rgb), 0.35);
   margin-bottom: 6px;
 }
 
@@ -296,7 +296,7 @@
 }
 
 .text-command {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(var(--hue-white-rgb), 0.95);
   font-weight: 500;
 }
 
@@ -308,7 +308,7 @@
 
 /* Dashed lines */
 .console-divider {
-  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  border-top: 1px dashed rgba(var(--hue-white-rgb), 0.08);
   margin: 18px 0;
   height: 0;
   display: block;
@@ -317,11 +317,11 @@
 /* Answer response description text block styling */
 .text-answer-block {
   margin-top: 12px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(var(--hue-white-rgb), 0.7);
   display: block;
   font-size: 0.86rem;
   padding-left: 20px;
-  border-left: 2px solid rgba(255, 255, 255, 0.05);
+  border-left: 2px solid rgba(var(--hue-white-rgb), 0.05);
 }
 
 /* Blinking terminal console cursor */
