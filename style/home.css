@@ -111,7 +111,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 0;
+  margin-top: 4.2rem;
   padding: 0 40px 60px 40px;
   max-width: 1400px;
   margin-left: auto;
@@ -293,6 +293,28 @@
   z-index: 1;
 }
 
+/* Spotlight Interactive Glow */
+.hero-spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 30%) var(--mouse-y, 40%),
+    rgba(var(--hue-blue-rgb), 0.16),
+    transparent 80%
+  );
+  opacity: 0.8;
+  transition: opacity 0.8s ease, background 0.15s ease;
+}
+
+.hero:hover .hero-spotlight {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .hero-overlay-dark {
     background: linear-gradient(180deg, rgba(var(--hue-black-rgb), 0.6) 0%, rgba(var(--hue-black-rgb), 0.95) 100%);
@@ -308,7 +330,7 @@
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 33px;
+  bottom: 63px;
   left: 50%;
   transform: translateX(-50%) scale(0.95);
   animation: bounce 2s infinite;
@@ -485,7 +507,7 @@
 
   .scroll-indicator {
     display: block;
-    bottom: 26px;
+    bottom: 56px;
     transform: translateX(-50%) scale(0.78);
   }
 
@@ -513,7 +535,7 @@
   }
 
   .scroll-indicator {
-    bottom: 22px;
+    bottom: 52px;
     transform: translateX(-50%) scale(0.72);
   }
 
@@ -733,3 +755,4 @@
     box-sizing: border-box;
   }
 }
+

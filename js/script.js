@@ -611,6 +611,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // ── Hero Spotlight Mouse Tracking ──
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    heroSection.addEventListener('mousemove', function(e) {
+      const rect = heroSection.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      heroSection.style.setProperty('--mouse-x', `${x}%`);
+      heroSection.style.setProperty('--mouse-y', `${y}%`);
+    });
+  }
+
   // ── Calendly Integration & Configuration ──
   const CALENDLY_URL = 'https://calendly.com/santysegal/30min';
   const contactBtn = document.querySelector('.btn-navbar-cta');
