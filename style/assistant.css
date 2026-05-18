@@ -50,31 +50,17 @@
   margin-bottom: 70px;
 }
 
-.assistant-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid rgba(var(--hue-blue-rgb), 0.25);
-  background: rgba(var(--hue-blue-rgb), 0.04);
-  color: var(--color-celeste);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  padding: 8px 24px;
-  border-radius: 999px;
-  margin-bottom: 1.5rem;
-  font-family: var(--font-title);
-  box-shadow: 0 0 20px rgba(var(--hue-blue-rgb), 0.05);
-}
+
 
 .assistant-main-title {
-  font-size: 3rem;
+  font-size: clamp(2.915rem, 4.807vw, 4.18rem);
   color: var(--color-white);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
   font-family: var(--font-title);
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 .assistant-main-title .highlight-blue {
@@ -133,7 +119,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(var(--hue-white-rgb), 0.03), transparent 45%);
+  background: radial-gradient(350px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(var(--hue-white-rgb), 0.015), transparent 45%);
   z-index: 1;
   pointer-events: none;
   opacity: 0;

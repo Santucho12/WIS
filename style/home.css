@@ -303,16 +303,16 @@
   pointer-events: none;
   z-index: 2;
   background: radial-gradient(
-    650px circle at var(--mouse-x, 30%) var(--mouse-y, 40%),
-    rgba(var(--hue-blue-rgb), 0.16),
+    350px circle at var(--mouse-x, 30%) var(--mouse-y, 40%),
+    rgba(var(--hue-blue-rgb), 0.06),
     transparent 80%
   );
-  opacity: 0.8;
+  opacity: 0.4;
   transition: opacity 0.8s ease, background 0.15s ease;
 }
 
 .hero:hover .hero-spotlight {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 @media (max-width: 768px) {
@@ -565,6 +565,7 @@
 
 /* Background animated glow meshes */
 .cta-mesh-container {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -622,7 +623,7 @@
 .cta-premium-card {
   max-width: 1000px;
   margin: 0 auto;
-  background: linear-gradient(135deg, rgba(var(--hue-white-rgb), 0.03) 0%, rgba(var(--hue-white-rgb), 0.01) 100%);
+  background: rgba(var(--hue-white-rgb), 0.02);
   border: 1px solid rgba(var(--hue-white-rgb), 0.06);
   border-radius: 30px;
   padding: 80px 40px;
@@ -641,7 +642,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at top left, rgba(var(--hue-blue-rgb), 0.1) 0%, transparent 60%);
+  background: none;
   pointer-events: none;
 }
 
@@ -674,10 +675,11 @@
 }
 
 .cta-premium-title .text-gradient {
-  background: linear-gradient(135deg, var(--hue-white) 30%, var(--color-celeste) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  color: var(--color-white);
 }
 
 .cta-premium-subtitle {
@@ -692,39 +694,84 @@
 .btn-premium-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  background: var(--color-white);
-  color: var(--hue-black) !important;
+  justify-content: center;
+  background: linear-gradient(rgba(var(--hue-black-rgb), 0.2), rgba(var(--hue-black-rgb), 0.2)) padding-box,
+    var(--gradient-primary) border-box;
+  color: var(--text-white) !important;
+  border: 2px solid transparent;
+  border-radius: 50px;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   padding: 1.1rem 2.5rem;
-  border-radius: 50px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  transition: all 0.4s ease;
   text-decoration: none;
-  box-shadow: 0 10px 30px rgba(var(--hue-white-rgb), 0.15);
+  box-shadow: 0 10px 30px rgba(var(--hue-blue-rgb), 0.2);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.btn-premium-cta svg {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  stroke: var(--hue-black);
+.btn-premium-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a9fd4 0%, var(--color-celeste) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Moving Light Shimmer Effect */
+.btn-premium-cta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  z-index: 2;
+  animation: button-shimmer-sweep 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes button-shimmer-sweep {
+  0% {
+    left: -150%;
+  }
+  30% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
 }
 
 .btn-premium-cta:hover {
-  transform: translateY(-4px) scale(1.02);
-  background: var(--color-celeste);
-  color: var(--color-white) !important;
-  box-shadow: 0 15px 40px rgba(var(--hue-blue-rgb), 0.4);
+  background: linear-gradient(rgba(var(--hue-white-rgb), 0.1), rgba(var(--hue-white-rgb), 0.1)) padding-box,
+    var(--gradient-primary) border-box;
+  color: var(--hue-white) !important;
+  box-shadow: 0 15px 45px rgba(var(--hue-blue-rgb), 0.4);
+  transform: translateY(-3px) scale(1.02);
 }
 
-.btn-premium-cta:hover svg {
-  transform: translateX(5px);
-  stroke: var(--color-white);
+.btn-premium-cta:hover::before {
+  opacity: 1;
 }
 
 .btn-premium-cta:active {
-  transform: translateY(-2px);
+  transform: translateY(-1px) scale(0.98);
 }
 
 /* Responsive adjustments */

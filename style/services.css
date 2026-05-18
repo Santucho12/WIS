@@ -3,11 +3,10 @@
    ======================================== */
 
 .services {
-  padding: 180px 0;
+  padding: 100px 0 180px 0;
   background: var(--hue-black);
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(var(--hue-white-rgb), 0.05);
 }
 
 .services-container {
@@ -26,11 +25,12 @@
 
 .services-headline {
   font-family: var(--font-title);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.915rem, 4.807vw, 4.18rem);
   font-weight: 700;
   color: var(--color-white);
   line-height: 1.15;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 /* Bento Grid System */
@@ -82,7 +82,11 @@
 }
 
 .bento-large .bento-content {
-  width: 50%;
+  width: 42%;
+  max-width: 42%;
+  flex: 0 0 42%;
+  padding-right: 2rem;
+  overflow: hidden;
 }
 
 .service-tag {
@@ -156,7 +160,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 55%;
+  width: 52%;
   height: 100%;
   overflow: hidden;
 }
@@ -190,7 +194,6 @@
   height: 200px;
   overflow: hidden;
   margin-top: auto;
-  border-top: 1px solid rgba(var(--hue-white-rgb), 0.05);
 }
 
 .bento-visual-sub img {

@@ -68,6 +68,9 @@
 </head>
 
 <body>
+    <!-- Global Interactive Mouse Spotlight -->
+    <div class="global-spotlight"></div>
+
     <!-- SVG Filter for Grainy Text Textures -->
     <svg width="0" height="0" style="position: absolute; pointer-events: none;">
         <filter id="c3-noise">
@@ -202,68 +205,104 @@
     <!-- Sobre Nosotros Section -->
     <section id="sobre-nosotros" class="about">
         <div class="container about-container">
+            <div class="about-grid">
 
-            <div class="about-header" data-aos="fade-up">
-                <span class="section-kicker">01 // QUIÉNES SOMOS</span>
-                <h2 class="about-headline">
-                    Transformamos la complejidad técnica <br>
-                    <span class="text-blue-accent">en ventajas competitivas.</span>
-                </h2>
-            </div>
+                <!-- Left Column: Copy & Checklist -->
+                <div class="about-text-side" data-aos="fade-up">
+                    <span class="section-kicker">QUIÉNES SOMOS</span>
+                    <h2 class="about-title-large">
+                        POTENCIAMOS NEGOCIOS <br>
+                        CON <span class="text-gradient">TECNOLOGÍA.</span>
+                    </h2>
 
-            <div class="about-content" data-aos="fade-up" data-aos-delay="100">
-                <div class="about-text-column">
-                    <p class="about-lead">
-                        WIS es una firma de desarrollo de software premium enfocada en resolver desafíos empresariales
-                        mediante arquitectura de sistemas robusta y diseño excepcional.
-                    </p>
-                    <p class="about-subtext">
-                        Con años de experiencia en el mercado, nos especializamos en construir productos digitales
-                        escalables. No implementamos plantillas ni soluciones genéricas; diseñamos ecosistemas a medida
-                        que optimizan tiempos, automatizan procesos y posicionan a tu empresa en la vanguardia
-                        tecnológica.
+                    <p class="about-description-caps">
+                        DESARROLLAMOS WEBS, AUTOMATIZACIONES Y SISTEMAS A
+                        MEDIDA PARA EMPRESAS Y EMPRENDIMIENTOS. CON MÁS DE 3 AÑOS DE EXPERIENCIA, COMBINAMOS
+                        CONOCIMIENTO TÉCNICO Y ENFOQUE ESTRATÉGICO PARA CREAR PRODUCTOS ALINEADOS A LOS OBJETIVOS DE
+                        CADA CLIENTE.
                     </p>
 
-                    <div class="about-values">
-                        <div class="value-item">
-                            <span class="value-dot"></span>
-                            <div>
-                                <h4>Código Propietario</h4>
-                                <p>Sistemas independientes y seguros. Eres dueño absoluto de tu producto final.</p>
+                    <ul class="about-checklist">
+                        <li>
+                            <div class="check-icon-wrapper">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <span class="checklist-text"><strong>ENTREGA EN 3 A 6 SEMANAS</strong> — CUMPLIMOS LOS
+                                TIEMPOS ACORDADOS</span>
+                        </li>
+                        <li>
+                            <div class="check-icon-wrapper">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <span class="checklist-text"><strong>CÓDIGO PROPIO, SIN DEPENDENCIA DE TERCEROS</strong> —
+                                VOS SOS DUEÑO DE LO QUE CONSTRUIMOS</span>
+                        </li>
+                        <li>
+                            <div class="check-icon-wrapper">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <span class="checklist-text"><strong>SOPORTE ACTIVO POST-LANZAMIENTO</strong> — SEGUIMOS
+                                ACOMPAÑÁNDOTE DESPUÉS DE LA ENTREGA</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Column: Bento Stats Grid -->
+                <div class="about-stats-side" data-aos="fade-up">
+                    <div class="stats-bento-grid">
+
+                        <!-- Card 1: 28+ Proyectos -->
+                        <div class="stat-bento-card card-half">
+                            <div class="stat-icon-container">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-number-large">28+</div>
+                            <div class="stat-label-caps">PROYECTOS EXITOSOS</div>
+                        </div>
+
+                        <!-- Card 2: 3 a 6 Semanas -->
+                        <div class="stat-bento-card card-half">
+                            <div class="stat-icon-container">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-number-large">3 A 6 SEM.</div>
+                            <div class="stat-label-caps">TIEMPO DE ENTREGA</div>
+                        </div>
+
+                        <!-- Card 3: 24hs Consulta -->
+                        <div class="stat-bento-card card-full">
+                            <div class="stat-icon-container">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-full-content">
+                                <div class="stat-number-large">24HS</div>
+                                <div class="stat-label-caps">RESPONDEMOS TU CONSULTA</div>
                             </div>
                         </div>
-                        <div class="value-item">
-                            <span class="value-dot"></span>
-                            <div>
-                                <h4>Ejecución Ágil</h4>
-                                <p>Procesos optimizados que garantizan entregas entre 3 a 6 semanas.</p>
-                            </div>
-                        </div>
-                        <div class="value-item">
-                            <span class="value-dot"></span>
-                            <div>
-                                <h4>Soporte Activo</h4>
-                                <p>Monitoreo, mantenimiento y acompañamiento técnico continuo post-lanzamiento.</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 
-                <div class="about-visual-column">
-                    <div class="about-image-card">
-                        <img src="images/Gemini_Generated_Image_301ln7301ln7301l.png" alt="WIS Software Development"
-                            class="about-img">
-                        <div class="about-overlay-gradient"></div>
-                        <div class="about-stats-overlay">
-                            <div class="stat-box">
-                                <span class="stat-num">28+</span>
-                                <span class="stat-desc">Proyectos <br>Desplegados</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-
         </div>
     </section>
 
@@ -271,10 +310,10 @@
     <section id="servicios" class="services">
         <div class="container services-container">
             <div class="services-header" data-aos="fade-up">
-                <span class="section-kicker">02 // NUESTROS SERVICIOS</span>
+                <span class="section-kicker">SERVICIOS</span>
                 <h2 class="services-headline">
-                    Soluciones tecnológicas <br>
-                    <span class="text-blue-accent">de alto rendimiento.</span>
+                    LO QUE TU <span class="text-gradient">EMPRESA</span> <br>
+                    NECESITA HOY.
                 </h2>
             </div>
 
@@ -284,8 +323,8 @@
                     <div class="bento-content">
                         <div class="service-tag">01. EXPERIENCIA WEB</div>
                         <h3>Páginas Web Corporativas</h3>
-                        <p>Diseñamos y desarrollamos sitios web ultrarrápidos y optimizados para la conversión. Más que
-                            una carta de presentación, construimos tu principal motor de ventas.</p>
+                        <p>Tu sitio web es el primer contacto con tu cliente. Lo hacemos rápido, impactante y optimizado
+                            para convertir visitas en ventas reales.</p>
                         <ul class="service-features-list">
                             <li><span class="feature-dot"></span> Navegación intuitiva y UX/UI avanzado.</li>
                             <li><span class="feature-dot"></span> Rendimiento y velocidad optimizados.</li>
@@ -309,6 +348,7 @@
                         <ul class="service-features-list">
                             <li><span class="feature-dot"></span> Gestión centralizada de métricas.</li>
                             <li><span class="feature-dot"></span> Paneles de administración custom.</li>
+                            <li><span class="feature-dot"></span> Seguridad y control de accesos.</li>
                         </ul>
                     </div>
                     <div class="bento-visual-sub">
@@ -327,6 +367,7 @@
                         <ul class="service-features-list">
                             <li><span class="feature-dot"></span> Respuestas y flujos automáticos.</li>
                             <li><span class="feature-dot"></span> Integraciones API entre plataformas.</li>
+                            <li><span class="feature-dot"></span> Modelos de IA personalizados.</li>
                         </ul>
                     </div>
                     <div class="bento-visual-sub">
@@ -346,8 +387,10 @@
     <section id="clientes" class="clients">
         <div class="container clients-container">
             <div class="clients-header">
-                <h2 data-aos="fade-up">Empresas que confían en nosotros</h2>
-                <p data-aos="fade-up" data-delay="100">Más de 28 proyectos exitosos respaldan nuestra trayectoria.</p>
+                <span class="section-kicker" data-aos="fade-up">CLIENTES</span>
+                <h2 data-aos="fade-up" data-delay="100">NUESTROS <span
+                        class="text-gradient">CLIENTES</span></h2>
+                <p data-aos="fade-up" data-delay="200">Más de 28 proyectos exitosos respaldan nuestra trayectoria.</p>
             </div>
 
             <div class="clients-grid">
@@ -405,20 +448,18 @@
 
             <!-- Centered Header -->
             <div class="workflow-header" data-aos="fade-up">
-                <span class="workflow-subtitle-tag">LOS PASOS A SEGUIR JUNTOS</span>
-                <h2 class="workflow-main-title">Cómo trabajamos</h2>
+                <span class="section-kicker">LOS PASOS A SEGUIR JUNTOS</span>
+                <h2 class="workflow-main-title">CÓMO <span class="text-gradient">TRABAJAMOS</span></h2>
             </div>
 
             <!-- Vertical Timeline -->
             <div class="workflow-timeline">
 
-                <!-- Central Lines (Single source for smooth transition) -->
-                <div class="timeline-line-bg"></div>
-                <div class="timeline-line-progress"></div>
-
-                <!-- Masks (Hides line above first circle and below last circle) -->
-                <div class="timeline-mask-top"></div>
-                <div class="timeline-mask-bottom"></div>
+                <!-- Central Line Container (Spans exactly from first circle to last circle) -->
+                <div class="timeline-line-container">
+                    <div class="timeline-line-bg"></div>
+                    <div class="timeline-line-progress"></div>
+                </div>
 
                 <!-- Steps -->
                 <div class="timeline-steps">
@@ -436,9 +477,7 @@
                                 <div class="step-meta-line"></div>
                             </div>
                             <h3 class="step-title">Descubrimiento & Estrategia</h3>
-                            <p class="step-desc">Analizamos tu negocio y definimos la solución ideal. Hacemos una sesión
-                                de consultoría técnica para definir la arquitectura, el alcance y el diseño de tu
-                                software, asegurando la máxima viabilidad.</p>
+                            <p class="step-desc">Analizamos tu negocio y definimos el roadmap ideal. Mapeamos los objetivos comerciales de tu web, app o sistema de IA, eligiendo la arquitectura tecnológica más sólida y escalable.</p>
                         </div>
                     </div>
 
@@ -454,10 +493,8 @@
                                 <div class="step-meta-line"></div>
                                 <span class="step-meta-num">Paso 2</span>
                             </div>
-                            <h3 class="step-title">Diseño UI/UX Premium</h3>
-                            <p class="step-desc">Creamos interfaces modernas, intuitivas y que convierten. Diseñamos un
-                                prototipo interactivo en alta fidelidad en Figma para que puedas ver y probar
-                                exactamente cómo se verá y funcionará tu aplicación antes de desarrollarla.</p>
+                            <h3 class="step-title">Diseño de Experiencia (UI/UX)</h3>
+                            <p class="step-desc">Estructuramos interfaces modernas e intuitivas en Figma. Diseñamos prototipos de alta fidelidad para que sientas cómo responderá tu web o app, o definimos la lógica conversacional si involucra IA.</p>
                         </div>
                     </div>
 
@@ -473,15 +510,47 @@
                                 <span class="step-meta-num">Paso 3</span>
                                 <div class="step-meta-line"></div>
                             </div>
-                            <h3 class="step-title">Desarrollo Ágil</h3>
-                            <p class="step-desc">Escribimos código robusto, rápido y propietario. Desarrollamos tu
-                                software utilizando tecnologías modernas y escalables (React, Next.js, Node.js). El
-                                código es de tu propiedad, sin dependencias restrictivas.</p>
+                            <h3 class="step-title">Desarrollo e Integración IA</h3>
+                            <p class="step-desc">Escribimos código propietario, rápido y modular. Desarrollamos el frontend y backend de tu software, e integramos modelos de lenguaje o automatizaciones para optimizar tus flujos internos.</p>
                         </div>
                     </div>
 
                     <!-- Paso 4 -->
                     <div class="timeline-step is-odd" data-step="4">
+                        <!-- Central Node -->
+                        <div class="timeline-node">
+                            <span class="node-number">4</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="step-content-wrapper" data-aos="fade-left">
+                            <div class="step-meta">
+                                <div class="step-meta-line"></div>
+                                <span class="step-meta-num">Paso 4</span>
+                            </div>
+                            <h3 class="step-title">QA & Pruebas Rigurosas</h3>
+                            <p class="step-desc">Auditamos cada módulo con pruebas exhaustivas. Validamos velocidad de carga en webs, rendimiento en apps y la precisión de los modelos de IA, garantizando un sistema seguro y libre de fallos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 5 -->
+                    <div class="timeline-step is-even" data-step="5">
+                        <!-- Central Node -->
+                        <div class="timeline-node">
+                            <span class="node-number">5</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="step-content-wrapper" data-aos="fade-right">
+                            <div class="step-meta">
+                                <span class="step-meta-num">Paso 5</span>
+                                <div class="step-meta-line"></div>
+                            </div>
+                            <h3 class="step-title">Despliegue & Lanzamiento</h3>
+                            <p class="step-desc">Subimos tu plataforma a servidores en la nube de alta disponibilidad (AWS, Vercel, Firebase). Configuramos accesos, bases de datos y APIs para que tu sistema esté listo para operar con seguridad global.</p>
+                        </div>
+                    </div>
+
+                    <!-- Paso 6 -->
+                    <div class="timeline-step is-odd" data-step="6">
                         <!-- Central Node -->
                         <div class="timeline-node">
                             <svg class="node-check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -493,12 +562,10 @@
                         <div class="step-content-wrapper" data-aos="fade-left">
                             <div class="step-meta">
                                 <div class="step-meta-line"></div>
-                                <span class="step-meta-num">Paso 4</span>
+                                <span class="step-meta-num">Paso 6</span>
                             </div>
-                            <h3 class="step-title">Soporte & Lanzamiento</h3>
-                            <p class="step-desc">Desplegamos tu software y te acompañamos en el crecimiento. Subimos tu
-                                sistema a producción en servidores seguros en la nube, te capacitamos en su uso y
-                                brindamos soporte post-lanzamiento activo.</p>
+                            <h3 class="step-title">Monitoreo & Escalabilidad</h3>
+                            <p class="step-desc">Brindamos soporte post-lanzamiento activo y optimización continua. Analizamos métricas operativas de tu IA y tu software para expandir funcionalidades y mantener tu negocio en la vanguardia.</p>
                             <div class="step-cta-block">
                                 <a href="https://calendly.com/santysegal/30min" target="_blank" rel="noopener"
                                     class="btn btn-primary btn-cta-workflow">
@@ -527,10 +594,10 @@
     <section id="faq" class="assistant-section">
         <div class="assistant-container">
             <div class="assistant-header">
-                <div class="assistant-badge-pill" data-aos="fade-up">Asistente Virtual</div>
+                <span class="section-kicker" data-aos="fade-up">ASISTENTE VIRTUAL</span>
                 <h2 class="assistant-main-title" data-aos="fade-up" data-delay="100">
-                    ¿Tenés preguntas?
-                    <span class="highlight-blue">Consultale a la IA.</span>
+                    ¿TENÉS PREGUNTAS?
+                    <span class="text-gradient">CONSULTALE A LA IA.</span>
                 </h2>
                 <p class="assistant-subtitle" data-aos="fade-up" data-delay="200">
                     Hacé clic en cualquiera de las consultas rápidas y nuestro modelo responderá tus dudas en tiempo
@@ -562,9 +629,9 @@
                         <span>¿Qué tecnologías utilizan?</span>
                     </button>
                     <!-- Button 5 -->
-                    <button class="assistant-btn" data-question="integraciones" data-aos="fade-up" data-delay="500">
-                        <span class="assistant-btn-icon" style="color: #cbd5e1;">🔗</span>
-                        <span>¿Se integran con mis sistemas?</span>
+                    <button class="assistant-btn" data-question="ventaja" data-aos="fade-up" data-delay="500">
+                        <span class="assistant-btn-icon" style="color: #a855f7;">💎</span>
+                        <span>¿Qué ventaja tengo con desarrollo a medida frente a plantillas?</span>
                     </button>
                 </div>
 
@@ -642,12 +709,7 @@
                     <div class="cta-premium-actions" data-aos="zoom-in" data-aos-delay="400">
                         <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto"
                             target="_blank" rel="noopener" class="btn-premium-cta">
-                            <span>Comenzar proyecto</span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>
+                            Comenzar proyecto
                         </a>
                     </div>
                 </div>
@@ -750,6 +812,7 @@
                         <li><a href="#inicio">Inicio</a></li>
                         <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
                         <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#clientes">Clientes</a></li>
                         <li><a href="#como-trabajamos">Cómo Trabajamos</a></li>
                     </ul>
                 </div>

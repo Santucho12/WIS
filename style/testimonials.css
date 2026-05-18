@@ -39,13 +39,14 @@
 }
 
 .testimonials-title {
-  font-size: 3rem;
+  font-size: clamp(2.915rem, 4.807vw, 4.18rem);
   color: var(--color-white);
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
   font-family: var(--font-title);
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 .testimonials-title .highlight-blue {
@@ -94,7 +95,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(var(--hue-white-rgb), 0.04), transparent 40%);
+  background: radial-gradient(400px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(var(--hue-white-rgb), 0.02), transparent 40%);
   z-index: 1;
   pointer-events: none;
   opacity: 0;

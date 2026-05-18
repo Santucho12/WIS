@@ -63,18 +63,10 @@
   margin-bottom: 70px;
 }
 
-.workflow-subtitle-tag {
-  color: var(--color-celeste);
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  margin-bottom: 1rem;
-  display: block;
-}
+
 
 .workflow-main-title {
-  font-size: 3rem;
+  font-size: clamp(2.915rem, 4.807vw, 4.18rem);
   color: var(--color-white);
   font-weight: 800;
   line-height: 1.1;
@@ -89,36 +81,43 @@
   margin-top: 50px;
 }
 
-/* Central Line Background */
-.timeline-line-bg {
+/* Central Line Container (Spans exactly from circle 1 center to circle 6 center) */
+.timeline-line-container {
   position: absolute;
   left: 50%;
-  top: 30px;
-  bottom: 30px;
+  top: 105px;
+  bottom: 165px;
   width: 3px;
-  background: rgba(var(--hue-white-rgb), 0.06);
   transform: translateX(-50%);
   z-index: 1;
+}
+
+.timeline-line-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(var(--hue-white-rgb), 0.06);
 }
 
 /* Central Active Progress Line */
 .timeline-line-progress {
   position: absolute;
-  left: 50%;
-  top: 30px;
-  width: 3px;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 0%;
-  background: linear-gradient(to bottom, var(--color-azul) 0%, var(--color-azul) 50%, var(--color-celeste) 85%, var(--color-celeste) 100%);
-  transform: translateX(-50%);
-  z-index: 2;
+  background: linear-gradient(to bottom, var(--color-azul) 0%, var(--color-celeste) 65%, #ffffff 100%);
   box-shadow: 0 0 15px rgba(var(--hue-blue-rgb), 0.4), 0 0 5px rgba(var(--hue-blue-rgb), 0.2);
   will-change: height;
+  z-index: 2;
 }
 
 /* Timeline Steps */
 .timeline-steps {
   position: relative;
-  z-index: 3;
+  z-index: 6;
 }
 
 .timeline-step {
@@ -168,23 +167,33 @@
   transform: translate(-50%, -50%) scale(1.05);
 }
 
-/* Steps 1-2 Deep Blue theme */
+/* Steps 1-4 Celeste active theme */
 .timeline-step[data-step="1"] .timeline-node.active,
-.timeline-step[data-step="2"] .timeline-node.active {
-  background: var(--color-azul);
-  box-shadow: 0 0 25px rgba(26, 111, 209, 0.5), 0 5px 15px rgba(var(--hue-black-rgb), 0.4);
-}
-
-/* Steps 3-4 Celeste theme */
+.timeline-step[data-step="2"] .timeline-node.active,
 .timeline-step[data-step="3"] .timeline-node.active,
 .timeline-step[data-step="4"] .timeline-node.active {
   background: var(--color-celeste);
   box-shadow: 0 0 25px rgba(var(--hue-blue-rgb), 0.5), 0 5px 15px rgba(var(--hue-black-rgb), 0.4);
 }
 
-.timeline-node.active .node-number,
-.timeline-node.active .node-check-icon {
+.timeline-step[data-step="1"] .timeline-node.active .node-number,
+.timeline-step[data-step="2"] .timeline-node.active .node-number,
+.timeline-step[data-step="3"] .timeline-node.active .node-number,
+.timeline-step[data-step="4"] .timeline-node.active .node-number {
   color: var(--hue-white);
+}
+
+/* Steps 5-6 White active theme (Celeste text) */
+.timeline-step[data-step="5"] .timeline-node.active,
+.timeline-step[data-step="6"] .timeline-node.active {
+  background: #ffffff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4), 0 5px 15px rgba(var(--hue-black-rgb), 0.4);
+}
+
+.timeline-step[data-step="5"] .timeline-node.active .node-number,
+.timeline-step[data-step="6"] .timeline-node.active .node-number,
+.timeline-step[data-step="6"] .timeline-node.active .node-check-icon {
+  color: var(--color-celeste);
 }
 
 /* Step Content Layout styling */
@@ -265,13 +274,15 @@
 
 /* Active title text swap to matching colors */
 .timeline-step[data-step="1"] .step-title.active,
-.timeline-step[data-step="2"] .step-title.active {
-  color: #5aa1f5; /* soft bright blue */
-}
-
+.timeline-step[data-step="2"] .step-title.active,
 .timeline-step[data-step="3"] .step-title.active,
 .timeline-step[data-step="4"] .step-title.active {
   color: var(--color-celeste);
+}
+
+.timeline-step[data-step="5"] .step-title.active,
+.timeline-step[data-step="6"] .step-title.active {
+  color: #ffffff;
 }
 
 /* Description styling */
@@ -317,26 +328,7 @@
   transform: translate(2px, -2px);
 }
 
-/* Mask line sections */
-.timeline-mask-top,
-.timeline-mask-bottom {
-  position: absolute;
-  left: 50%;
-  width: 5px;
-  background: var(--hue-black);
-  transform: translateX(-50%);
-  z-index: 5;
-}
 
-.timeline-mask-top {
-  top: 0;
-  height: 30px;
-}
-
-.timeline-mask-bottom {
-  bottom: 0;
-  height: 30px;
-}
 
 /* ========================================
    MOBILE RESPONSIVENESS
@@ -354,16 +346,11 @@
     margin-bottom: 40px;
   }
   
-  /* Shift line to the left side */
-  .timeline-line-bg,
-  .timeline-line-progress {
+  /* Shift line container to the left side */
+  .timeline-line-container {
     left: 24px;
-    transform: none;
-  }
-  
-  .timeline-mask-top,
-  .timeline-mask-bottom {
-    left: 24px;
+    top: 52px;
+    bottom: 220px;
     transform: none;
   }
   

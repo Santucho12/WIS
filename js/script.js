@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', requestPortfolioCardUpdate, { passive: true });
   }
 
-  document.querySelectorAll('.about-stat-card, .about-info-card').forEach(card => {
+  document.querySelectorAll('.about-stat-card, .about-info-card, .stat-bento-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }, { threshold: 0.5 });
 
-  document.querySelectorAll('.stat-proyectos .about-stat-number').forEach(function (el) {
+  document.querySelectorAll('.stat-proyectos .about-stat-number, .stat-number-large').forEach(function (el) {
     counterObserver.observe(el);
   });
 
@@ -409,10 +409,10 @@ document.addEventListener('DOMContentLoaded', function () {
       short: "Stack moderno, escalable y sin dependencias propietarias.",
       full: "Desarrollamos principalmente con React, Next.js, Node.js y bases de datos robustas (PostgreSQL, MongoDB). Para infraestructura y despliegues confiamos en AWS, Vercel y Docker. Todo configurado bajo las mejores prácticas del mercado."
     },
-    integraciones: {
-      query: "¿Se integran con mis sistemas?",
-      short: "Sí, nos conectamos con cualquier API o base de datos.",
-      full: "Ya sea que uses SAP, Salesforce, CRMs a medida, pasarelas de pago (Stripe, MercadoPago) o sistemas de facturación locales. Desarrollamos integraciones robustas y seguras para automatizar tus operaciones sin romper tus flujos actuales."
+    ventaja: {
+      query: "¿Qué ventaja tengo con desarrollo a medida frente a plantillas?",
+      short: "Flexibilidad total, propiedad absoluta y cero licencias por usuario.",
+      full: "Las plataformas genéricas te atan a mensualidades costosas que suben a medida que crecés y limitan tus procesos. Con nuestro desarrollo a medida, el software se adapta exactamente a cómo opera tu negocio y no al revés. Además, al ser dueño del código, eliminás costos de licencias por usuario y podés escalar infinitamente sin techos tecnológicos."
     }
   };
 
@@ -651,6 +651,30 @@ document.addEventListener('DOMContentLoaded', function () {
   // Trigger Calendly on workflow step "Agendar reunión" button
   if (workflowCtaBtn) {
     workflowCtaBtn.addEventListener('click', openCalendly);
+  }
+
+  // ── Global Mouse Spotlight Tracker (Optimized 60fps/120fps throttle) ──
+  const globalSpotlight = document.querySelector('.global-spotlight');
+  if (globalSpotlight) {
+    let globalTicking = false;
+    document.addEventListener('mousemove', function (e) {
+      if (!globalTicking) {
+        window.requestAnimationFrame(function () {
+          globalSpotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
+          globalSpotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+          globalTicking = false;
+        });
+        globalTicking = true;
+      }
+    }, { passive: true });
+    
+    document.addEventListener('mouseleave', function () {
+      globalSpotlight.style.opacity = '0';
+    });
+    
+    document.addEventListener('mouseenter', function () {
+      globalSpotlight.style.opacity = '1';
+    });
   }
 
   console.log('🚀 Software Factory — Enhanced UX Loaded');
