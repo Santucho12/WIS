@@ -210,17 +210,16 @@ section::after {
 }
 
 .btn-secondary {
-  background: rgba(var(--hue-white-rgb), 0.04);
-  color: var(--color-white);
-  border: 1.5px solid rgba(var(--hue-white-rgb), 0.15);
+  background: #000000;
+  color: #ffffff !important;
+  border: none;
   backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
   transform: translateY(-3px);
-  background: rgba(var(--hue-white-rgb), 0.08);
-  border-color: rgba(var(--hue-blue-rgb), 0.5);
-  box-shadow: 0 16px 48px rgba(var(--hue-blue-rgb), 0.15);
+  background: #000000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .btn-full {

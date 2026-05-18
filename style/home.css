@@ -55,8 +55,8 @@
   }
 
   .hero-title {
-    font-size: 2.8rem !important;
-    line-height: 1.1 !important;
+    font-size: 2.5rem !important;
+    line-height: 1.25 !important;
     max-width: 100%;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -106,35 +106,40 @@
 .hero-content {
   position: relative;
   z-index: 3;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   margin-top: 0;
-  padding-bottom: 60px;
-  max-width: 900px;
+  padding: 0 40px 60px 40px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
+  text-align: left;
 }
 
 /* Badge chip above title */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1.2rem;
+  gap: 0.42rem;
+  padding: 0.38rem 1rem;
   background: rgba(var(--hue-blue-rgb), 0.08);
   border: 1px solid rgba(var(--hue-blue-rgb), 0.2);
   border-radius: 50px;
   color: var(--color-celeste);
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  margin-bottom: 4.6rem;
+  margin-bottom: 2.6rem;
   letter-spacing: 0.03em;
   animation: fadeInDown 1s ease-out 0.2s both;
   backdrop-filter: blur(10px);
 }
 
 .hero-badge-dot {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   background: var(--color-celeste);
   border-radius: 50%;
   animation: badgePulse 2s ease-in-out infinite;
@@ -169,10 +174,10 @@
 /* Hero Title */
 .hero-title {
   font-family: var(--font-title);
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  line-height: 1.28;
+  margin-bottom: 2.2rem;
   letter-spacing: -0.03em;
   color: var(--color-white);
 }
@@ -209,7 +214,7 @@
   font-size: 1.25rem;
   color: rgba(var(--hue-white-rgb), 0.7);
   max-width: 700px;
-  margin: 0 auto 3rem auto;
+  margin: 0 0 2.8rem 0;
   opacity: 0;
   animation: fadeIn 1s ease-out 0.4s forwards;
   font-weight: 400;
@@ -226,7 +231,7 @@
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   opacity: 1;
   animation: fadeInUp 0.8s ease-out 1s both;
 }
@@ -257,6 +262,47 @@
     box-shadow: 0 0 15px rgba(var(--hue-blue-rgb), 0.4);
     transform: scale(1);
   }
+}
+
+/* Hero Background Image */
+.hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.85;
+}
+
+.hero-overlay-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(var(--hue-black-rgb), 1) 0%, rgba(var(--hue-black-rgb), 0.85) 30%, transparent 100%);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-overlay-dark {
+    background: linear-gradient(180deg, rgba(var(--hue-black-rgb), 0.6) 0%, rgba(var(--hue-black-rgb), 0.95) 100%);
+  }
+}
+
+.hero-text-column {
+  max-width: 700px;
+  position: relative;
+  z-index: 4;
 }
 
 /* Scroll Indicator */
@@ -367,21 +413,23 @@
   }
 
   .hero-content {
+    align-items: center;
+    text-align: center;
     transform: none;
     margin-top: 90px;
     padding: 0 14px 90px;
   }
 
   .hero-badge {
-    font-size: 0.72rem;
-    padding: 0.4rem 0.8rem;
-    margin-bottom: 4.6rem;
+    font-size: 0.61rem;
+    padding: 0.34rem 0.68rem;
+    margin-bottom: 2rem;
     text-align: center;
   }
 
   .hero-title {
-    font-size: clamp(2rem, 8.3vw, 2.5rem) !important;
-    line-height: 1.08 !important;
+    font-size: clamp(1.8rem, 7.5vw, 2.25rem) !important;
+    line-height: 1.25 !important;
     letter-spacing: -0.02em;
     margin-bottom: 4.4rem;
     padding: 0 4px;
@@ -395,7 +443,7 @@
   .hero-subtitle {
     font-size: 1rem;
     line-height: 1.45;
-    margin-bottom: 6.6rem !important;
+    margin: 0 auto 3rem auto !important;
     padding: 0 4px;
   }
 
@@ -470,7 +518,7 @@
   }
 
   .hero-title {
-    font-size: clamp(1.85rem, 8.6vw, 2.2rem) !important;
+    font-size: clamp(1.65rem, 7.7vw, 1.98rem) !important;
   }
 
   .hero-subtitle {

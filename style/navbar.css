@@ -34,11 +34,11 @@
 .navbar.scrolled {
   max-width: 76rem;
   height: 72px;
-  background: rgba(var(--hue-black-rgb), 0.92);
+  background: rgba(var(--hue-black-rgb), 0.55);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(var(--hue-blue-rgb), 0.12);
-  box-shadow: 0 20px 40px rgba(var(--hue-black-rgb), 0.8), 0 0 1px rgba(var(--hue-blue-rgb), 0.1) inset;
+  box-shadow: 0 20px 40px rgba(var(--hue-black-rgb), 0.5), 0 0 1px rgba(var(--hue-blue-rgb), 0.1) inset;
 }
 
 /* Logo Styles */
@@ -153,30 +153,67 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-white);
-  color: var(--bg-primary);
+  background: linear-gradient(rgba(var(--hue-black-rgb), 0.2), rgba(var(--hue-black-rgb), 0.2)) padding-box,
+    var(--gradient-primary) border-box;
+  color: var(--text-white) !important;
+  border: 2px solid transparent;
   border-radius: var(--radius-full);
-  font-weight: 700;
-  font-family: var(--font-title);
+  font-weight: 600;
+  font-family: var(--font-sans);
   text-transform: uppercase;
-  padding: 10px 24px;
-  font-size: 0.72rem;
-  letter-spacing: 0.15em;
+  padding: 10px 28px;
+  font-size: 0.75rem;
+  letter-spacing: 0.3px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(var(--hue-black-rgb), 0.15);
+  box-shadow: 0 0 15px rgba(var(--hue-blue-rgb), 0.4);
+  position: relative;
+  z-index: 1;
+  animation: buttonPulse 2s infinite ease-in-out;
+}
+
+.btn-navbar-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a9fd4 0%, var(--color-celeste) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+  z-index: -1;
 }
 
 .btn-navbar-cta:hover {
-  background: var(--color-celeste);
-  color: var(--hue-white);
-  box-shadow: 0 0 20px rgba(var(--hue-blue-rgb), 0.45);
-  transform: translateY(-1px) scale(1.04);
+  animation-play-state: paused;
+  background: linear-gradient(rgba(var(--hue-white-rgb), 0.1), rgba(var(--hue-white-rgb), 0.1)) padding-box,
+    var(--gradient-primary) border-box;
+  color: var(--hue-white) !important;
+  box-shadow: 0 8px 25px rgba(var(--hue-blue-rgb), 0.45);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.btn-navbar-cta:hover::before {
+  opacity: 1;
 }
 
 .btn-navbar-cta:active {
   transform: scale(0.98);
+}
+
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(var(--hue-blue-rgb), 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(var(--hue-blue-rgb), 0.6);
+    transform: scale(1.03);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(var(--hue-blue-rgb), 0.3);
+    transform: scale(1);
+  }
 }
 
 /* Hamburger mobile menu toggler */
@@ -264,7 +301,7 @@
     top: calc(100% + 14px); /* Hangs perfectly below the header capsule */
     left: 4px;
     right: 4px;
-    background: rgba(10, 16, 26, 0.98);
+    background: rgba(10, 16, 26, 0.7);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     border: 1px solid rgba(var(--hue-white-rgb), 0.08);
