@@ -362,7 +362,7 @@
   border: 2px solid rgba(var(--hue-white-rgb), 0.2);
   border-radius: 14px;
   position: relative;
-  top: 10px;
+  top: 40px;
 }
 
 .wheel {
@@ -621,12 +621,12 @@
 
 /* Premium Card Wrapper */
 .cta-premium-card {
-  max-width: 1000px;
+  max-width: 1160px;
   margin: 0 auto;
   background: rgba(var(--hue-white-rgb), 0.02);
   border: 1px solid rgba(var(--hue-white-rgb), 0.06);
   border-radius: 30px;
-  padding: 80px 40px;
+  padding: 100px 60px;
   text-align: center;
   backdrop-filter: blur(20px);
   box-shadow: 0 30px 60px rgba(var(--hue-black-rgb), 0.4), 
@@ -651,14 +651,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.45rem 1.2rem;
+  padding: 0.5rem 1.35rem;
   background: rgba(var(--hue-blue-rgb), 0.08);
   border: 1px solid rgba(var(--hue-blue-rgb), 0.2);
   border-radius: 50px;
   color: var(--color-celeste);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
@@ -666,27 +666,19 @@
 /* Title & Subtitle */
 .cta-premium-title {
   font-family: var(--font-title);
-  font-size: 3.2rem;
+  font-size: 3.8rem;
   font-weight: 700;
   line-height: 1.2;
   color: var(--color-white);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
   letter-spacing: -0.02em;
 }
 
-.cta-premium-title .text-gradient {
-  background: none;
-  -webkit-background-clip: initial;
-  -webkit-text-fill-color: initial;
-  background-clip: initial;
-  color: var(--color-white);
-}
-
 .cta-premium-subtitle {
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: rgba(var(--hue-white-rgb), 0.6);
-  max-width: 650px;
-  margin: 0 auto 3rem auto;
+  max-width: 760px;
+  margin: 0 auto 3.5rem auto;
   line-height: 1.6;
 }
 
@@ -701,9 +693,9 @@
   border: 2px solid transparent;
   border-radius: 50px;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  padding: 1.1rem 2.5rem;
+  padding: 1.25rem 3.2rem;
   text-transform: uppercase;
   letter-spacing: 0.3px;
   transition: all 0.4s ease;

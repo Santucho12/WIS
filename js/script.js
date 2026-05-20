@@ -108,19 +108,26 @@ document.addEventListener('DOMContentLoaded', function () {
       if (targetId === 'servicios') extraOffset = window.innerWidth <= 768 ? 100 : 120;
       if (targetId === 'portfolio' && this.closest('.navbar')) extraOffset = 20;
 
-      const y = target.getBoundingClientRect().top + window.pageYOffset - navH - extraOffset;
+      // El usuario solicitó redirigir 40 píxeles más abajo globalmente
+      extraOffset -= 40;
 
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        window.scrollTo(0, y);
-        return;
+      // Ajustes específicos solicitados (acumulativos según feedback)
+      if (targetId === 'servicios') {
+        extraOffset -= 145; // 15 píxeles adicionales más abajo
+      }
+      if (targetId === 'como-trabajamos') {
+        extraOffset -= 45; // 15 píxeles adicionales más abajo
       }
 
+      const y = target.getBoundingClientRect().top + window.pageYOffset - navH - extraOffset;
+
       if (lenis) {
-        lenis.scrollTo(y, {
+        lenis.scrollTo(target, {
+          offset: -navH - extraOffset,
           duration: 1.4,
           easing: function (t) {
             return 1 - Math.pow(1 - t, 4);
-          },
+          }
         });
         return;
       }
@@ -453,11 +460,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Type the User Command
     typeText(consoleQuery, data.query, 25, () => {
-      // Add thinking delay & blinking cursor on AI prefix
-      consoleShortAnswer.innerHTML = '<span class="terminal-cursor"></span>';
+      // Add thinking delay
       
       responseTimeout = setTimeout(() => {
-        consoleShortAnswer.innerHTML = '';
         typeText(consoleShortAnswer, data.short, 20, () => {
           // Fade in the full description block
           consoleFullAnswer.innerHTML = data.full;

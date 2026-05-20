@@ -14,7 +14,7 @@
 }
 
 .navbar {
-  max-width: 94rem;
+  max-width: 96.8rem;
   width: calc(100% - 32px);
   margin: 0 auto;
   height: 80px;
@@ -32,7 +32,7 @@
 
 /* Scrolled/Active Glass Capsule State */
 .navbar.scrolled {
-  max-width: 76rem;
+  max-width: 78.3rem;
   height: 72px;
   background: rgba(var(--hue-black-rgb), 0.55);
   backdrop-filter: blur(20px) saturate(180%);
