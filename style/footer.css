@@ -229,7 +229,7 @@
 @media (max-width: 768px) {
     .footer-modern {
         padding: 48px 0 18px 0;
-        text-align: left;
+        text-align: center;
         margin-bottom: 0;
     }
 
@@ -258,22 +258,22 @@
 
     .footer-modern-links h4::after,
     .footer-modern-social h4::after {
-        left: 0;
-        transform: none;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .footer-modern-social-row {
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .footer-modern-bottom-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 1.2rem;
     }
 
     .footer-modern-legal {
-        justify-content: flex-start;
+        justify-content: center;
     }
 }
 
