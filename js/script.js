@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Close on outside click
     document.addEventListener('click', function (e) {
-      if (!e.target.closest('.navbar')) {
+      if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
         // restore body scroll when clicking outside
