@@ -253,4 +253,44 @@
   .bento-item h3 {
     font-size: 1.8rem;
   }
+
+  /* Mobile fixes for the large (first) bento card to improve layout */
+  .bento-large {
+    min-height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .bento-large .bento-content {
+    padding: 1.25rem 1.25rem 0.75rem 1.25rem;
+  }
+
+  /* Make the visual block more prominent on small screens */
+  .bento-visual {
+    height: 320px;
+    position: relative;
+  }
+
+  .bento-visual img {
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(60%) contrast(1.02) brightness(0.72);
+    transform: none;
+  }
+
+  .bento-overlay {
+    background: linear-gradient(180deg, var(--hue-black) 0%, transparent 40%);
+  }
+
+  .bento-large .bento-visual {
+    order: 0; /* keep image after content but with better sizing */
+  }
+
+  .bento-item p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .service-features-list li {
+    font-size: 0.98rem;
+  }
 }

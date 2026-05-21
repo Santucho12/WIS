@@ -16,8 +16,29 @@ document.addEventListener('DOMContentLoaded', function () {
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', function (e) {
       e.stopPropagation();
+      const isActive = !navLinks.classList.contains('active');
       navLinks.classList.toggle('active');
       menuToggle.classList.toggle('active');
+      // Lock body scroll when menu opens, restore when closes
+      if (isActive) {
+        const scrollY = window.scrollY || window.pageYOffset;
+        document.body.dataset.scrollY = scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.classList.add('menu-open');
+      } else {
+        // restore
+        const prev = parseInt(document.body.dataset.scrollY || '0');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.classList.remove('menu-open');
+        window.scrollTo(0, prev);
+        delete document.body.dataset.scrollY;
+      }
     });
 
     // Close on link click
@@ -25,6 +46,15 @@ document.addEventListener('DOMContentLoaded', function () {
       link.addEventListener('click', function () {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
+        // restore body scroll when a link is clicked
+        const prev = parseInt(document.body.dataset.scrollY || '0');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.classList.remove('menu-open');
+        window.scrollTo(0, prev);
+        delete document.body.dataset.scrollY;
       });
     });
 
@@ -33,6 +63,15 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!e.target.closest('.navbar')) {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
+        // restore body scroll when clicking outside
+        const prev = parseInt(document.body.dataset.scrollY || '0');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.classList.remove('menu-open');
+        window.scrollTo(0, prev);
+        delete document.body.dataset.scrollY;
       }
     });
   }

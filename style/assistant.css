@@ -431,3 +431,69 @@
     font-size: 0.82rem;
   }
 }
+
+/* Mobile reflow: make assistant buttons a horizontal, touch-scrollable strip
+   and make the terminal more compact and readable on small screens */
+@media (max-width: 768px) {
+  .assistant-section {
+    padding: 48px 0;
+  }
+
+  .assistant-header {
+    margin-bottom: 28px;
+  }
+
+  /* Buttons become a horizontal scrollable row */
+  .assistant-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .assistant-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .assistant-btn {
+    flex: 0 0 auto;
+    min-width: 220px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    gap: 12px;
+  }
+
+  .assistant-btn span:not(.assistant-btn-icon) {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Make terminal shorter and reduce internal padding to avoid huge empty areas */
+  .terminal-window {
+    min-height: auto;
+    border-radius: 14px;
+  }
+
+  .terminal-body {
+    padding: 18px;
+    font-size: 0.86rem;
+    min-height: 220px;
+  }
+
+  .text-answer-block {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Reduce heavy shadows that make the panel feel bulky */
+  .terminal-window {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 210, 255, 0.04);
+  }
+}
