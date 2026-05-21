@@ -417,6 +417,11 @@
   }
   .faq-simple {
     display: block;
+    /* push below the fixed navbar to avoid overlap */
+    margin-top: calc(82px + env(safe-area-inset-top));
+    padding-top: 8px;
+    position: relative;
+    z-index: 1105; /* above whatsapp float (1000) */
   }
   /* make header clearer for mobile */
   .assistant-header .section-kicker {

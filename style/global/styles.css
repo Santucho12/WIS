@@ -283,6 +283,8 @@ section {
     height: 62px;
     right: 14px;
     bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+    /* lower stacking on mobile so mobile FAQ can overlay when needed */
+    z-index: 1000;
   }
 
   .whatsapp-float svg {
