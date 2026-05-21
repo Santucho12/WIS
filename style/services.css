@@ -293,4 +293,37 @@
   .service-features-list li {
     font-size: 0.98rem;
   }
+
+  /* Ensure the text/content of the first (large) bento card uses full width on small screens */
+  .bento-large {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bento-large .bento-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    order: 0;
+    padding: 1.5rem 1.25rem 0.8rem 1.25rem;
+  }
+
+  /* Place the visual below the content and make it full width */
+  .bento-visual,
+  .bento-visual-sub {
+    position: relative;
+    width: 100% !important;
+    height: 300px;
+    order: 1;
+  }
+
+  .bento-visual img,
+  .bento-visual-sub img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(60%) contrast(1.02) brightness(0.75);
+    transform: none;
+  }
 }
