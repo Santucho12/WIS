@@ -539,6 +539,28 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // ── Mobile FAQ accordion behavior ──
+  const mobileFaqDetails = Array.from(document.querySelectorAll('.mobile-faq details'));
+  if (mobileFaqDetails.length) {
+    mobileFaqDetails.forEach(detail => {
+      const summary = detail.querySelector('summary');
+      if (summary) summary.setAttribute('aria-expanded', detail.open ? 'true' : 'false');
+      detail.addEventListener('toggle', function () {
+        // When a detail opens, close all others (accordion behavior)
+        if (detail.open) {
+          mobileFaqDetails.forEach(d => {
+            if (d !== detail && d.open) d.open = false;
+            const s = d.querySelector('summary');
+            if (s) s.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+          });
+        }
+        // Update aria-expanded for current
+        const sCur = detail.querySelector('summary');
+        if (sCur) sCur.setAttribute('aria-expanded', detail.open ? 'true' : 'false');
+      });
+    });
+  }
+
 
 
   // ── Cómo Trabajamos Timeline Progress (GSAP + ScrollTrigger) ──

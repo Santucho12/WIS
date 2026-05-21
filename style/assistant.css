@@ -97,7 +97,13 @@
   .mobile-faq summary { cursor: pointer; font-weight: 700; color: var(--color-white); list-style: none; }
   .mobile-faq summary::-webkit-details-marker { display: none; }
   .mobile-faq p { margin: 0.6rem 0 0 0; color: rgba(var(--hue-white-rgb),0.72); line-height: 1.6; }
+  /* Hide AI assistant header text on mobile and show FAQ title */
+  .assistant-main-title, .assistant-subtitle { display: none !important; }
+  .mobile-faq-title { display: block; font-family: var(--font-title); color: var(--color-white); font-size: 1.6rem; margin-top: 0.6rem; margin-bottom: 0.8rem; }
 }
+
+/* Desktop: ensure mobile title hidden */
+.mobile-faq-title { display: none; }
 
 /* Left Column: Selector Buttons */
 .assistant-buttons {
