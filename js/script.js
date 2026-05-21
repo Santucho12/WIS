@@ -561,6 +561,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Defensive: prevent accidental navigation when interacting with the mobile FAQ
+  const mobileFaq = document.querySelector('.mobile-faq');
+  if (mobileFaq) {
+    // Capture phase to stop other global handlers that might trigger navigation
+    mobileFaq.addEventListener('click', function (e) {
+      // If the click originated on an anchor inside the FAQ, prevent default navigation
+      const anchor = e.target.closest('a');
+      if (anchor) {
+        e.preventDefault();
+      }
+      // Always stop propagation so higher-level handlers don't interpret this as a global click
+      e.stopPropagation();
+    }, true);
+  }
+
 
 
   // ── Cómo Trabajamos Timeline Progress (GSAP + ScrollTrigger) ──
