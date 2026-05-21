@@ -100,8 +100,6 @@
   /* Hide AI assistant header text on mobile and show FAQ title */
   .assistant-main-title, .assistant-subtitle { display: none !important; }
   .mobile-faq-title { display: block; font-family: var(--font-title); color: var(--color-white); font-size: 1.6rem; margin-top: 0.6rem; margin-bottom: 0.8rem; }
-  .section-kicker { display: none !important; }
-  .mobile-section-kicker { display: inline-block; font-weight: 700; color: var(--color-celeste); letter-spacing: 0.12em; }
 }
 
 /* Desktop: ensure mobile title hidden */
