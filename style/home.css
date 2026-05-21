@@ -452,8 +452,8 @@
   }
 
   .hero-title {
-    /* Larger hero title on mobile for stronger impact */
-    font-size: clamp(2.4rem, 10vw, 3.6rem) !important;
+    /* Larger hero title on mobile for stronger impact (20% increase requested) */
+    font-size: clamp(2.88rem, 12vw, 4.32rem) !important;
     line-height: 1.08 !important;
     letter-spacing: -0.02em;
     margin-bottom: 1.2rem;
@@ -466,7 +466,8 @@
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    /* Increased 20% */
+    font-size: 1.5rem;
     line-height: 1.45;
     margin: 0 auto 1.6rem auto !important;
     padding: 0 8px;
@@ -544,11 +545,11 @@
   }
 
   .hero-title {
-    font-size: clamp(2rem, 8.5vw, 2.6rem) !important;
+    font-size: clamp(2.4rem, 10.2vw, 3.12rem) !important;
   }
 
   .hero-subtitle {
-    font-size: 0.93rem;
+    font-size: 1.12rem;
   }
 
   .hero-service-card {
