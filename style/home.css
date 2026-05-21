@@ -453,10 +453,10 @@
 
   .hero-title {
     /* Larger hero title on mobile for stronger impact */
-    font-size: clamp(2.2rem, 9.5vw, 3rem) !important;
-    line-height: 1.12 !important;
+    font-size: clamp(2.4rem, 10vw, 3.6rem) !important;
+    line-height: 1.08 !important;
     letter-spacing: -0.02em;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.2rem;
     padding: 0 8px;
   }
 
@@ -466,9 +466,9 @@
   }
 
   .hero-subtitle {
-    font-size: 1.12rem;
-    line-height: 1.5;
-    margin: 0 auto 1.8rem auto !important;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    margin: 0 auto 1.6rem auto !important;
     padding: 0 8px;
   }
 
@@ -554,7 +554,7 @@
   }
 
   .hero-title {
-    font-size: clamp(1.65rem, 7.7vw, 1.98rem) !important;
+    font-size: clamp(2rem, 8.5vw, 2.6rem) !important;
   }
 
   .hero-subtitle {
