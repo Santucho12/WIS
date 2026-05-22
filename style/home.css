@@ -533,7 +533,7 @@ body.intro-finished .hero-content {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 360px;
+    max-width: 306px; /* Reducido un 15% (360px * 0.85 = 306px) */
     margin: 0 auto;
     margin-top: 2.2rem;
     gap: 1.2rem;
