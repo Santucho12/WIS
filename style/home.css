@@ -549,7 +549,7 @@ body.intro-finished .hero-content {
 
   .scroll-indicator {
     display: block;
-    bottom: 96px;
+    bottom: 101px; /* Subido 5px más desde 96px */
     transform: translateX(-50%) scale(0.78);
   }
 
@@ -577,7 +577,7 @@ body.intro-finished .hero-content {
   }
 
   .scroll-indicator {
-    bottom: 92px;
+    bottom: 97px; /* Subido 5px más desde 92px */
     transform: translateX(-50%) scale(0.72);
   }
 
