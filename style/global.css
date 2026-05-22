@@ -166,12 +166,15 @@
   display: flex;
   align-items: center;
   gap: 0px; 
+  position: relative;
 }
 
 .logo-graphic-img {
   height: 84px; /* Increased by 20% from 70px */
   width: auto;
   object-fit: contain;
+  position: relative;
+  z-index: 2;
 }
 
 .logo-text-img {
@@ -181,6 +184,7 @@
   margin-left: -131px; /* Separados 1px más (-132 -> -131) */
   opacity: 1;
   filter: brightness(1.7) contrast(1.1) drop-shadow(0 0 25px rgba(255,255,255,0.15));
+  pointer-events: none;
 }
 
 /* Specific sizing for footer */
@@ -219,8 +223,9 @@
 }
 
 .logo .logo-text-img {
-  height: 231px; /* Increased by 10% from 210px */
-  margin-left: -104px; /* Separados 1px más (-105 -> -104) */
+  height: 393px; /* Aumentado 70% desde la base original de 231px */
+  margin-left: -176px; /* Proporcional a la altura de 393px */
+  pointer-events: none; /* Previene que la caja transparente tape clicks */
 }
 
 .logo:hover .logo-graphic-img {
@@ -230,23 +235,37 @@
 /* Responsive Logo Adjustments */
 @media (max-width: 768px) {
   .logo-combined {
-    gap: 8px;
+    gap: 0px;
+    align-items: center;
   }
   
   .logo-graphic-img {
-    height: 60px;
+    height: 50px;
+    flex-shrink: 0;
   }
   
   .logo-text-img {
-    height: 150px;
+    height: 120px; /* Restaurado a 120px para no superponer */
+    margin-left: -50px;
+    flex-shrink: 0;
+    max-width: calc(100vw - 110px); /* Evitar superposición */
+    object-fit: contain;
+    object-position: left center;
   }
   
   .logo .logo-graphic-img {
-    height: 45px;
+    height: 38px;
+    flex-shrink: 0;
   }
   
   .logo .logo-text-img {
-    height: 110px;
+    height: 170px; /* Aumentado un 70% */
+    margin-left: -76px; /* Proporcional a la altura de 170px */
+    width: auto;
+    max-width: calc(100vw - 100px); /* Prevenir solapamiento con el botón menú */
+    flex-shrink: 0;
+    object-fit: contain;
+    object-position: left center;
   }
 }
 

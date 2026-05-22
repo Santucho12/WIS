@@ -375,7 +375,7 @@
   .timeline-step.is-even .step-content-wrapper,
   .timeline-step.is-odd .step-content-wrapper {
     grid-column: 1;
-    padding-left: 54px;
+    padding-left: 74px; /* Increased to separate text from the node and line */
     padding-right: 0;
     text-align: left;
     margin-left: 0;

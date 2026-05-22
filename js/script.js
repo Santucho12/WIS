@@ -601,37 +601,35 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ── Mobile FAQ accordion behavior ──
-  const mobileFaqDetails = document.querySelectorAll('.mobile-faq details');
-  if (mobileFaqDetails.length) {
-    mobileFaqDetails.forEach(detail => {
-      const summary = detail.querySelector('summary');
+  const mobileFaqItems = document.querySelectorAll('.faq-item');
+  if (mobileFaqItems.length) {
+    mobileFaqItems.forEach(item => {
       
-      summary.addEventListener('click', (e) => {
-        // We let the 'toggle' event or native behavior happen, 
-        // but we manage the accordion part here.
-        if (!detail.open) {
-          // If it's about to open, close others
-          mobileFaqDetails.forEach(d => {
-            if (d !== detail && d.open) d.open = false;
-          });
+      // Make the entire item clickable
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all
+        mobileFaqItems.forEach(d => d.classList.remove('active'));
+        
+        // If it wasn't active, open it
+        if (!isActive) {
+          item.classList.add('active');
         }
       });
     });
   }
 
   // Defensive: prevent accidental navigation when interacting with the mobile FAQ
+  // (Removed faulty capture-phase stopPropagation that broke accordion clicks)
   const mobileFaq = document.querySelector('.mobile-faq');
   if (mobileFaq) {
-    // Capture phase to stop other global handlers that might trigger navigation
     mobileFaq.addEventListener('click', function (e) {
-      // If the click originated on an anchor inside the FAQ, prevent default navigation
       const anchor = e.target.closest('a');
       if (anchor) {
         e.preventDefault();
       }
-      // Always stop propagation so higher-level handlers don't interpret this as a global click
-      e.stopPropagation();
-    }, true);
+    });
   }
 
 

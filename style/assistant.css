@@ -94,26 +94,23 @@
   .assistant-grid { display: none !important; }
   .mobile-faq { display: block; margin-top: 1.2rem; }
   
-  .mobile-faq details { 
+  .mobile-faq .faq-item { 
     background: rgba(255,255,255,0.02); 
     border: 1px solid rgba(255,255,255,0.04); 
     padding: 16px; 
     border-radius: 12px; 
     margin-bottom: 1rem; 
     transition: all 0.4s ease;
+    cursor: pointer; /* Hace que toda la tarjeta muestre la manito de click */
   }
 
-  /* Remove native toggle behavior to control it with JS */
-  .mobile-faq details > summary {
-    list-style: none;
-    outline: none;
-  }
-  .mobile-faq details > summary::-webkit-details-marker {
-    display: none;
+  .mobile-faq .faq-item.active {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 210, 255, 0.3);
   }
 
-  .mobile-faq summary { 
-    cursor: pointer; 
+  .mobile-faq .faq-summary { 
+    /* cursor pointer heredado del parent */
     font-weight: 700; 
     color: var(--color-white); 
     display: flex;
@@ -124,7 +121,7 @@
   }
 
   /* Custom arrow for summary */
-  .mobile-faq summary::after {
+  .mobile-faq .faq-summary::after {
     content: '';
     width: 7px;
     height: 7px;
@@ -136,7 +133,7 @@
     flex-shrink: 0;
   }
 
-  .mobile-faq details[open] summary::after {
+  .mobile-faq .faq-item.active .faq-summary::after {
     transform: rotate(-135deg);
   }
 
@@ -146,11 +143,11 @@
     transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .mobile-faq details[open] .faq-content {
+  .mobile-faq .faq-item.active .faq-content {
     grid-template-rows: 1fr;
   }
 
-  .mobile-faq .faq-content > div {
+  .mobile-faq .faq-content-inner {
     overflow: hidden;
   }
 
@@ -165,7 +162,7 @@
     transition: all 0.5s ease;
   }
 
-  .mobile-faq details[open] p {
+  .mobile-faq .faq-item.active p {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.15s;
