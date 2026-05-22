@@ -52,17 +52,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Close on link click
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
+        // Obtenemos el prev antes de limpiar los estilos
+        const prev = parseInt(document.body.dataset.scrollY || '0');
+        const isHash = this.getAttribute('href').startsWith('#');
+
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
-        // restore body scroll when a link is clicked
-        const prev = parseInt(document.body.dataset.scrollY || '0');
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.left = '';
-        document.body.style.right = '';
-        document.body.classList.remove('menu-open');
-        window.scrollTo(0, prev);
-        delete document.body.dataset.scrollY;
+
+        // Solo restauramos si el body está bloqueado
+        if (document.body.classList.contains('menu-open')) {
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.left = '';
+          document.body.style.right = '';
+          document.body.classList.remove('menu-open');
+          
+          window.scrollTo(0, prev);
+          
+          // Si es un link de anclaje, no borramos el dataset todavía 
+          // para dejar que el smooth scroll lo use si hiciera falta, 
+          // aunque el smooth scroll ahora es nativo en mobile.
+          if (!isHash) {
+            delete document.body.dataset.scrollY;
+          }
+        }
       });
     });
 
@@ -147,34 +160,41 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!target) return;
       e.preventDefault();
 
-      const targetId = href.slice(1);
-      const isMobile = window.innerWidth <= 768;
+      // Permitimos que el navegador actualice su reflow luego de quitar el position: fixed del body menu
+      setTimeout(() => {
+        const targetId = href.slice(1);
+        const isMobile = window.innerWidth <= 768;
 
-      // Definimos un offset base para compensar la navbar colapsada (70px)
-      // Ajustamos para que el título de la sección quede bien centrado verticalmente al inicio
-      let finalOffset = 80;
+        let finalOffset = 80;
 
-      // Ajustes específicos por sección para que "caigan" perfecto
-      if (targetId === 'servicios') finalOffset = isMobile ? 60 : 30;
-      if (targetId === 'como-trabajamos') finalOffset = isMobile ? 40 : 10;
-      if (targetId === 'sobre-nosotros') finalOffset = isMobile ? 40 : 20;
-      if (targetId === 'inicio') finalOffset = 0;
+        if (targetId === 'servicios') finalOffset = isMobile ? 60 : 30;
+        if (targetId === 'como-trabajamos') finalOffset = isMobile ? 40 : 10;
+        if (targetId === 'sobre-nosotros') finalOffset = isMobile ? 40 : 20;
+        if (targetId === 'inicio') finalOffset = 0;
 
-      if (lenis) {
-        // Obtenemos la posición absoluta del target
-        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
-        
-        lenis.scrollTo(offsetTop - finalOffset, {
-          duration: 1.2,
-          easing: function (t) {
-            return 1 - Math.pow(1 - t, 4);
-          }
-        });
-        return;
-      }
+        // Force native scroll on mobile to avoid any conflicts with Lenis + Locked Body
+        if (isMobile) {
+          const rect = target.getBoundingClientRect();
+          const targetY = rect.top + window.pageYOffset;
+          window.scrollTo({ top: targetY - finalOffset, behavior: 'smooth' });
+          return;
+        }
 
-      const y = target.getBoundingClientRect().top + window.pageYOffset - finalOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+        if (lenis) {
+          const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
+          
+          lenis.scrollTo(offsetTop - finalOffset, {
+            duration: 1.2,
+            easing: function (t) {
+              return 1 - Math.pow(1 - t, 4);
+            }
+          });
+          return;
+        }
+
+        const y = target.getBoundingClientRect().top + window.pageYOffset - finalOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, 100); // Aumentamos un poco el delay para asegurar que el reflow del body sea completo
     });
   });
 
@@ -207,7 +227,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const heroOverlay = document.getElementById('hero-overlay');
     const heroContent = document.getElementById('hero-content');
 
-    if (heroSection && heroImage && heroOverlay && heroContent) {
+    const isMobileHero = window.innerWidth <= 768;
+    if (heroSection && heroImage && heroOverlay && heroContent && !isMobileHero) {
       // Parallax effect for the background image
       window.gsap.to(heroImage, {
         yPercent: -15,
@@ -270,7 +291,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     const parallaxElements = Array.from(document.querySelectorAll('.parallax'));
+    const isMobileParallax = window.innerWidth <= 768;
     parallaxElements.forEach(function (element) {
+      if (isMobileParallax) return; // Quitamos el efecto paralax en mobile
       const speedValue = parseFloat(element.getAttribute('data-speed') || '0.14');
       const triggerElement = element.closest('section') || element;
       window.gsap.to(element, {
