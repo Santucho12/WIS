@@ -217,14 +217,20 @@
 }
 
 /* Navbar Logo Specifics */
+.logo {
+  display: flex;
+  align-items: center;
+  transform: translateY(1px); /* Ajuste sutil de 1px hacia abajo */
+}
+
 .logo .logo-graphic-img {
   height: 60px; /* Increased by 20% from 50px */
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .logo .logo-text-img {
-  height: 393px; /* Aumentado 70% desde la base original de 231px */
-  margin-left: -176px; /* Proporcional a la altura de 393px */
+  height: 250px; /* Reducido para que no sea tan grande en desktop */
+  margin-left: -110px; /* Ajustado proporcionalmente a la nueva altura */
   pointer-events: none; /* Previene que la caja transparente tape clicks */
 }
 
@@ -245,27 +251,16 @@
   }
   
   .logo-text-img {
-    height: 120px; /* Restaurado a 120px para no superponer */
-    margin-left: -50px;
-    flex-shrink: 0;
-    max-width: calc(100vw - 110px); /* Evitar superposición */
-    object-fit: contain;
-    object-position: left center;
+    display: none !important; /* Solo queremos el logo gráfico en mobile */
   }
   
   .logo .logo-graphic-img {
-    height: 38px;
+    height: 48px; /* Un poco más grande para que se aprecie bien el isotipo solo */
     flex-shrink: 0;
   }
   
   .logo .logo-text-img {
-    height: 170px; /* Aumentado un 70% */
-    margin-left: -76px; /* Proporcional a la altura de 170px */
-    width: auto;
-    max-width: calc(100vw - 100px); /* Prevenir solapamiento con el botón menú */
-    flex-shrink: 0;
-    object-fit: contain;
-    object-position: left center;
+    display: none !important;
   }
 }
 
