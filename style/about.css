@@ -283,6 +283,7 @@
   .about-description-caps {
     font-size: 0.92rem;
     margin-bottom: 1.8rem;
+    text-align: left;
   }
   
   .stat-bento-card {
@@ -295,10 +296,14 @@
     font-size: 2.28rem;
   }
 
-  .stat-full-content {
-    align-items: center;
+  .about-checklist {
+    align-items: flex-start;
+    text-align: left;
   }
-}
+
+  .about-checklist li {
+    justify-content: flex-start;
+  }
 
 @media (max-width: 480px) {
   .stats-bento-grid {
