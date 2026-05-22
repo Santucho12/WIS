@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let finalOffset = 80;
 
         if (targetId === 'servicios') finalOffset = isMobile ? -15 : 15;
-        if (targetId === 'como-trabajamos') finalOffset = isMobile ? 60 : 10;
+        if (targetId === 'como-trabajamos') finalOffset = isMobile ? 50 : 10;
         if (targetId === 'sobre-nosotros') finalOffset = isMobile ? 40 : 20;
         if (targetId === 'clientes') finalOffset = isMobile ? 30 : 80;
         if (targetId === 'inicio') finalOffset = 0;
