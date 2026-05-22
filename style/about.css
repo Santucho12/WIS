@@ -263,6 +263,11 @@
   .about {
     padding: 80px 0;
   }
+
+  .about-text-side {
+    align-items: center;
+    text-align: center;
+  }
   
   .about-grid {
     gap: 3rem;
@@ -272,6 +277,7 @@
     font-size: 2.3rem;
     margin-bottom: 1.2rem;
     white-space: normal;
+    text-align: center;
   }
   
   .about-description-caps {
