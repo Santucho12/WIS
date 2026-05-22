@@ -161,6 +161,95 @@
    --transition-smooth: 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Logo Combined Styles (Graphic + Text) */
+.logo-combined {
+  display: flex;
+  align-items: center;
+  gap: 0px; 
+}
+
+.logo-graphic-img {
+  height: 84px; /* Increased by 20% from 70px */
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text-img {
+  height: 323px; /* Increased by 10% from 294px */
+  width: auto;
+  object-fit: contain;
+  margin-left: -131px; /* Separados 1px más (-132 -> -131) */
+  opacity: 1;
+  filter: brightness(1.7) contrast(1.1) drop-shadow(0 0 25px rgba(255,255,255,0.15));
+}
+
+/* Specific sizing for footer */
+.footer-modern-logo .logo-combined {
+  gap: 0px;
+}
+
+.footer-modern-logo .logo-graphic-img {
+  height: 58px; /* Slightly larger for better presence */
+}
+
+.footer-modern-logo .logo-text-img {
+  height: 220px; /* Increased to balance with the icon */
+  margin-left: -89px; /* Separados 1px más (-90 -> -89) */
+  filter: brightness(2) contrast(1.1) drop-shadow(0 0 15px rgba(255,255,255,0.1)); /* Brighter and with subtle glow */
+}
+
+/* Specific sizing for intro */
+.intro-logo-container .logo-combined {
+  gap: 0px;
+}
+
+.intro-logo-container .logo-graphic-img {
+  height: 132px; /* Increased by 20% from 110px */
+}
+
+.intro-logo-container .logo-text-img {
+  height: 583px; /* Increased by 10% from 530px */
+  margin-left: -241px; /* Separados 1px más (-242 -> -241) */
+}
+
+/* Navbar Logo Specifics */
+.logo .logo-graphic-img {
+  height: 60px; /* Increased by 20% from 50px */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo .logo-text-img {
+  height: 231px; /* Increased by 10% from 210px */
+  margin-left: -104px; /* Separados 1px más (-105 -> -104) */
+}
+
+.logo:hover .logo-graphic-img {
+  transform: scale(1.05);
+}
+
+/* Responsive Logo Adjustments */
+@media (max-width: 768px) {
+  .logo-combined {
+    gap: 8px;
+  }
+  
+  .logo-graphic-img {
+    height: 60px;
+  }
+  
+  .logo-text-img {
+    height: 150px;
+  }
+  
+  .logo .logo-graphic-img {
+    height: 45px;
+  }
+  
+  .logo .logo-text-img {
+    height: 110px;
+  }
+}
+
 /* ============================================================================
    7. CORE GLOBAL RESET & DEFAULTS
    ============================================================================ */

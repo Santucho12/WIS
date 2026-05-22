@@ -4,17 +4,25 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  const hasGsap = typeof window.gsap !== 'undefined';
-  const hasScrollTrigger = typeof window.ScrollTrigger !== 'undefined';
-  const hasLenis = typeof window.Lenis !== 'undefined';
-  let lenis = null;
+  // ── Cinematic Intro Logic ────────────────
+  const introOverlay = document.getElementById('cinematic-intro');
+  const introLogo = document.getElementById('intro-logo-container');
 
-  // ── Mobile Menu Toggle (improved) ─────
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  function initSite() {
+    if (document.body.classList.contains('site-initialized')) return;
+    document.body.classList.add('site-initialized');
+    
+    const hasGsap = typeof window.gsap !== 'undefined';
+    const hasScrollTrigger = typeof window.ScrollTrigger !== 'undefined';
+    const hasLenis = typeof window.Lenis !== 'undefined';
+    let lenis = null;
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function (e) {
+    // ── Mobile Menu Toggle (improved) ─────
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', function (e) {
       e.stopPropagation();
       const isActive = !navLinks.classList.contains('active');
       navLinks.classList.toggle('active');
@@ -139,31 +147,25 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!target) return;
       e.preventDefault();
 
-      const navH = navbar ? navbar.offsetHeight : 0;
       const targetId = href.slice(1);
+      const isMobile = window.innerWidth <= 768;
 
-      let extraOffset = 10;
-      if (targetId === 'sobre-nosotros') extraOffset = 0;
-      if (targetId === 'servicios') extraOffset = window.innerWidth <= 768 ? 100 : 120;
-      if (targetId === 'portfolio' && this.closest('.navbar')) extraOffset = 20;
+      // Definimos un offset base para compensar la navbar colapsada (70px)
+      // Ajustamos para que el título de la sección quede bien centrado verticalmente al inicio
+      let finalOffset = 80;
 
-      // El usuario solicitó redirigir 40 píxeles más abajo globalmente
-      extraOffset -= 40;
-
-      // Ajustes específicos solicitados (acumulativos según feedback)
-      if (targetId === 'servicios') {
-        extraOffset -= 145; // 15 píxeles adicionales más abajo
-      }
-      if (targetId === 'como-trabajamos') {
-        extraOffset -= 45; // 15 píxeles adicionales más abajo
-      }
-
-      const y = target.getBoundingClientRect().top + window.pageYOffset - navH - extraOffset;
+      // Ajustes específicos por sección para que "caigan" perfecto
+      if (targetId === 'servicios') finalOffset = isMobile ? 60 : 30;
+      if (targetId === 'como-trabajamos') finalOffset = isMobile ? 40 : 10;
+      if (targetId === 'sobre-nosotros') finalOffset = isMobile ? 40 : 20;
+      if (targetId === 'inicio') finalOffset = 0;
 
       if (lenis) {
-        lenis.scrollTo(target, {
-          offset: -navH - extraOffset,
-          duration: 1.4,
+        // Obtenemos la posición absoluta del target
+        const offsetTop = target.getBoundingClientRect().top + window.pageYOffset;
+        
+        lenis.scrollTo(offsetTop - finalOffset, {
+          duration: 1.2,
           easing: function (t) {
             return 1 - Math.pow(1 - t, 4);
           }
@@ -171,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
+      const y = target.getBoundingClientRect().top + window.pageYOffset - finalOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     });
   });
@@ -199,6 +202,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── Auto Reveal + Parallax with ScrollTrigger ─────
   if (hasGsap && hasScrollTrigger) {
+    const heroSection = document.querySelector('.hero');
+    const heroImage = document.getElementById('hero-image');
+    const heroOverlay = document.getElementById('hero-overlay');
+    const heroContent = document.getElementById('hero-content');
+
+    if (heroSection && heroImage && heroOverlay && heroContent) {
+      // Parallax effect for the background image
+      window.gsap.to(heroImage, {
+        yPercent: -15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroSection,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      // Darken overlay on scroll for cinematic transition
+      window.gsap.to(heroOverlay, {
+        opacity: 0.8,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroSection,
+          start: "10% top",
+          end: "90% top",
+          scrub: true,
+        },
+      });
+
+      // Fade out the content block
+      window.gsap.to(heroContent, {
+        opacity: 0,
+        y: -30,
+        ease: "power2.in",
+        scrollTrigger: {
+          trigger: heroSection,
+          start: "20% top", // Pushed start further to avoid conflict with reveal
+          end: "70% top",
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
+    }
+
     const revealElements = Array.from(document.querySelectorAll('.reveal, .fade-up'));
     revealElements.forEach(function (element) {
       const isFadeUp = element.classList.contains('fade-up');
@@ -706,28 +754,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── Calendly Integration & Configuration ──
   const CALENDLY_URL = 'https://calendly.com/santysegal/30min';
-  const contactBtn = document.querySelector('.btn-navbar-cta');
-  const workflowCtaBtn = document.querySelector('.btn-cta-workflow');
+  const heroComenzarBtn = document.getElementById('hero-comenzar-proyecto');
+  const finalCtaBtn = document.getElementById('cta-final-comenzar');
+  const workflowCtaBtn = document.getElementById('workflow-agendar-cta');
+  const contactBtn = document.getElementById('navbar-contacto'); 
 
   function openCalendly(e) {
     if (e) e.preventDefault();
     if (typeof Calendly !== 'undefined') {
       Calendly.initPopupWidget({
         url: CALENDLY_URL,
-        color: '00d2ff',          // Celeste de WIS
-        textColor: 'ffffff',      // Texto blanco
-        backgroundColor: '090e18' // Fondo oscuro de WIS
+        // Eliminamos los parámetros de color que pueden causar que se vea el "fallback" blanco
+        // El tema oscuro debe configurarse en el dashboard de Calendly para mayor efectividad
       });
     } else {
-      // Fallback en caso de que falle el script de Calendly
       window.open(CALENDLY_URL, '_blank');
     }
   }
 
-  // Trigger Calendly on navbar contact action
-  if (contactBtn) {
-    contactBtn.addEventListener('click', openCalendly);
-  }
+  // Bind Calendly to multiple trigger buttons
+  [heroComenzarBtn, finalCtaBtn, workflowCtaBtn].forEach(btn => {
+    if (btn) btn.addEventListener('click', openCalendly);
+  });
 
   // Trigger Calendly on workflow step "Agendar reunión" button
   if (workflowCtaBtn) {
@@ -756,6 +804,55 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('mouseenter', function () {
       globalSpotlight.style.opacity = '1';
     });
+  } // End of globalSpotlight
+} // End of initSite
+
+  // ── Cinematic Intro Logic ────────────────
+  if (introOverlay && introLogo) {
+    // Force scroll to top IMMEDIATELY and lock it
+    window.scrollTo(0, 0);
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    
+    // Lock body to prevent any scroll during intro
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    // Start animating logo reveal
+    setTimeout(() => {
+      window.scrollTo(0, 0); // Double check just in case
+      introLogo.classList.add('animating');
+    }, 100);
+
+    // Start exit sequence
+    setTimeout(() => {
+      introOverlay.classList.add('exiting');
+      introLogo.classList.add('exiting');
+      document.body.classList.add('intro-finished');
+      
+      // Unlock scroll
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      
+      // Initialize content exactly when overlay starts to fade
+      initSite();
+      
+      // Force reveal if for some reason CSS transition didn't trigger
+      setTimeout(() => {
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) heroContent.style.opacity = '1';
+        if (heroContent) heroContent.style.transform = 'translateY(0)';
+      }, 50);
+    }, 2500);
+
+    // Clean up from DOM
+    setTimeout(() => {
+      introOverlay.classList.add('done');
+    }, 5500);
+  } else {
+    // No intro found, initialize normally
+    initSite();
   }
 
   console.log('🚀 Software Factory — Enhanced UX Loaded');

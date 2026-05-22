@@ -11,13 +11,14 @@
   padding-top: 18px;
   pointer-events: none; /* Allows click-throughs around the margins */
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1 !important; /* Siempre visible */
 }
 
 .navbar {
-  max-width: 98.7rem;
+  max-width: 100.5rem; /* Reduced by 5% from 110rem */
   width: calc(100% - 32px);
   margin: 0 auto;
-  height: 80px;
+  height: 90px; /* Reduced from 120px to avoid jumping during transition */
   background: transparent;
   border: 1px solid transparent;
   border-radius: 9999px; /* Floating capsule pill shape */
@@ -26,14 +27,20 @@
   align-items: center;
   padding: 0 40px;
   pointer-events: auto; /* Re-enable pointer events on the bar itself */
-  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: 
+    max-width 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    height 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    background 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    border 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
 /* Scrolled/Active Glass Capsule State */
 .navbar.scrolled {
-  max-width: 78.3rem;
-  height: 70px;
+  max-width: 91.3rem; /* 110rem * 0.83 = 91.3rem (17% total reduction, 5% less than before) */
+  height: 81px; /* Reduced by 10% from 90px */
   background: rgba(var(--hue-black-rgb), 0.55);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -45,48 +52,11 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
   cursor: pointer;
   text-decoration: none;
+  /* Removed gap to allow precise overlap from global.css */
 }
 
-.logo-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.logo-img {
-  height: 55px;
-  width: auto;
-  object-fit: contain;
-  transition: transform var(--transition-normal) cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.logo:hover .logo-img {
-  transform: scale(1.08);
-}
-
-.logo-text {
-  font-family: var(--font-title);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--color-white);
-  letter-spacing: 0.03em;
-  line-height: 1;
-}
-
-.logo-text .highlight {
-  color: var(--color-celeste);
-}
-
-.logo-subtitle {
-  font-size: 0.55rem;
-  color: rgba(var(--hue-white-rgb), 0.4);
-  letter-spacing: 0.22em;
-  font-weight: 700;
-  margin-top: 3px;
-}
 
 /* Center Desktop Navigation Menu */
 .nav-links {
@@ -96,6 +66,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
+  transform: translateX(-20px); /* Move 20px to the left */
 }
 
 .nav-links li {
@@ -108,21 +79,21 @@
 
 .nav-links a {
   text-decoration: none;
-  color: rgba(var(--hue-white-rgb), 0.55);
+  color: var(--color-white);
   font-weight: 700;
   padding: 0.5rem 0;
   margin: 0 0.5rem;
-  font-size: 0.835rem; /* Replicated fine letter-tracking size */
+  font-size: 0.79325rem; /* Reduced by 5% from 0.835rem */
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
   position: relative;
   display: block;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--color-white);
+  opacity: 0.7;
 }
 
 /* Bottom Celeste glow underline hover effect */
@@ -190,7 +161,7 @@
     var(--gradient-primary) border-box;
   color: var(--hue-white) !important;
   box-shadow: 0 8px 25px rgba(var(--hue-blue-rgb), 0.45);
-  transform: translateY(-2px) scale(1.04);
+  transform: scale(1.05);
 }
 
 .btn-navbar-cta:hover::before {

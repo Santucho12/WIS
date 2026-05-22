@@ -70,20 +70,27 @@
 }
 
 /* Hero Section */
-
-/* Hero Section */
 .hero {
-  min-height: 100vh;
+  position: relative;
+  height: 101.25vh; /* Reduced by 19% from 125vh (125 * 0.81 = 101.25) */
+  display: block;
+  overflow: visible;
+  clip-path: inset(0);
+  width: 100%;
+  background: var(--hue-black);
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.hero-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
-  clip-path: inset(0);
-  width: 100%;
-  padding-top: 73px;
-  /* Premium dark blue gradient matching reference */
-  background: var(--hue-black);
 }
 
 /* Hero Grid Background */
@@ -105,43 +112,60 @@
 /* Hero Content */
 .hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 10;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 4.2rem;
-  padding: 0 40px 60px 40px;
+  padding: 190px 40px 60px 40px; /* Incrementado de 100px a 200px (100px adicionales) */
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
+  /* Sync with intro */
+  opacity: 1; /* Volver a 1 por defecto */
+  transform: translateY(0); /* Volver a 0 por defecto */
+}
+
+/* Modificadores que dependen de la clase en body */
+body:not(.intro-finished) .hero-content {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+body.intro-finished .hero-content {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Badge chip above title */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.42rem;
-  padding: 0.38rem 1rem;
-  background: rgba(var(--hue-blue-rgb), 0.08);
-  border: 1px solid rgba(var(--hue-blue-rgb), 0.2);
+  gap: 0.6rem;
+  padding: 0.5rem 1.4rem;
+  background: rgba(3, 1, 15, 0.4); /* Dark transparency */
+  border: 1px solid rgba(22, 119, 237, 0.25);
   border-radius: 50px;
-  color: var(--color-celeste);
-  font-size: 0.72rem;
-  font-weight: 500;
-  margin-bottom: 2.6rem;
-  letter-spacing: 0.03em;
-  animation: fadeInDown 1s ease-out 0.2s both;
-  backdrop-filter: blur(10px);
+  color: var(--color-white); /* White text as in image */
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 2.22rem; /* Adjusted for image proportionality */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-badge-dot {
-  width: 5px;
-  height: 5px;
-  background: var(--color-celeste);
+  width: 6px;
+  height: 6px;
+  background: #1677ed; /* Primary blue dot */
   border-radius: 50%;
+  box-shadow: 0 0 10px rgba(22, 119, 237, 0.8);
   animation: badgePulse 2s ease-in-out infinite;
 }
 
@@ -185,22 +209,19 @@
 .hero-title .text-gradient {
   background-image: linear-gradient(
     to right,
-    #112954 0%,
-    #1c4280 12.5%,
-    #A4F4FD 32.5%,
-    var(--color-celeste) 50%,
-    #1c4280 67.5%,
-    #112954 87.5%,
-    #112954 100%
+    #58a6ff 0%,
+    #3fb950 25%,
+    #A4F4FD 50%,
+    #58a6ff 75%,
+    #58a6ff 100%
   );
-  background-size: 200% auto;
+  background: linear-gradient(135deg, #1677ed 0%, #A4F4FD 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  animation: shiny 6s linear infinite;
-  filter: url(#c3-noise);
+  filter: drop-shadow(0 0 10px rgba(22, 119, 237, 0.3));
 }
 
 @keyframes shiny {
@@ -215,16 +236,8 @@
   color: rgba(var(--hue-white-rgb), 0.7);
   max-width: 700px;
   margin: 0 0 2.8rem 0;
-  opacity: 0;
-  animation: fadeIn 1s ease-out 0.4s forwards;
   font-weight: 400;
   line-height: 1.6;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
 }
 
 /* Hero Buttons */
@@ -232,8 +245,6 @@
   display: flex;
   gap: 1rem;
   justify-content: flex-start;
-  opacity: 1;
-  animation: fadeInUp 0.8s ease-out 1s both;
 }
 
 .hero-buttons .btn {
@@ -246,7 +257,7 @@
 
 .hero-buttons .btn-primary {
   box-shadow: 0 0 25px rgba(var(--hue-blue-rgb), 0.4);
-  animation: buttonPulse 2s infinite ease-in-out, fadeInUp 0.8s ease-out 1s both;
+  animation: buttonPulse 2s infinite ease-in-out;
 }
 
 @keyframes buttonPulse {
@@ -270,14 +281,17 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100%; /* Contenedor ajustado exactamente a la altura de la sección */
   z-index: 0;
   overflow: hidden;
 }
 
 .hero-background-image img {
   width: 100%;
-  height: 100%;
+  height: 125%; /* La imagen es más alta para permitir el movimiento parallax interno */
+  position: absolute;
+  top: -12.5%; /* Centrado inicial para el margen extra */
+  left: 0;
   object-fit: cover;
   object-position: center;
   opacity: 0.85;
@@ -289,8 +303,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, rgba(var(--hue-black-rgb), 1) 0%, rgba(var(--hue-black-rgb), 0.85) 30%, transparent 100%);
-  z-index: 1;
+  background: black;
+  opacity: 0; /* Animated for cinematic transition */
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Spotlight Interactive Glow */

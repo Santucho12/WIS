@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href="style/global.css">
     <link rel="stylesheet" href="style/global/styles.css">
+    <link rel="stylesheet" href="style/global/cinematic-intro.css">
     <link rel="stylesheet" href="style/navbar.css">
     <link rel="stylesheet" href="style/home.css">
     <link rel="stylesheet" href="style/services.css">
@@ -68,6 +69,13 @@
 </head>
 
 <body>
+    <!-- Cinematic Preloader Intro -->
+    <div id="cinematic-intro" class="cinematic-overlay">
+        <div id="intro-logo-container" class="intro-logo-container">
+            <img src="images/WIS Logo vect c. nombre.pdf (1).png" alt="WIS Premium Logo" class="intro-logo-monumental">
+        </div>
+    </div>
+
     <!-- Global Interactive Mouse Spotlight -->
     <div class="global-spotlight"></div>
 
@@ -85,7 +93,10 @@
     <header class="navbar-header">
         <nav class="navbar">
             <a href="#inicio" class="logo">
-                <img src="images/WIS Logo vect c. nombre.pdf (1).png" alt="WIS Logo" class="logo-img">
+                <div class="logo-combined">
+                    <img src="images/WIS Logo SOLO.png" alt="WIS Graphic" class="logo-graphic-img">
+                    <img src="images/WIS Logo SOLO TEXTO.png" alt="White Intelligence System" class="logo-text-img">
+                </div>
             </a>
 
             <ul class="nav-links">
@@ -134,9 +145,10 @@
             </ul>
 
             <div class="navbar-actions">
-                <!-- Nota: Para cambiar tu enlace de Calendly, edita el atributo href aquí y la variable CALENDLY_URL al inicio de js/script.js -->
-                <a href="https://calendly.com/santysegal/30min" target="_blank" rel="noopener"
-                    class="btn-navbar-cta">Contacto</a>
+                <!-- Botón de Contacto ahora abre WhatsApp -->
+                <a href="https://wa.me/5492914405674?text=Hola%2C%20vengo%20desde%20la%20web%20y%20quiero%20hacer%20una%20consulta" 
+                    target="_blank" rel="noopener"
+                    class="btn-navbar-cta" id="navbar-contacto">Contacto</a>
             </div>
 
             <button class="menu-toggle" aria-label="Toggle menu">
@@ -155,13 +167,13 @@
 
         <!-- Full Hero Background Image -->
         <div class="hero-background-image">
-            <img src="images/ChatGPT Image 18 may 2026, 09_32_13 a.m..png" alt="WIS Platform Background">
-            <div class="hero-overlay-dark"></div>
+            <img src="images/ChatGPT Image 18 may 2026, 09_32_13 a.m..png" alt="WIS Platform Background" id="hero-image">
+            <div class="hero-overlay-dark" id="hero-overlay"></div>
         </div>
 
         <div class="hero-grid-bg"></div>
 
-        <div class="hero-content">
+        <div class="hero-content" id="hero-content">
             <div class="hero-text-column">
                 <!-- Premium Conversion Badge -->
                 <div class="hero-badge reveal fade-up" data-aos="fade-down" data-delay="0">
@@ -179,8 +191,7 @@
                     negocio necesita. </p>
 
                 <div class="hero-buttons">
-                    <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto"
-                        target="_blank" rel="noopener" class="btn btn-primary" data-aos="zoom-in" data-delay="300">
+                    <a href="#" class="btn btn-primary" id="hero-comenzar-proyecto" data-aos="zoom-in" data-delay="300">
                         Comenzar proyecto
                     </a>
                     <a href="#servicios" class="btn btn-secondary" data-aos="zoom-in" data-delay="400">
@@ -220,7 +231,7 @@
                     </p>
 
                     <ul class="about-checklist">
-                        <li data-aos="fade-up" data-aos-delay="100">
+                        <li>
                             <div class="check-icon-wrapper">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
@@ -230,7 +241,7 @@
                             <span class="checklist-text"><strong>ENTREGA EN 3 A 6 SEMANAS</strong> — CUMPLIMOS LOS
                                 TIEMPOS ACORDADOS</span>
                         </li>
-                        <li data-aos="fade-up" data-aos-delay="200">
+                        <li>
                             <div class="check-icon-wrapper">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
@@ -240,7 +251,7 @@
                             <span class="checklist-text"><strong>CÓDIGO PROPIO, SIN DEPENDENCIA DE TERCEROS</strong> —
                                 VOS SOS DUEÑO DE LO QUE CONSTRUIMOS</span>
                         </li>
-                        <li data-aos="fade-up" data-aos-delay="300">
+                        <li>
                             <div class="check-icon-wrapper">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
@@ -564,8 +575,7 @@
                             <h3 class="step-title">Monitoreo & Escalabilidad</h3>
                             <p class="step-desc">Brindamos soporte post-lanzamiento activo y optimización continua. Analizamos métricas operativas de tu IA y tu software para expandir funcionalidades y mantener tu negocio en la vanguardia.</p>
                             <div class="step-cta-block">
-                                <a href="https://calendly.com/santysegal/30min" target="_blank" rel="noopener"
-                                    class="btn btn-primary btn-cta-workflow">
+                                <a href="#" class="btn btn-primary btn-cta-workflow" id="workflow-agendar-cta">
                                     Agendar reunión
                                     <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="3" stroke-linecap="round"
@@ -729,8 +739,7 @@
                         Estamos listos para construir la solución que tu negocio necesita.
                     </p>
                     <div class="cta-premium-actions" data-aos="zoom-in" data-aos-delay="400">
-                        <a href="https://wa.me/5492914405674?text=Hola%2C%20quiero%20hablar%20sobre%20un%20proyecto"
-                            target="_blank" rel="noopener" class="btn-premium-cta">
+                        <a href="#" class="btn-premium-cta" id="cta-final-comenzar">
                             Comenzar proyecto
                         </a>
                     </div>
@@ -798,7 +807,10 @@
             <div class="footer-modern-main">
                 <div class="footer-modern-brand" data-aos="fade-up" data-aos-delay="0">
                     <div class="footer-modern-logo">
-                        <img src="images/WIS Logo vect c. nombre.pdf (1).png" alt="WIS Logo" class="footer-logo-img">
+                        <div class="logo-combined">
+                            <img src="images/WIS Logo SOLO.png" alt="WIS Graphic" class="logo-graphic-img">
+                            <img src="images/WIS Logo SOLO TEXTO.png" alt="White Intelligence System" class="logo-text-img">
+                        </div>
                     </div>
                     <p class="footer-modern-claim">Desarrollamos webs, automatizaciones y sistemas a medida para
                         empresas y emprendimientos.

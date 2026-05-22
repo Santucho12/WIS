@@ -184,7 +184,7 @@ section {
     var(--gradient-primary) border-box;
   color: var(--hue-white);
   box-shadow: 0 15px 45px rgba(var(--hue-blue-rgb), 0.4);
-  transform: translateY(-3px) scale(1.02);
+  transform: scale(1.05);
 }
 
 .btn-primary:hover::before {
@@ -200,9 +200,9 @@ section {
 }
 
 .btn-secondary:hover {
-  transform: translateY(-3px);
+  transform: scale(1.05);
   background: #000000;
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
@@ -227,9 +227,21 @@ section {
   color: white;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   z-index: 1000;
-  transition: all 0.3s ease;
   text-decoration: none;
   animation: pulse-whatsapp 2s infinite;
+  /* Sync with intro */
+  opacity: 1; /* Por defecto visible */
+}
+
+body:not(.intro-finished) .whatsapp-float {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.intro-finished .whatsapp-float {
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .whatsapp-float svg {
@@ -318,5 +330,63 @@ section {
     width: 28px;
     height: 28px;
   }
+}
+
+
+/* ====================================
+   CALENDLY POPUP OVERRIDES
+   ==================================== */
+.calendly-overlay {
+  background-color: rgba(3, 1, 15, 0.92) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+}
+
+.calendly-popup {
+  border-radius: 0px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 70px -10px rgba(0, 0, 0, 0.8) !important;
+  max-height: 85vh !important;
+  height: 85vh !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Ocultar cruz de cierre y scrollbar de Calendly */
+.calendly-close-overlay {
+  display: none !important;
+}
+
+.calendly-popup-content {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important;  /* IE/Edge */
+}
+
+.calendly-popup-content::-webkit-scrollbar {
+  display: none !important; /* Chrome/Safari */
+}
+
+/* ====================================
+   CALENDLY INLINE SECTION
+   ==================================== */
+.calendly-inline-section {
+  padding: 100px 0;
+  background: var(--hue-black);
+  position: relative;
+  overflow: hidden;
+}
+
+.calendly-inline-card {
+  background: rgba(3, 1, 15, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 32px;
+  border: 1px solid rgba(var(--hue-blue-rgb), 0.1);
+  overflow: hidden;
+  padding: 10px;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+}
+
+.container-narrow {
+  max-width: 900px !important;
+  margin: 0 auto;
 }
 

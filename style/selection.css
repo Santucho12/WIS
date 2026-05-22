@@ -302,14 +302,7 @@
 /* Step Call to Action button block */
 .step-cta-block {
   margin-top: 24px;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.step-title.active ~ .step-cta-block {
-  opacity: 1;
-  transform: translateY(0);
+  display: block;
 }
 
 .btn-cta-workflow {

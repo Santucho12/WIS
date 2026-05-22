@@ -5,12 +5,13 @@
 .footer-modern {
     position: relative;
     background: var(--hue-black);
-    padding: 60px 0 0 0;
-    margin-bottom: -50px;
+    padding: 20px 0 0 0; /* Reduced from 60px (restado 40px) */
+    margin-bottom: 0px; /* Changed from -50px to 0 for better breathing room */
     color: var(--hue-white);
     overflow: hidden;
     border-top: 1px solid rgba(var(--hue-blue-rgb), 0.15);
     font-family: var(--font-sans);
+    
 }
 
 .footer-modern-container {
@@ -25,40 +26,23 @@
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 4rem;
-    padding-bottom: 50px;
+    padding-bottom: 30px; /* Ajustado a 20px según lo solicitado */
 }
 
 /* Brand Column */
 .footer-modern-logo {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    margin-left: -30px; /* Subtle offset to align visually with the text below */
+    margin-top: -95px; /* Squeezes space above the logo */
+    margin-bottom: -90px; /* Squeezes space below the logo */
+    transition: transform 0.3s ease;
 }
 
-.footer-logo-img {
-    height: 62px;
-    width: auto;
-    object-fit: contain;
+.footer-modern-logo:hover {
+    transform: translateY(-2px);
 }
 
-.footer-modern-logo .logo-text {
-    font-size: 1.8rem;
-    font-weight: 800;
-    font-family: var(--font-sans);
-    letter-spacing: 0.05em;
-    color: var(--hue-white); 
-    line-height: 1;
-}
-
-.footer-modern-logo .logo-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem; /* Separación entre WIS y SOFTWARE DEVELOPMENT */
-}
-
-.footer-modern-logo .highlight {
-    color: var(--color-celeste);
-}
 
 .footer-modern-claim {
     color: rgba(var(--hue-white-rgb), 0.5);
@@ -185,8 +169,8 @@
 /* Bottom Bar */
 .footer-modern-bottom {
     border-top: 1px solid rgba(var(--hue-white-rgb), 0.05);
-    padding-top: 25px;
-    padding-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 20px;
 }
 
 .footer-modern-bottom-content {
