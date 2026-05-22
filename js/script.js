@@ -541,19 +541,32 @@ document.addEventListener('DOMContentLoaded', function () {
     consoleQuery.innerHTML = '';
     consoleShortAnswer.innerHTML = '';
     consoleFullAnswer.style.opacity = '0';
-    consoleFullAnswer.style.transform = 'translateY(10px)';
+    consoleFullAnswer.style.transform = 'translateY(15px)';
     consoleFullAnswer.style.transition = 'none';
     consoleFullAnswer.innerHTML = '';
+
+    // Clear divider
+    const divider = document.querySelector('.console-divider');
+    if (divider) {
+      divider.style.width = '0';
+      divider.style.transition = 'none';
+    }
 
     // Type the User Command
     typeText(consoleQuery, data.query, 25, () => {
       // Add thinking delay
       
       responseTimeout = setTimeout(() => {
+        // Show divider with animation
+        if (divider) {
+          divider.style.transition = 'width 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+          divider.style.width = '100%';
+        }
+
         typeText(consoleShortAnswer, data.short, 20, () => {
-          // Fade in the full description block
+          // Fade in the full description block with a "deploy" effect
           consoleFullAnswer.innerHTML = data.full;
-          consoleFullAnswer.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+          consoleFullAnswer.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
           consoleFullAnswer.style.opacity = '1';
           consoleFullAnswer.style.transform = 'translateY(0)';
         });
@@ -592,19 +605,49 @@ document.addEventListener('DOMContentLoaded', function () {
   if (mobileFaqDetails.length) {
     mobileFaqDetails.forEach(detail => {
       const summary = detail.querySelector('summary');
-      if (summary) summary.setAttribute('aria-expanded', detail.open ? 'true' : 'false');
-      detail.addEventListener('toggle', function () {
-        // When a detail opens, close all others (accordion behavior)
-        if (detail.open) {
+      const content = detail.querySelector('.faq-content');
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault(); // Stop native toggle to control animation
+        
+        const isOpen = detail.hasAttribute('open');
+
+        if (isOpen) {
+          // CLOSE
+          content.style.height = content.scrollHeight + 'px';
+          // Force layout
+          content.offsetHeight;
+          content.style.height = '0px';
+          
+          setTimeout(() => {
+            if (!detail.style.height || detail.style.height === '0px') {
+              detail.removeAttribute('open');
+            }
+          }, 600);
+        } else {
+          // CLOSE OTHERS
           mobileFaqDetails.forEach(d => {
-            if (d !== detail && d.open) d.open = false;
-            const s = d.querySelector('summary');
-            if (s) s.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+            if (d.hasAttribute('open') && d !== detail) {
+              const otherContent = d.querySelector('.faq-content');
+              otherContent.style.height = '0px';
+              setTimeout(() => d.removeAttribute('open'), 600);
+            }
           });
+
+          // OPEN
+          detail.setAttribute('open', '');
+          content.style.height = '0px';
+          // Force layout
+          content.offsetHeight;
+          content.style.height = content.scrollHeight + 'px';
+          
+          // Cleanup height after animation to allow for responsive resizing if needed
+          setTimeout(() => {
+            if (detail.hasAttribute('open')) {
+              content.style.height = 'auto';
+            }
+          }, 600);
         }
-        // Update aria-expanded for current
-        const sCur = detail.querySelector('summary');
-        if (sCur) sCur.setAttribute('aria-expanded', detail.open ? 'true' : 'false');
       });
     });
   }
