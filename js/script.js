@@ -167,16 +167,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let finalOffset = 80;
 
-        if (targetId === 'servicios') finalOffset = isMobile ? 60 : 30;
-        if (targetId === 'como-trabajamos') finalOffset = isMobile ? 40 : 10;
+        if (targetId === 'servicios') finalOffset = isMobile ? -15 : 15;
+        if (targetId === 'como-trabajamos') finalOffset = isMobile ? 60 : 10;
         if (targetId === 'sobre-nosotros') finalOffset = isMobile ? 40 : 20;
+        if (targetId === 'clientes') finalOffset = isMobile ? 30 : 80;
         if (targetId === 'inicio') finalOffset = 0;
 
-        // Force native scroll on mobile to avoid any conflicts with Lenis + Locked Body
-        if (isMobile) {
+        // Si es mobile, usamos GSAP para un scroll manual muy lento y controlado
+        if (isMobile && hasGsap) {
+          const currentY = window.pageYOffset;
           const rect = target.getBoundingClientRect();
-          const targetY = rect.top + window.pageYOffset;
-          window.scrollTo({ top: targetY - finalOffset, behavior: 'smooth' });
+          const targetY = rect.top + currentY - finalOffset;
+          const scrollObj = { val: currentY };
+
+          window.gsap.to(scrollObj, {
+            val: targetY,
+            duration: 2.2, // Muy lento como solicitó el usuario
+            ease: "power2.inOut",
+            onUpdate: function() {
+              window.scrollTo(0, scrollObj.val);
+            }
+          });
           return;
         }
 
@@ -194,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const y = target.getBoundingClientRect().top + window.pageYOffset - finalOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
-      }, 100); // Aumentamos un poco el delay para asegurar que el reflow del body sea completo
+      }, 150); // Aumentamos a 150ms para asegurar que el body-fix se haya restaurado totalmente
     });
   });
 
