@@ -237,6 +237,10 @@
   .services {
     padding: 120px 0;
   }
+
+  .services-headline {
+    font-size: 1.8rem !important;
+  }
   
   .services-bento-grid {
     grid-template-columns: 1fr;
