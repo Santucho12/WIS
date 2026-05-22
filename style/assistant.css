@@ -100,26 +100,27 @@
     padding: 16px; 
     border-radius: 12px; 
     margin-bottom: 1rem; 
-    transition: background 0.4s ease, border-color 0.4s ease;
-    overflow: hidden;
+    transition: all 0.4s ease;
   }
 
-  .mobile-faq details[open] {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(0, 210, 255, 0.3);
+  /* Remove native toggle behavior to control it with JS */
+  .mobile-faq details > summary {
+    list-style: none;
+    outline: none;
+  }
+  .mobile-faq details > summary::-webkit-details-marker {
+    display: none;
   }
 
   .mobile-faq summary { 
     cursor: pointer; 
     font-weight: 700; 
     color: var(--color-white); 
-    list-style: none; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.95rem;
     user-select: none;
-    outline: none;
   }
 
   /* Custom arrow for summary */
@@ -139,17 +140,18 @@
     transform: rotate(-135deg);
   }
 
-  .mobile-faq summary::-webkit-details-marker { display: none; }
-  
   .mobile-faq .faq-content {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .mobile-faq details[open] .faq-content {
-    /* Height will be set via JS to allow the smooth transition */
-    height: auto;
+    grid-template-rows: 1fr;
+  }
+
+  .mobile-faq .faq-content > div {
+    overflow: hidden;
   }
 
   .mobile-faq p { 
@@ -160,12 +162,13 @@
     font-size: 0.88rem;
     opacity: 0;
     transform: translateY(-10px);
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.5s ease;
   }
 
   .mobile-faq details[open] p {
     opacity: 1;
     transform: translateY(0);
+    transition-delay: 0.15s;
   }
 
   /* Hide AI assistant header text on mobile and show FAQ title */

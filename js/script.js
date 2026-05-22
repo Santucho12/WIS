@@ -601,52 +601,19 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ── Mobile FAQ accordion behavior ──
-  const mobileFaqDetails = Array.from(document.querySelectorAll('.mobile-faq details'));
+  const mobileFaqDetails = document.querySelectorAll('.mobile-faq details');
   if (mobileFaqDetails.length) {
     mobileFaqDetails.forEach(detail => {
       const summary = detail.querySelector('summary');
-      const content = detail.querySelector('.faq-content');
-
+      
       summary.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop native toggle to control animation
-        
-        const isOpen = detail.hasAttribute('open');
-
-        if (isOpen) {
-          // CLOSE
-          content.style.height = content.scrollHeight + 'px';
-          // Force layout
-          content.offsetHeight;
-          content.style.height = '0px';
-          
-          setTimeout(() => {
-            if (!detail.style.height || detail.style.height === '0px') {
-              detail.removeAttribute('open');
-            }
-          }, 600);
-        } else {
-          // CLOSE OTHERS
+        // We let the 'toggle' event or native behavior happen, 
+        // but we manage the accordion part here.
+        if (!detail.open) {
+          // If it's about to open, close others
           mobileFaqDetails.forEach(d => {
-            if (d.hasAttribute('open') && d !== detail) {
-              const otherContent = d.querySelector('.faq-content');
-              otherContent.style.height = '0px';
-              setTimeout(() => d.removeAttribute('open'), 600);
-            }
+            if (d !== detail && d.open) d.open = false;
           });
-
-          // OPEN
-          detail.setAttribute('open', '');
-          content.style.height = '0px';
-          // Force layout
-          content.offsetHeight;
-          content.style.height = content.scrollHeight + 'px';
-          
-          // Cleanup height after animation to allow for responsive resizing if needed
-          setTimeout(() => {
-            if (detail.hasAttribute('open')) {
-              content.style.height = 'auto';
-            }
-          }, 600);
         }
       });
     });
